@@ -13,14 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    if(UserDefaults.standard.object(forKey: "app_init") == nil){
-      initDummyData()
-    }
-
-    // Override point for customization after application launch.
-    return true
-  }
+//  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//    if(UserDefaults.standard.object(forKey: "app_init") == nil){
+//      return 0
+////      initDummyData()
+//    }
+//
+//    // Override point for customization after application launch.
+//    return true
+//  }
 
 
 

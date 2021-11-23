@@ -21,6 +21,16 @@
 		56CDEE962723F1DD0081AE22 /* categoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CDEE952723F1DD0081AE22 /* categoryModel.swift */; };
 		56CDEE982723F34E0081AE22 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CDEE972723F34E0081AE22 /* Response.swift */; };
 		56F21F182721678A00C92300 /* categoriesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56F21F162721678A00C92300 /* categoriesDataModel.xcdatamodeld */; };
+		960FE9F22736566F00C44A5E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960FE9F12736566F00C44A5E /* HomeViewController.swift */; };
+		960FE9F527367C9F00C44A5E /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960FE9F427367C9F00C44A5E /* AddViewController.swift */; };
+		960FE9F727367D2F00C44A5E /* AddExpense.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960FE9F627367D2F00C44A5E /* AddExpense.storyboard */; };
+		960FE9F927367E6400C44A5E /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960FE9F827367E6400C44A5E /* AddExpenseViewController.swift */; };
+		960FE9FB2736D39F00C44A5E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960FE9FA2736D39F00C44A5E /* TabBarViewController.swift */; };
+		96672369274D0D5500048AEA /* WishingWellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96672367274D0D5500048AEA /* WishingWellViewController.swift */; };
+		9667236E274D0EAB00048AEA /* AddWishingWell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9667236D274D0EAB00048AEA /* AddWishingWell.storyboard */; };
+		96672370274D163D00048AEA /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667236F274D163D00048AEA /* Expenses.swift */; };
+		96672373274D4F9400048AEA /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96672371274D4F9400048AEA /* Add.storyboard */; };
+		969E8B86274CBFED0060A2A0 /* AddWishingWellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969E8B85274CBFED0060A2A0 /* AddWishingWellViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,13 +43,24 @@
 		563439642712DCC50071FDE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		563439662712DCC50071FDE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5634396D2712DE0C0071FDE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = PokPok3/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
-		5634396F2712E6B80071FDE0 /* Analytics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Analytics.storyboard; sourceTree = SOURCE_ROOT; };
+		5634396F2712E6B80071FDE0 /* Analytics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Analytics.storyboard; path = PokPok3/Modules/Analytics/View/Analytics.storyboard; sourceTree = SOURCE_ROOT; };
 		563439712712EBEB0071FDE0 /* WishingWell.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WishingWell.storyboard; sourceTree = "<group>"; };
 		563439742712EC010071FDE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = PokPok3/Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		56BA8B2D272015E700942836 /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
 		56CDEE952723F1DD0081AE22 /* categoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoryModel.swift; sourceTree = "<group>"; };
 		56CDEE972723F34E0081AE22 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		56F21F172721678A00C92300 /* categoriesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = categoriesDataModel.xcdatamodel; sourceTree = "<group>"; };
+		960FE9EB273654CF00C44A5E /* PokPok3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PokPok3.entitlements; sourceTree = "<group>"; };
+		960FE9F12736566F00C44A5E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		960FE9F427367C9F00C44A5E /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		960FE9F627367D2F00C44A5E /* AddExpense.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddExpense.storyboard; sourceTree = "<group>"; };
+		960FE9F827367E6400C44A5E /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		960FE9FA2736D39F00C44A5E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		96672367274D0D5500048AEA /* WishingWellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishingWellViewController.swift; sourceTree = "<group>"; };
+		9667236D274D0EAB00048AEA /* AddWishingWell.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddWishingWell.storyboard; sourceTree = "<group>"; };
+		9667236F274D163D00048AEA /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
+		96672372274D4F9400048AEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Modules/Main/Base.lproj/Add.storyboard; sourceTree = "<group>"; };
+		969E8B85274CBFED0060A2A0 /* AddWishingWellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishingWellViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,23 +93,146 @@
 		563439572712DCC30071FDE0 /* PokPok3 */ = {
 			isa = PBXGroup;
 			children = (
+				960FE9EB273654CF00C44A5E /* PokPok3.entitlements */,
+				9667236F274D163D00048AEA /* Expenses.swift */,
+				960FE9E62736544F00C44A5E /* Modules */,
 				56CDEE972723F34E0081AE22 /* Response.swift */,
 				56CDEE952723F1DD0081AE22 /* categoryModel.swift */,
 				56F21F162721678A00C92300 /* categoriesDataModel.xcdatamodeld */,
-				5634396F2712E6B80071FDE0 /* Analytics.storyboard */,
-				5634396C2712DE0C0071FDE0 /* Home.storyboard */,
 				563439582712DCC30071FDE0 /* AppDelegate.swift */,
 				5634395A2712DCC30071FDE0 /* SceneDelegate.swift */,
-				5634395C2712DCC30071FDE0 /* ViewController.swift */,
-				5634395E2712DCC30071FDE0 /* Main.storyboard */,
-				563439712712EBEB0071FDE0 /* WishingWell.storyboard */,
-				563439732712EC010071FDE0 /* Settings.storyboard */,
-				56BA8B2D272015E700942836 /* settingsViewController.swift */,
 				563439612712DCC50071FDE0 /* Assets.xcassets */,
 				563439632712DCC50071FDE0 /* LaunchScreen.storyboard */,
 				563439662712DCC50071FDE0 /* Info.plist */,
 			);
 			path = PokPok3;
+			sourceTree = "<group>";
+		};
+		960FE9E62736544F00C44A5E /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				960FE9F327367C7600C44A5E /* Main */,
+				960FE9E72736545C00C44A5E /* Expense */,
+				960FE9E82736547300C44A5E /* Analytics */,
+				960FE9E92736548500C44A5E /* WishingWell */,
+				960FE9EA2736549100C44A5E /* Settings */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		960FE9E72736545C00C44A5E /* Expense */ = {
+			isa = PBXGroup;
+			children = (
+				960FE9ED2736550400C44A5E /* View */,
+				960FE9EC273654F000C44A5E /* Controller */,
+			);
+			path = Expense;
+			sourceTree = "<group>";
+		};
+		960FE9E82736547300C44A5E /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				960FE9F02736553400C44A5E /* View */,
+				960FE9EE2736551200C44A5E /* Controller */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		960FE9E92736548500C44A5E /* WishingWell */ = {
+			isa = PBXGroup;
+			children = (
+				9667236C274D0D8A00048AEA /* View */,
+				9667236B274D0D8300048AEA /* Controller */,
+			);
+			path = WishingWell;
+			sourceTree = "<group>";
+		};
+		960FE9EA2736549100C44A5E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				56BA8B2D272015E700942836 /* settingsViewController.swift */,
+				563439732712EC010071FDE0 /* Settings.storyboard */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		960FE9EC273654F000C44A5E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				960FE9F12736566F00C44A5E /* HomeViewController.swift */,
+				960FE9F827367E6400C44A5E /* AddExpenseViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		960FE9ED2736550400C44A5E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				960FE9F627367D2F00C44A5E /* AddExpense.storyboard */,
+				5634396C2712DE0C0071FDE0 /* Home.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		960FE9EE2736551200C44A5E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		960FE9F02736553400C44A5E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5634396F2712E6B80071FDE0 /* Analytics.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		960FE9F327367C7600C44A5E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				96672375274D540C00048AEA /* View */,
+				96672374274D540400048AEA /* Controller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9667236B274D0D8300048AEA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				969E8B85274CBFED0060A2A0 /* AddWishingWellViewController.swift */,
+				96672367274D0D5500048AEA /* WishingWellViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9667236C274D0D8A00048AEA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9667236D274D0EAB00048AEA /* AddWishingWell.storyboard */,
+				563439712712EBEB0071FDE0 /* WishingWell.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		96672374274D540400048AEA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5634395C2712DCC30071FDE0 /* ViewController.swift */,
+				960FE9F427367C9F00C44A5E /* AddViewController.swift */,
+				960FE9FA2736D39F00C44A5E /* TabBarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		96672375274D540C00048AEA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5634395E2712DCC30071FDE0 /* Main.storyboard */,
+				96672371274D4F9400048AEA /* Add.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,11 +292,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9667236E274D0EAB00048AEA /* AddWishingWell.storyboard in Resources */,
 				563439652712DCC50071FDE0 /* LaunchScreen.storyboard in Resources */,
+				96672373274D4F9400048AEA /* Add.storyboard in Resources */,
 				563439622712DCC50071FDE0 /* Assets.xcassets in Resources */,
 				563439722712EBEB0071FDE0 /* WishingWell.storyboard in Resources */,
 				563439702712E6B80071FDE0 /* Analytics.storyboard in Resources */,
 				563439602712DCC30071FDE0 /* Main.storyboard in Resources */,
+				960FE9F727367D2F00C44A5E /* AddExpense.storyboard in Resources */,
 				5634396E2712DE0C0071FDE0 /* Home.storyboard in Resources */,
 				563439752712EC010071FDE0 /* Settings.storyboard in Resources */,
 			);
@@ -167,9 +314,16 @@
 			files = (
 				5634395D2712DCC30071FDE0 /* ViewController.swift in Sources */,
 				563439592712DCC30071FDE0 /* AppDelegate.swift in Sources */,
+				960FE9FB2736D39F00C44A5E /* TabBarViewController.swift in Sources */,
+				960FE9F527367C9F00C44A5E /* AddViewController.swift in Sources */,
 				5634395B2712DCC30071FDE0 /* SceneDelegate.swift in Sources */,
+				960FE9F22736566F00C44A5E /* HomeViewController.swift in Sources */,
+				96672370274D163D00048AEA /* Expenses.swift in Sources */,
+				969E8B86274CBFED0060A2A0 /* AddWishingWellViewController.swift in Sources */,
+				96672369274D0D5500048AEA /* WishingWellViewController.swift in Sources */,
 				56F21F182721678A00C92300 /* categoriesDataModel.xcdatamodeld in Sources */,
 				56BA8B2E272015E700942836 /* settingsViewController.swift in Sources */,
+				960FE9F927367E6400C44A5E /* AddExpenseViewController.swift in Sources */,
 				56CDEE962723F1DD0081AE22 /* categoryModel.swift in Sources */,
 				56CDEE982723F34E0081AE22 /* Response.swift in Sources */,
 			);
@@ -208,6 +362,14 @@
 				563439742712EC010071FDE0 /* Base */,
 			);
 			name = Settings.storyboard;
+			sourceTree = "<group>";
+		};
+		96672371274D4F9400048AEA /* Add.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96672372274D4F9400048AEA /* Base */,
+			);
+			name = Add.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -334,14 +496,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = PokPok3/PokPok3.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 54ST53FVU4;
+				DEVELOPMENT_TEAM = QYWW5CK79V;
 				INFOPLIST_FILE = PokPok3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.personal.PokPok3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.PokPok;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -353,14 +517,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = PokPok3/PokPok3.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 54ST53FVU4;
+				DEVELOPMENT_TEAM = QYWW5CK79V;
 				INFOPLIST_FILE = PokPok3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.personal.PokPok3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.PokPok;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
