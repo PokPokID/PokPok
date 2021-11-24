@@ -30,6 +30,7 @@
 		9667236E274D0EAB00048AEA /* AddWishingWell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9667236D274D0EAB00048AEA /* AddWishingWell.storyboard */; };
 		96672370274D163D00048AEA /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667236F274D163D00048AEA /* Expenses.swift */; };
 		96672373274D4F9400048AEA /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96672371274D4F9400048AEA /* Add.storyboard */; };
+		968AD56E274E4A7E00F4C995 /* Wishes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AD56D274E4A7E00F4C995 /* Wishes.swift */; };
 		969E8B86274CBFED0060A2A0 /* AddWishingWellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969E8B85274CBFED0060A2A0 /* AddWishingWellViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		9667236D274D0EAB00048AEA /* AddWishingWell.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddWishingWell.storyboard; sourceTree = "<group>"; };
 		9667236F274D163D00048AEA /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
 		96672372274D4F9400048AEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Modules/Main/Base.lproj/Add.storyboard; sourceTree = "<group>"; };
+		968AD56D274E4A7E00F4C995 /* Wishes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishes.swift; sourceTree = "<group>"; };
 		969E8B85274CBFED0060A2A0 /* AddWishingWellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishingWellViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 			children = (
 				960FE9EB273654CF00C44A5E /* PokPok3.entitlements */,
 				9667236F274D163D00048AEA /* Expenses.swift */,
+				968AD56D274E4A7E00F4C995 /* Wishes.swift */,
 				960FE9E62736544F00C44A5E /* Modules */,
 				56CDEE972723F34E0081AE22 /* Response.swift */,
 				56CDEE952723F1DD0081AE22 /* categoryModel.swift */,
@@ -326,6 +329,7 @@
 				960FE9F927367E6400C44A5E /* AddExpenseViewController.swift in Sources */,
 				56CDEE962723F1DD0081AE22 /* categoryModel.swift in Sources */,
 				56CDEE982723F34E0081AE22 /* Response.swift in Sources */,
+				968AD56E274E4A7E00F4C995 /* Wishes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

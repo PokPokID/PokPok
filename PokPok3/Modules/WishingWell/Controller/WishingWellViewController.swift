@@ -13,14 +13,15 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
   @IBOutlet var emptyView: UIView!
   @IBOutlet weak var addAWish: UIButton!
 
-  var dummyData = ["satu"]
+//  var dummyData = ["satu"]
+  var wishes = [Wishes]()
   let cellReuseIdentifier = "cell"
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      if dummyData.count == 0 {
+      if wishes.count == 0 {
           wishingWellTableView.backgroundView = emptyView
       } else {
           wishingWellTableView.backgroundView = nil
@@ -36,7 +37,7 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
     }
 
   override func viewWillAppear(_ animated: Bool) {
-    if dummyData.count == 0 {
+    if wishes.count == 0 {
         wishingWellTableView.backgroundView = emptyView
     } else {
         wishingWellTableView.backgroundView = nil
@@ -55,24 +56,26 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
     self.present(addWishingWellViewController, animated: true, completion: nil)
   }
 
+  @IBAction func unwindToWishingWell(_ sender: UIStoryboardSegue) {}
+
   // MARK: - TABLE VIEW
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return dummyData.count
+    return wishes.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     // create a new cell if needed or reuse an old one
     let cell:UITableViewCell = (tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
 
-    cell.textLabel?.text = dummyData[indexPath.row]
+    cell.textLabel?.text = wishes[indexPath.row].wishName
 
     return cell
   }
 
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
-    if dummyData.count == 0 {
+    if wishes.count == 0 {
         wishingWellTableView.backgroundView = emptyView
     } else {
         wishingWellTableView.backgroundView = nil
@@ -81,17 +84,18 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
           if editingStyle == .delete {
 
               // remove the item from the data model
-              dummyData.remove(at: indexPath.row)
+              wishes.remove(at: indexPath.row)
 
               // delete the table view row
               tableView.deleteRows(at: [indexPath], with: .fade)
 
-            wishingWellTableView.reloadData()
-            if dummyData.count == 0 {
+            if wishes.count == 0 {
                 wishingWellTableView.backgroundView = emptyView
             } else {
                 wishingWellTableView.backgroundView = nil
             }
+
+            wishingWellTableView.reloadData()
 
           } else if editingStyle == .insert {
               // Not used in our example, but if you were adding a new row, this is where you would do it.

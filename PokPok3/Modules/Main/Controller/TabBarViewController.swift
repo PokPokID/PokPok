@@ -9,7 +9,6 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
   @IBOutlet weak var tabBars: UITabBar!
-  @IBOutlet var buttonView: UIView!
 
   let addViewController = AddViewController()
 
@@ -17,9 +16,7 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      self.view.addSubview(buttonView)
-      buttonView.isHidden = true
-
+      addViewController.modalPresentationStyle = .popover
       // Do any additional setup after loading the view.
     }
 

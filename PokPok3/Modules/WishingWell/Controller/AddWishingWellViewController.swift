@@ -14,7 +14,9 @@ class AddWishingWellViewController: UIViewController {
   @IBOutlet weak var dateAchieveTextField: UITextField!
   @IBOutlet weak var noteWishingWellTextField: UITextField!
 
-  let datePicker = UIDatePicker ()
+  let datePicker = UIDatePicker()
+
+  var wishes = [Wishes]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,17 @@ class AddWishingWellViewController: UIViewController {
   @IBAction func backButtonPressed(_ sender: Any) {
     self.dismiss(animated: true)
   }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+    wishes.append(Wishes(wishImage: nil, wishName: wishingWellNameTextField.text, wishDate: dateAchieveTextField.text, wishAmount: amountWishingWellTextField.text, wishNote: noteWishingWellTextField.text))
+
+    print(wishes)
+    let destVC = segue.destination as! WishingWellViewController
+    destVC.wishes = wishes
+  }
+
+  // MARK: - DATE PICKER
 
   func createDatePicker() {
     createToolbar()

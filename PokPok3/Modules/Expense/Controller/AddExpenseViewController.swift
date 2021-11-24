@@ -14,6 +14,7 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
   @IBOutlet weak var amountTextField: UITextField!
   @IBOutlet weak var expenseNoteTextField: UITextField!
 
+
   var expenses = [Expenses]()
   var categories = ["Bills","Entertainment","Fashion","Food","Groceries"]
 
@@ -42,12 +43,18 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
   @IBAction func saveExpensePressed(_ sender: Any) {
 
-    expenses.append(Expenses(expenseName: expenseNameTextField.text, category: categoryTextField.text, amount: amountTextField.text, expenseNote: expenseNoteTextField.text))
-
-    print(expenses)
-    self.dismiss(animated: true)
-
   }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+//    expenses.append(Expenses(expenseName: expenseNameTextField.text, category: categoryTextField.text, amount: amountTextField.text, expenseNote: expenseNoteTextField.text))
+    let destVC = segue.destination as! HomeViewController
+    destVC.expenses.append(Expenses(expenseName: expenseNameTextField.text, category: categoryTextField.text, amount: amountTextField.text, expenseNote: expenseNoteTextField.text))
+
+    print(destVC.expenses.count)
+    print(destVC.expenses)
+  }
+
 
   //MARK: - PICKER
   func picker() {
@@ -86,6 +93,8 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
       categoryTextField.inputAccessoryView = toolbar
     expenseNameTextField.inputAccessoryView = toolbar
+    amountTextField.inputAccessoryView = toolbar
+    expenseNoteTextField.inputAccessoryView = toolbar
   }
 
   @objc func donePressed() {

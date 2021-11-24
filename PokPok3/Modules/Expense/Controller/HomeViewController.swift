@@ -14,16 +14,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
   @IBOutlet weak var expenseTableView: UITableView!
   @IBOutlet weak var dateTextField: UITextField!
 
-  var expenses = AddExpenseViewController().expenses
+  var expenses = [Expenses]()
 
   let cellReuseIdentifier = "cell"
   let datePicker = UIDatePicker()
 
   override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
     createDatePicker()
-
-    print(expenses)
 
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "dd MMMM yyyy"
@@ -58,6 +56,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     expenseTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
     expenseTableView.reloadData()
   }
+
+  @IBAction func unwindToHome(_ sender: UIStoryboardSegue) {}
+
 
 // MARK: - GO TO NEXT OR PREV
   @IBAction func goToPrevious(_ sender: UIButton) {
@@ -124,7 +125,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    // create a new cell if needed or reuse an old one
     let cell:UITableViewCell = (tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
 
     cell.textLabel?.text = expenses[indexPath.row].expenseName
@@ -134,18 +134,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
-          if editingStyle == .delete {
+    if editingStyle == .delete {
 
-              // remove the item from the data model
-            expenses.remove(at: indexPath.row)
+      // remove the item from the data model
+      expenses.remove(at: indexPath.row)
 
-              // delete the table view row
-              tableView.deleteRows(at: [indexPath], with: .fade)
-            expenseTableView.reloadData()
+      // delete the table view row
+      tableView.deleteRows(at: [indexPath], with: .fade)
+      expenseTableView.reloadData()
 
-          } else if editingStyle == .insert {
-              // Not used in our example, but if you were adding a new row, this is where you would do it.
-          }
-      }
+    } else {
+
+    }
+  }
 
 }

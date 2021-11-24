@@ -12,4 +12,5 @@ struct Expenses {
     var category: String?
     var amount: String?
     var expenseNote: String?
+//    var dateCreated: Date?
 }

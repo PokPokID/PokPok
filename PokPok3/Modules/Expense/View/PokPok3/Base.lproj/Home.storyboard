@@ -53,7 +53,6 @@
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="ZDd-Wz-p8T"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="LeftButton" destination="Qa6-eH-zvf" id="mFj-f1-SnP"/>
                         <outlet property="dateTextField" destination="1YY-nF-9CX" id="djI-SE-uBb"/>
                         <outlet property="expenseTableView" destination="y26-lf-jgh" id="U12-Vq-sg2"/>
                         <outlet property="leftButton" destination="Qa6-eH-zvf" id="b0J-r6-c1j"/>
