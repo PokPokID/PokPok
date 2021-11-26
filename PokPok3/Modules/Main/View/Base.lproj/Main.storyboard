@@ -14,7 +14,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sk5-pr-Du6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.88235294119999996" green="0.83921568629999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.41960784313725491" green="0.1803921568627451" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <outlet property="tabBars" destination="sk5-pr-Du6" id="C6e-zX-OpE"/>
@@ -68,22 +70,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8C-08-1dQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1503" y="2269"/>
-        </scene>
-        <!--AddExpense-->
-        <scene sceneID="r40-TU-R6Z">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AddExpense" id="Y5N-BI-bSh" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cON-dV-bFL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2541" y="822"/>
-        </scene>
-        <!--addWishingWell-->
-        <scene sceneID="fXJ-0z-eYF">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="addWishingWell" storyboardName="AddWishingWell" referencedIdentifier="addWishingWell" id="CTw-M7-xKx" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Q0-HE-mhA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2964" y="797"/>
         </scene>
         <!--Add-->
         <scene sceneID="cq4-ew-ER9">

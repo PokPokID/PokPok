@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,38 +18,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="y26-lf-jgh">
-                                <rect key="frame" x="0.0" y="104" width="414" height="709"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="mC3-Mm-JsP">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLE-OF-nRi">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
+                                <color key="backgroundColor" red="0.88235294117647056" green="0.83921568627450982" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="y26-lf-jgh">
+                                <rect key="frame" x="0.0" y="116" width="414" height="697"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qa6-eH-zvf">
-                                <rect key="frame" x="20" y="52" width="36" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qa6-eH-zvf">
+                                <rect key="frame" x="26" y="60.5" width="18" height="23.5"/>
+                                <color key="tintColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <imageReference key="image" image="chevron.left" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                </state>
                                 <connections>
                                     <action selector="goToPrevious:" destination="RHb-2p-ZiI" eventType="touchUpInside" id="6BI-lE-MwZ"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1YY-nF-9CX">
-                                <rect key="frame" x="64" y="52" width="286" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1YY-nF-9CX">
+                                <rect key="frame" x="48" y="44" width="318" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="cqW-yL-RyN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpK-kf-cCU">
-                                <rect key="frame" x="359" y="52" width="36" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpK-kf-cCU">
+                                <rect key="frame" x="370" y="60.5" width="18" height="23.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <imageReference key="image" image="chevron.right" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                </state>
                                 <connections>
                                     <action selector="goToNext:" destination="RHb-2p-ZiI" eventType="touchUpInside" id="Dpe-bs-lWA"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIc-qC-mGJ">
+                                <rect key="frame" x="185" y="56" width="44.5" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cAd-lB-NDh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="mC3-Mm-JsP" secondAttribute="bottom" id="30d-aG-dp4"/>
+                            <constraint firstItem="1YY-nF-9CX" firstAttribute="top" secondItem="cAd-lB-NDh" secondAttribute="top" id="7jD-jz-5vq"/>
+                            <constraint firstItem="eLE-OF-nRi" firstAttribute="leading" secondItem="cAd-lB-NDh" secondAttribute="leading" id="7u7-h6-DZ1"/>
+                            <constraint firstItem="y26-lf-jgh" firstAttribute="bottom" secondItem="cAd-lB-NDh" secondAttribute="bottom" id="I2y-ht-oBS"/>
+                            <constraint firstItem="eLE-OF-nRi" firstAttribute="top" secondItem="yhp-gQ-413" secondAttribute="top" id="JuN-QB-yzW"/>
+                            <constraint firstItem="cAd-lB-NDh" firstAttribute="trailing" secondItem="1YY-nF-9CX" secondAttribute="trailing" constant="48" id="MqP-gz-zaO"/>
+                            <constraint firstItem="XpK-kf-cCU" firstAttribute="leading" secondItem="1YY-nF-9CX" secondAttribute="trailing" constant="4" id="Ot0-Rb-s2c"/>
+                            <constraint firstItem="y26-lf-jgh" firstAttribute="trailing" secondItem="yhp-gQ-413" secondAttribute="trailing" id="ToX-zq-oAe"/>
+                            <constraint firstItem="mC3-Mm-JsP" firstAttribute="leading" secondItem="cAd-lB-NDh" secondAttribute="leading" id="ajk-Tj-efa"/>
+                            <constraint firstItem="XpK-kf-cCU" firstAttribute="centerY" secondItem="1YY-nF-9CX" secondAttribute="centerY" id="bxc-go-Xk0"/>
+                            <constraint firstItem="y26-lf-jgh" firstAttribute="leading" secondItem="yhp-gQ-413" secondAttribute="leading" id="cDT-l2-5gn"/>
+                            <constraint firstItem="y26-lf-jgh" firstAttribute="top" secondItem="eLE-OF-nRi" secondAttribute="bottom" id="cbE-kd-tiK"/>
+                            <constraint firstItem="1YY-nF-9CX" firstAttribute="leading" secondItem="Qa6-eH-zvf" secondAttribute="trailing" constant="4" id="hd4-3a-bq8"/>
+                            <constraint firstItem="BIc-qC-mGJ" firstAttribute="top" secondItem="cAd-lB-NDh" secondAttribute="top" constant="12" id="n9g-cW-wTh"/>
+                            <constraint firstItem="BIc-qC-mGJ" firstAttribute="centerX" secondItem="1YY-nF-9CX" secondAttribute="centerX" id="nVJ-oT-OkA"/>
+                            <constraint firstItem="1YY-nF-9CX" firstAttribute="leading" secondItem="cAd-lB-NDh" secondAttribute="leading" constant="48" id="pd3-8r-6WQ"/>
+                            <constraint firstItem="mC3-Mm-JsP" firstAttribute="trailing" secondItem="cAd-lB-NDh" secondAttribute="trailing" id="s21-y6-aVL"/>
+                            <constraint firstItem="Qa6-eH-zvf" firstAttribute="centerY" secondItem="1YY-nF-9CX" secondAttribute="centerY" id="sh2-ma-gsP"/>
+                            <constraint firstItem="mC3-Mm-JsP" firstAttribute="top" secondItem="yhp-gQ-413" secondAttribute="top" id="wjC-gj-kW7"/>
+                            <constraint firstItem="eLE-OF-nRi" firstAttribute="trailing" secondItem="cAd-lB-NDh" secondAttribute="trailing" id="xwt-bT-4Qx"/>
+                            <constraint firstItem="y26-lf-jgh" firstAttribute="top" secondItem="1YY-nF-9CX" secondAttribute="bottom" constant="16" id="zbZ-Ud-cdr"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="ZDd-Wz-p8T"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -57,6 +105,7 @@
                         <outlet property="expenseTableView" destination="y26-lf-jgh" id="U12-Vq-sg2"/>
                         <outlet property="leftButton" destination="Qa6-eH-zvf" id="b0J-r6-c1j"/>
                         <outlet property="rightButton" destination="XpK-kf-cCU" id="sdc-yo-Mvd"/>
+                        <outlet property="selectedDay" destination="BIc-qC-mGJ" id="ZHP-Uh-d2L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nuD-bc-qpB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -65,6 +114,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Background" width="375" height="811"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>

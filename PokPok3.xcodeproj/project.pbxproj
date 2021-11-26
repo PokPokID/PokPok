@@ -17,21 +17,26 @@
 		563439702712E6B80071FDE0 /* Analytics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5634396F2712E6B80071FDE0 /* Analytics.storyboard */; };
 		563439722712EBEB0071FDE0 /* WishingWell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 563439712712EBEB0071FDE0 /* WishingWell.storyboard */; };
 		563439752712EC010071FDE0 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 563439732712EC010071FDE0 /* Settings.storyboard */; };
-		56BA8B2E272015E700942836 /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA8B2D272015E700942836 /* settingsViewController.swift */; };
+		56BA8B2E272015E700942836 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA8B2D272015E700942836 /* SettingsViewController.swift */; };
 		56CDEE962723F1DD0081AE22 /* categoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CDEE952723F1DD0081AE22 /* categoryModel.swift */; };
 		56CDEE982723F34E0081AE22 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CDEE972723F34E0081AE22 /* Response.swift */; };
-		56F21F182721678A00C92300 /* categoriesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56F21F162721678A00C92300 /* categoriesDataModel.xcdatamodeld */; };
+		56F21F182721678A00C92300 /* PokPokDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56F21F162721678A00C92300 /* PokPokDataModel.xcdatamodeld */; };
 		960FE9F22736566F00C44A5E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960FE9F12736566F00C44A5E /* HomeViewController.swift */; };
 		960FE9F527367C9F00C44A5E /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960FE9F427367C9F00C44A5E /* AddViewController.swift */; };
 		960FE9F727367D2F00C44A5E /* AddExpense.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960FE9F627367D2F00C44A5E /* AddExpense.storyboard */; };
 		960FE9F927367E6400C44A5E /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960FE9F827367E6400C44A5E /* AddExpenseViewController.swift */; };
 		960FE9FB2736D39F00C44A5E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960FE9FA2736D39F00C44A5E /* TabBarViewController.swift */; };
 		96672369274D0D5500048AEA /* WishingWellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96672367274D0D5500048AEA /* WishingWellViewController.swift */; };
-		9667236E274D0EAB00048AEA /* AddWishingWell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9667236D274D0EAB00048AEA /* AddWishingWell.storyboard */; };
-		96672370274D163D00048AEA /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667236F274D163D00048AEA /* Expenses.swift */; };
-		96672373274D4F9400048AEA /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96672371274D4F9400048AEA /* Add.storyboard */; };
-		968AD56E274E4A7E00F4C995 /* Wishes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AD56D274E4A7E00F4C995 /* Wishes.swift */; };
 		969E8B86274CBFED0060A2A0 /* AddWishingWellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969E8B85274CBFED0060A2A0 /* AddWishingWellViewController.swift */; };
+		96A80FE1274F39C3007779C5 /* AddWishingWell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A80FE0274F39C3007779C5 /* AddWishingWell.storyboard */; };
+		96A80FE3274F481D007779C5 /* WishingWellCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A80FE2274F481D007779C5 /* WishingWellCell.xib */; };
+		96A80FE5274F4908007779C5 /* WishingWellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A80FE4274F4908007779C5 /* WishingWellTableViewCell.swift */; };
+		96A80FE7274F6515007779C5 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A80FE6274F6515007779C5 /* HomeCell.xib */; };
+		96A80FE9274F656F007779C5 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A80FE8274F656F007779C5 /* HomeTableViewCell.swift */; };
+		96A80FEC274F95BA007779C5 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A80FEB274F95BA007779C5 /* AnalyticsViewController.swift */; };
+		96A80FF0274FD11C007779C5 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A80FEF274FD11C007779C5 /* SettingsCell.xib */; };
+		96A80FF3274FD13E007779C5 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A80FF2274FD13E007779C5 /* SettingsTableViewCell.swift */; };
+		B8300415274E8B9800B8DD2D /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8300414274E8B9800B8DD2D /* Add.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +52,7 @@
 		5634396F2712E6B80071FDE0 /* Analytics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Analytics.storyboard; path = PokPok3/Modules/Analytics/View/Analytics.storyboard; sourceTree = SOURCE_ROOT; };
 		563439712712EBEB0071FDE0 /* WishingWell.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WishingWell.storyboard; sourceTree = "<group>"; };
 		563439742712EC010071FDE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = PokPok3/Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
-		56BA8B2D272015E700942836 /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
+		56BA8B2D272015E700942836 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		56CDEE952723F1DD0081AE22 /* categoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoryModel.swift; sourceTree = "<group>"; };
 		56CDEE972723F34E0081AE22 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		56F21F172721678A00C92300 /* categoriesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = categoriesDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -58,11 +63,16 @@
 		960FE9F827367E6400C44A5E /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		960FE9FA2736D39F00C44A5E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		96672367274D0D5500048AEA /* WishingWellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishingWellViewController.swift; sourceTree = "<group>"; };
-		9667236D274D0EAB00048AEA /* AddWishingWell.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddWishingWell.storyboard; sourceTree = "<group>"; };
-		9667236F274D163D00048AEA /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
-		96672372274D4F9400048AEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Modules/Main/Base.lproj/Add.storyboard; sourceTree = "<group>"; };
-		968AD56D274E4A7E00F4C995 /* Wishes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wishes.swift; sourceTree = "<group>"; };
 		969E8B85274CBFED0060A2A0 /* AddWishingWellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishingWellViewController.swift; sourceTree = "<group>"; };
+		96A80FE0274F39C3007779C5 /* AddWishingWell.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddWishingWell.storyboard; sourceTree = "<group>"; };
+		96A80FE2274F481D007779C5 /* WishingWellCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishingWellCell.xib; sourceTree = "<group>"; };
+		96A80FE4274F4908007779C5 /* WishingWellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishingWellTableViewCell.swift; sourceTree = "<group>"; };
+		96A80FE6274F6515007779C5 /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
+		96A80FE8274F656F007779C5 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		96A80FEB274F95BA007779C5 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		96A80FEF274FD11C007779C5 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
+		96A80FF2274FD13E007779C5 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		B8300414274E8B9800B8DD2D /* Add.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Add.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,12 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				960FE9EB273654CF00C44A5E /* PokPok3.entitlements */,
-				9667236F274D163D00048AEA /* Expenses.swift */,
-				968AD56D274E4A7E00F4C995 /* Wishes.swift */,
 				960FE9E62736544F00C44A5E /* Modules */,
 				56CDEE972723F34E0081AE22 /* Response.swift */,
 				56CDEE952723F1DD0081AE22 /* categoryModel.swift */,
-				56F21F162721678A00C92300 /* categoriesDataModel.xcdatamodeld */,
+				56F21F162721678A00C92300 /* PokPokDataModel.xcdatamodeld */,
 				563439582712DCC30071FDE0 /* AppDelegate.swift */,
 				5634395A2712DCC30071FDE0 /* SceneDelegate.swift */,
 				563439612712DCC50071FDE0 /* Assets.xcassets */,
@@ -136,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				960FE9F02736553400C44A5E /* View */,
-				960FE9EE2736551200C44A5E /* Controller */,
+				96A80FEA274F9596007779C5 /* Controller */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -153,8 +161,8 @@
 		960FE9EA2736549100C44A5E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				56BA8B2D272015E700942836 /* settingsViewController.swift */,
-				563439732712EC010071FDE0 /* Settings.storyboard */,
+				96A80FEE274FD0D6007779C5 /* View */,
+				96A80FED274FD0C7007779C5 /* Controller */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -164,6 +172,7 @@
 			children = (
 				960FE9F12736566F00C44A5E /* HomeViewController.swift */,
 				960FE9F827367E6400C44A5E /* AddExpenseViewController.swift */,
+				96A80FE8274F656F007779C5 /* HomeTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,15 +182,9 @@
 			children = (
 				960FE9F627367D2F00C44A5E /* AddExpense.storyboard */,
 				5634396C2712DE0C0071FDE0 /* Home.storyboard */,
+				96A80FE6274F6515007779C5 /* HomeCell.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		960FE9EE2736551200C44A5E /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		960FE9F02736553400C44A5E /* View */ = {
@@ -206,6 +209,7 @@
 			children = (
 				969E8B85274CBFED0060A2A0 /* AddWishingWellViewController.swift */,
 				96672367274D0D5500048AEA /* WishingWellViewController.swift */,
+				96A80FE4274F4908007779C5 /* WishingWellTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -213,8 +217,9 @@
 		9667236C274D0D8A00048AEA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9667236D274D0EAB00048AEA /* AddWishingWell.storyboard */,
+				96A80FE0274F39C3007779C5 /* AddWishingWell.storyboard */,
 				563439712712EBEB0071FDE0 /* WishingWell.storyboard */,
+				96A80FE2274F481D007779C5 /* WishingWellCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -232,8 +237,34 @@
 		96672375274D540C00048AEA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B8300414274E8B9800B8DD2D /* Add.storyboard */,
 				5634395E2712DCC30071FDE0 /* Main.storyboard */,
-				96672371274D4F9400048AEA /* Add.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		96A80FEA274F9596007779C5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				96A80FEB274F95BA007779C5 /* AnalyticsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		96A80FED274FD0C7007779C5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				56BA8B2D272015E700942836 /* SettingsViewController.swift */,
+				96A80FF2274FD13E007779C5 /* SettingsTableViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		96A80FEE274FD0D6007779C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				563439732712EC010071FDE0 /* Settings.storyboard */,
+				96A80FEF274FD11C007779C5 /* SettingsCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -295,16 +326,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9667236E274D0EAB00048AEA /* AddWishingWell.storyboard in Resources */,
 				563439652712DCC50071FDE0 /* LaunchScreen.storyboard in Resources */,
-				96672373274D4F9400048AEA /* Add.storyboard in Resources */,
 				563439622712DCC50071FDE0 /* Assets.xcassets in Resources */,
+				B8300415274E8B9800B8DD2D /* Add.storyboard in Resources */,
 				563439722712EBEB0071FDE0 /* WishingWell.storyboard in Resources */,
 				563439702712E6B80071FDE0 /* Analytics.storyboard in Resources */,
+				96A80FE3274F481D007779C5 /* WishingWellCell.xib in Resources */,
 				563439602712DCC30071FDE0 /* Main.storyboard in Resources */,
 				960FE9F727367D2F00C44A5E /* AddExpense.storyboard in Resources */,
 				5634396E2712DE0C0071FDE0 /* Home.storyboard in Resources */,
 				563439752712EC010071FDE0 /* Settings.storyboard in Resources */,
+				96A80FF0274FD11C007779C5 /* SettingsCell.xib in Resources */,
+				96A80FE7274F6515007779C5 /* HomeCell.xib in Resources */,
+				96A80FE1274F39C3007779C5 /* AddWishingWell.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,15 +355,17 @@
 				960FE9F527367C9F00C44A5E /* AddViewController.swift in Sources */,
 				5634395B2712DCC30071FDE0 /* SceneDelegate.swift in Sources */,
 				960FE9F22736566F00C44A5E /* HomeViewController.swift in Sources */,
-				96672370274D163D00048AEA /* Expenses.swift in Sources */,
+				96A80FE9274F656F007779C5 /* HomeTableViewCell.swift in Sources */,
 				969E8B86274CBFED0060A2A0 /* AddWishingWellViewController.swift in Sources */,
 				96672369274D0D5500048AEA /* WishingWellViewController.swift in Sources */,
-				56F21F182721678A00C92300 /* categoriesDataModel.xcdatamodeld in Sources */,
-				56BA8B2E272015E700942836 /* settingsViewController.swift in Sources */,
+				56F21F182721678A00C92300 /* PokPokDataModel.xcdatamodeld in Sources */,
+				96A80FE5274F4908007779C5 /* WishingWellTableViewCell.swift in Sources */,
+				96A80FF3274FD13E007779C5 /* SettingsTableViewCell.swift in Sources */,
+				56BA8B2E272015E700942836 /* SettingsViewController.swift in Sources */,
 				960FE9F927367E6400C44A5E /* AddExpenseViewController.swift in Sources */,
 				56CDEE962723F1DD0081AE22 /* categoryModel.swift in Sources */,
 				56CDEE982723F34E0081AE22 /* Response.swift in Sources */,
-				968AD56E274E4A7E00F4C995 /* Wishes.swift in Sources */,
+				96A80FEC274F95BA007779C5 /* AnalyticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,14 +402,6 @@
 				563439742712EC010071FDE0 /* Base */,
 			);
 			name = Settings.storyboard;
-			sourceTree = "<group>";
-		};
-		96672371274D4F9400048AEA /* Add.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				96672372274D4F9400048AEA /* Base */,
-			);
-			name = Add.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -561,13 +589,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		56F21F162721678A00C92300 /* categoriesDataModel.xcdatamodeld */ = {
+		56F21F162721678A00C92300 /* PokPokDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				56F21F172721678A00C92300 /* categoriesDataModel.xcdatamodel */,
 			);
 			currentVersion = 56F21F172721678A00C92300 /* categoriesDataModel.xcdatamodel */;
-			path = categoriesDataModel.xcdatamodeld;
+			path = PokPokDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

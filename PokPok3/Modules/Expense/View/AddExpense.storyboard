@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="omg-yw-RxJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Z9-I2-Fzm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Expense View Controller-->
+        <!--Add Expense-->
         <scene sceneID="5yM-lL-mOu">
             <objects>
                 <viewController storyboardIdentifier="addExpense" id="omg-yw-RxJ" customClass="AddExpenseViewController" customModule="PokPok3" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,72 +17,137 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's your expense?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUe-gd-5yI">
-                                <rect key="frame" x="64" y="172" width="286" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="941-GR-o1B">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's your expense?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUe-gd-5yI">
+                                <rect key="frame" x="64" y="158" width="286" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fUe-gd-5yI" secondAttribute="height" multiplier="143:17" id="Eyn-4b-jBI"/>
+                                    <constraint firstAttribute="width" constant="286" id="TbS-HJ-hh8"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K5b-se-ZDb">
-                                <rect key="frame" x="64" y="256" width="286" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K5b-se-ZDb">
+                                <rect key="frame" x="64" y="290" width="286" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dyb-eI-JCE">
-                                <rect key="frame" x="64" y="214" width="286" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dyb-eI-JCE">
+                                <rect key="frame" x="64" y="224" width="286" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9X9-jg-VER">
-                                <rect key="frame" x="64" y="298" width="286" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9X9-jg-VER">
+                                <rect key="frame" x="64" y="422" width="286" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYk-DT-XyO">
-                                <rect key="frame" x="64" y="374" width="286" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Save"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2et-so-tG3">
+                                <rect key="frame" x="329.5" y="233" width="12.5" height="16.5"/>
+                                <color key="tintColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SRW-Yn-svr">
+                                <rect key="frame" x="64" y="356" width="286" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="K9U-dr-ZiG">
+                                <rect key="frame" x="321" y="364.5" width="22.5" height="19"/>
+                                <color key="tintColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYk-DT-XyO">
+                                <rect key="frame" x="64" y="508" width="286" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveExpensePressed:" destination="omg-yw-RxJ" eventType="touchUpInside" id="GNH-f9-vQr"/>
                                     <segue destination="Mc0-D9-gPI" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="yg2-u3-jTj"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2et-so-tG3">
-                                <rect key="frame" x="325" y="222" width="19" height="20"/>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ut5-se-vWp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9X9-jg-VER" firstAttribute="top" secondItem="SRW-Yn-svr" secondAttribute="bottom" constant="32" id="04Q-Mx-igV"/>
+                            <constraint firstItem="9X9-jg-VER" firstAttribute="leading" secondItem="SRW-Yn-svr" secondAttribute="leading" id="08i-i8-qJL"/>
+                            <constraint firstItem="941-GR-o1B" firstAttribute="top" secondItem="pVD-N2-bwq" secondAttribute="top" id="1Ow-oB-Abp"/>
+                            <constraint firstItem="RYk-DT-XyO" firstAttribute="leading" secondItem="9X9-jg-VER" secondAttribute="leading" id="1xO-m3-MU6"/>
+                            <constraint firstItem="9X9-jg-VER" firstAttribute="trailing" secondItem="SRW-Yn-svr" secondAttribute="trailing" id="3UB-VH-DGU"/>
+                            <constraint firstItem="SRW-Yn-svr" firstAttribute="trailing" secondItem="K9U-dr-ZiG" secondAttribute="trailing" constant="8" id="Fjh-5i-efB"/>
+                            <constraint firstItem="SRW-Yn-svr" firstAttribute="top" secondItem="K5b-se-ZDb" secondAttribute="bottom" constant="32" id="GGa-rd-Hfh"/>
+                            <constraint firstItem="K5b-se-ZDb" firstAttribute="top" secondItem="Dyb-eI-JCE" secondAttribute="bottom" constant="32" id="JaR-Up-86l"/>
+                            <constraint firstItem="SRW-Yn-svr" firstAttribute="trailing" secondItem="K5b-se-ZDb" secondAttribute="trailing" id="NPu-9S-8xG"/>
+                            <constraint firstItem="Dyb-eI-JCE" firstAttribute="trailing" secondItem="fUe-gd-5yI" secondAttribute="trailing" id="QiJ-D9-r8h"/>
+                            <constraint firstItem="RYk-DT-XyO" firstAttribute="trailing" secondItem="9X9-jg-VER" secondAttribute="trailing" id="RKO-vZ-juR"/>
+                            <constraint firstItem="941-GR-o1B" firstAttribute="trailing" secondItem="Ut5-se-vWp" secondAttribute="trailing" id="S7a-X6-vZV"/>
+                            <constraint firstItem="Dyb-eI-JCE" firstAttribute="leading" secondItem="fUe-gd-5yI" secondAttribute="leading" id="Tmy-tD-eQ7"/>
+                            <constraint firstItem="941-GR-o1B" firstAttribute="leading" secondItem="Ut5-se-vWp" secondAttribute="leading" id="YHT-WP-vvD"/>
+                            <constraint firstItem="SRW-Yn-svr" firstAttribute="leading" secondItem="K5b-se-ZDb" secondAttribute="leading" id="c6G-YM-6Fd"/>
+                            <constraint firstItem="fUe-gd-5yI" firstAttribute="centerX" secondItem="Ut5-se-vWp" secondAttribute="centerX" id="fuy-ue-Yze"/>
+                            <constraint firstItem="K5b-se-ZDb" firstAttribute="leading" secondItem="Dyb-eI-JCE" secondAttribute="leading" id="g6d-OT-YJV"/>
+                            <constraint firstItem="Dyb-eI-JCE" firstAttribute="top" secondItem="fUe-gd-5yI" secondAttribute="bottom" constant="32" id="hUF-J8-kNz"/>
+                            <constraint firstItem="Dyb-eI-JCE" firstAttribute="trailing" secondItem="2et-so-tG3" secondAttribute="trailing" constant="8" id="l45-dy-p2w"/>
+                            <constraint firstAttribute="bottom" secondItem="941-GR-o1B" secondAttribute="bottom" id="laJ-h6-EJb"/>
+                            <constraint firstItem="K9U-dr-ZiG" firstAttribute="centerY" secondItem="SRW-Yn-svr" secondAttribute="centerY" id="pm9-um-jms"/>
+                            <constraint firstItem="2et-so-tG3" firstAttribute="centerY" secondItem="Dyb-eI-JCE" secondAttribute="centerY" id="tq2-EK-Poe"/>
+                            <constraint firstItem="K5b-se-ZDb" firstAttribute="trailing" secondItem="Dyb-eI-JCE" secondAttribute="trailing" id="vKl-G1-23b"/>
+                            <constraint firstItem="fUe-gd-5yI" firstAttribute="top" secondItem="Ut5-se-vWp" secondAttribute="top" constant="70" id="ykq-VS-Qe0"/>
+                            <constraint firstItem="RYk-DT-XyO" firstAttribute="top" secondItem="9X9-jg-VER" secondAttribute="bottom" constant="52" id="yrI-Rw-8sh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Expense" id="ngv-0a-oww">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="2bM-S8-Ivh">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="4hL-6j-kEB">
+                                <rect key="frame" x="20" y="12" width="48.5" height="20.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hL-6j-kEB">
-                                <rect key="frame" x="21" y="44" width="80" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title="Back"/>
+                                <color key="tintColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Back" image="chevron.left" catalog="system"/>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="omg-yw-RxJ" eventType="touchUpInside" id="0SQ-W2-HVH"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Ut5-se-vWp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="ngv-0a-oww"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="amountTextField" destination="K5b-se-ZDb" id="TZu-aT-26z"/>
                         <outlet property="categoryTextField" destination="Dyb-eI-JCE" id="QdM-cj-I9O"/>
+                        <outlet property="expenseDateTextField" destination="SRW-Yn-svr" id="v2k-jr-MXi"/>
                         <outlet property="expenseNameTextField" destination="fUe-gd-5yI" id="ESJ-TB-Qyl"/>
                         <outlet property="expenseNoteTextField" destination="9X9-jg-VER" id="8ic-fT-1c4"/>
+                        <outlet property="saveExpenseButton" destination="RYk-DT-XyO" id="yD9-mp-NMG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRK-PX-9yP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Mc0-D9-gPI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
+            <point key="canvasLocation" x="4360.8695652173919" y="821.65178571428567"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qBo-bN-njW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Z9-I2-Fzm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4mA-oG-Snn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.88235294119999996" green="0.83921568629999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="omg-yw-RxJ" kind="relationship" relationship="rootViewController" id="5sx-NV-KUx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KFp-Jc-AT3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="3450.7246376811595" y="821.65178571428567"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Background" width="375" height="811"/>
+        <image name="calendar.badge.plus" catalog="system" width="128" height="108"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">

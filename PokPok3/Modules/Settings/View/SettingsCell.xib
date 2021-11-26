@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" rowHeight="111" id="6mT-OU-WG0" customClass="SettingsTableViewCell" customModule="PokPok3" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="111"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6mT-OU-WG0" id="d0L-FS-qbm">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="111"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZF-Gj-11G">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="111"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7z-pG-DhZ">
+                                <rect key="frame" x="16" y="45" width="44" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" placeholder="Rp0,00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RIE-9S-6g0">
+                                <rect key="frame" x="340" y="44" width="58" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="RIE-9S-6g0" secondAttribute="trailing" constant="16" id="EIO-Zs-1DM"/>
+                            <constraint firstItem="RIE-9S-6g0" firstAttribute="centerY" secondItem="HZF-Gj-11G" secondAttribute="centerY" id="MhJ-eo-241"/>
+                            <constraint firstItem="G7z-pG-DhZ" firstAttribute="leading" secondItem="HZF-Gj-11G" secondAttribute="leading" constant="16" id="p6P-y8-RWR"/>
+                            <constraint firstItem="G7z-pG-DhZ" firstAttribute="centerY" secondItem="HZF-Gj-11G" secondAttribute="centerY" id="r18-2M-z4U"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="HZF-Gj-11G" secondAttribute="bottom" id="6QV-ga-GDa"/>
+                    <constraint firstItem="HZF-Gj-11G" firstAttribute="top" secondItem="d0L-FS-qbm" secondAttribute="top" id="Zob-UT-L6n"/>
+                    <constraint firstItem="HZF-Gj-11G" firstAttribute="leading" secondItem="d0L-FS-qbm" secondAttribute="leading" id="djE-yR-av3"/>
+                    <constraint firstAttribute="trailing" secondItem="HZF-Gj-11G" secondAttribute="trailing" id="ul8-81-igT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="budgetTextField" destination="RIE-9S-6g0" id="Gvz-qi-Hdp"/>
+                <outlet property="categoryNameLabel" destination="G7z-pG-DhZ" id="mAd-Nc-c17"/>
+            </connections>
+            <point key="canvasLocation" x="127.53623188405798" y="157.03125"/>
+        </tableViewCell>
+    </objects>
+</document>

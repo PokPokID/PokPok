@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -13,8 +14,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
   @IBOutlet weak var rightButton: UIButton!
   @IBOutlet weak var expenseTableView: UITableView!
   @IBOutlet weak var dateTextField: UITextField!
+  @IBOutlet weak var selectedDay: UILabel!
 
   var expenses = [Expenses]()
+//  var filteredExpenses: []
 
   let cellReuseIdentifier = "cell"
   let datePicker = UIDatePicker()
@@ -23,44 +26,59 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     super.viewDidLoad()
     createDatePicker()
 
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "dd MMMM yyyy"
-    let selectedDate = dateFormatter.string(from: datePicker.date)
-    dateTextField.text = "\(selectedDate)"
-    self.hideKeyboardWhenTappedAround()
+    selectedDate()
     
     expenseTableView.dataSource = self
     expenseTableView.delegate = self
 
     expenseTableView.showsVerticalScrollIndicator = true
-    expenseTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+
+    let nib = UINib.init(nibName: "HomeCell", bundle: nil)
+    expenseTableView.register(nib, forCellReuseIdentifier: "homeCell")
+
     expenseTableView.reloadData()
 
   }
 
   override func viewWillAppear(_ animated: Bool) {
+    getData()
+
     createDatePicker()
 
-    print(expenses)
-
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "dd MMMM yyyy"
-    let selectedDate = dateFormatter.string(from: datePicker.date)
-    dateTextField.text = "\(selectedDate)"
-    self.hideKeyboardWhenTappedAround()
+    selectedDate()
 
     expenseTableView.dataSource = self
     expenseTableView.delegate = self
 
     expenseTableView.showsVerticalScrollIndicator = true
-    expenseTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+
+    let nib = UINib.init(nibName: "HomeCell", bundle: nil)
+    expenseTableView.register(nib, forCellReuseIdentifier: "homeCell")
+
     expenseTableView.reloadData()
   }
 
   @IBAction func unwindToHome(_ sender: UIStoryboardSegue) {}
 
+  // MARK: - CORE DATA
 
-// MARK: - GO TO NEXT OR PREV
+  func getData() {
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+    let fetchRequest = NSFetchRequest<Expenses>(entityName: "Expenses")
+    let sort = NSSortDescriptor(key: #keyPath(Expenses.dateCreated), ascending: false)
+    fetchRequest.sortDescriptors = [sort]
+
+    do {
+      try expenses = context.fetch(fetchRequest)
+    } catch {
+
+    }
+
+  }
+
+
+  // MARK: - GO TO NEXT OR PREV
   @IBAction func goToPrevious(_ sender: UIButton) {
     datePicker.date = datePicker.calendar.date(byAdding: .day, value: -1, to: datePicker.date)!
     selectedDate()
@@ -71,9 +89,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     selectedDate()
   }
 
-// MARK: - DATEPICKER
+  // MARK: - DATEPICKER
 
   func selectedDate() {
+    let dateFormatter2 = DateFormatter()
+    dateFormatter2.dateFormat = "EEEE"
+    let selectedDays = dateFormatter2.string(from: datePicker.date)
+    selectedDay.text = "\(selectedDays)"
+
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "dd MMMM yyyy"
     let selectedDate = dateFormatter.string(from: datePicker.date)
@@ -88,15 +111,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
   }
 
   func createToolbar() {
-      let toolbar = UIToolbar()
-      let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-      let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    let toolbar = UIToolbar()
+    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+    let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 
-      toolbar.sizeToFit()
-      toolbar.setItems([flexibleSpace, doneButton], animated: false)
-      toolbar.isUserInteractionEnabled = true
+    toolbar.sizeToFit()
+    toolbar.setItems([flexibleSpace, doneButton], animated: false)
+    toolbar.isUserInteractionEnabled = true
 
-      dateTextField.inputAccessoryView = toolbar
+    dateTextField.inputAccessoryView = toolbar
   }
 
   @objc func donePressed() {
@@ -104,18 +127,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     dateFormatter.dateFormat = "dd MMMM yyyy"
     let selectedDate = dateFormatter.string(from: datePicker.date)
     dateTextField.text = "\(selectedDate)"
-      view.endEditing(true)
-  }
-
-  //MARK: - KEYBOARD
-  func hideKeyboardWhenTappedAround() {
-      let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-      tap.cancelsTouchesInView = false
-      view.addGestureRecognizer(tap)
-  }
-
-  @objc func dismissKeyboard() {
-      view.endEditing(true)
+    view.endEditing(true)
   }
 
   // MARK: - TABLE VIEW
@@ -125,11 +137,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell:UITableViewCell = (tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
+    let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as? HomeTableViewCell
+    let line = expenses[indexPath.row]
 
-    cell.textLabel?.text = expenses[indexPath.row].expenseName
+    cell?.commonInit(line: line)
+    cell?.selectionStyle = .none
 
-    return cell
+    return cell!
+  }
+
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 68
   }
 
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
