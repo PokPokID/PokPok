@@ -57,7 +57,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YqZ-qC-OFj" secondAttribute="height" multiplier="143:138" id="3Wk-e9-cg2"/>
                                 </constraints>
-                                <color key="tintColor" red="0.88235294119999996" green="0.83921568629999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.97189062829999995" green="0.92651182409999999" blue="0.86273646349999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <size key="titleShadowOffset" width="8" height="8"/>
                                 <state key="normal" title="">
@@ -70,19 +70,29 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large" weight="bold"/>
                                     <color key="baseForegroundColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addImageButtonPressed:" destination="rz3-Bw-tIz" eventType="touchUpInside" id="2yQ-6W-eso"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="N5o-1w-dJh">
                                 <rect key="frame" x="321" y="606.5" width="22.5" height="19"/>
                                 <color key="tintColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mlv-hm-hNS">
+                                <rect key="frame" x="64" y="158" width="286" height="276"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ezu-5q-7mk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="YqZ-qC-OFj" firstAttribute="bottom" secondItem="mlv-hm-hNS" secondAttribute="bottom" id="16N-js-XFg"/>
                             <constraint firstItem="9uo-hG-ceO" firstAttribute="trailing" secondItem="eV0-yh-BxI" secondAttribute="trailing" id="1k1-HK-gXT"/>
                             <constraint firstItem="SDM-6c-qQo" firstAttribute="trailing" secondItem="9uo-hG-ceO" secondAttribute="trailing" id="1lu-Vc-6fa"/>
+                            <constraint firstItem="mlv-hm-hNS" firstAttribute="leading" secondItem="YqZ-qC-OFj" secondAttribute="leading" id="1mw-Ht-wNZ"/>
                             <constraint firstItem="eV0-yh-BxI" firstAttribute="leading" secondItem="K9a-vs-Ue9" secondAttribute="leading" id="2WX-ic-6h0"/>
+                            <constraint firstItem="mlv-hm-hNS" firstAttribute="centerX" secondItem="YqZ-qC-OFj" secondAttribute="centerX" id="2tX-iq-5wt"/>
                             <constraint firstItem="9uo-hG-ceO" firstAttribute="leading" secondItem="eV0-yh-BxI" secondAttribute="leading" id="4g7-OJ-DjL"/>
+                            <constraint firstItem="mlv-hm-hNS" firstAttribute="trailing" secondItem="YqZ-qC-OFj" secondAttribute="trailing" id="6nW-UF-4cd"/>
                             <constraint firstAttribute="bottom" secondItem="RHK-aX-nPa" secondAttribute="bottom" id="6sD-xO-B0N"/>
                             <constraint firstItem="2xo-aj-FDj" firstAttribute="top" secondItem="YqZ-qC-OFj" secondAttribute="bottom" constant="32" id="96B-b6-3mW"/>
                             <constraint firstItem="RHK-aX-nPa" firstAttribute="top" secondItem="V2E-Ht-EOC" secondAttribute="top" id="IYy-oW-Yca"/>
@@ -93,12 +103,14 @@
                             <constraint firstItem="YqZ-qC-OFj" firstAttribute="top" secondItem="ezu-5q-7mk" secondAttribute="top" constant="70" id="ZHJ-xR-f8L"/>
                             <constraint firstItem="RHK-aX-nPa" firstAttribute="trailing" secondItem="ezu-5q-7mk" secondAttribute="trailing" id="a19-l3-qPD"/>
                             <constraint firstItem="YqZ-qC-OFj" firstAttribute="leading" secondItem="ezu-5q-7mk" secondAttribute="leading" constant="64" id="eZb-xN-rNf"/>
+                            <constraint firstItem="mlv-hm-hNS" firstAttribute="top" secondItem="YqZ-qC-OFj" secondAttribute="top" id="h39-c5-e0f"/>
                             <constraint firstItem="9uo-hG-ceO" firstAttribute="top" secondItem="eV0-yh-BxI" secondAttribute="bottom" constant="32" id="iBi-bG-Zq1"/>
                             <constraint firstItem="eV0-yh-BxI" firstAttribute="trailing" secondItem="N5o-1w-dJh" secondAttribute="trailing" constant="8" id="kKR-YH-29s"/>
                             <constraint firstItem="eV0-yh-BxI" firstAttribute="top" secondItem="K9a-vs-Ue9" secondAttribute="bottom" constant="32" id="ktR-at-0ME"/>
                             <constraint firstItem="K9a-vs-Ue9" firstAttribute="top" secondItem="2xo-aj-FDj" secondAttribute="bottom" constant="32" id="mB6-Su-ok0"/>
                             <constraint firstItem="eV0-yh-BxI" firstAttribute="trailing" secondItem="K9a-vs-Ue9" secondAttribute="trailing" id="oJh-pj-HiB"/>
                             <constraint firstItem="2xo-aj-FDj" firstAttribute="trailing" secondItem="YqZ-qC-OFj" secondAttribute="trailing" id="pPY-9Z-qmU"/>
+                            <constraint firstItem="mlv-hm-hNS" firstAttribute="centerY" secondItem="YqZ-qC-OFj" secondAttribute="centerY" id="uyf-xw-5xd"/>
                             <constraint firstItem="ezu-5q-7mk" firstAttribute="trailing" secondItem="YqZ-qC-OFj" secondAttribute="trailing" constant="64" id="vxE-6a-QId"/>
                             <constraint firstItem="K9a-vs-Ue9" firstAttribute="leading" secondItem="2xo-aj-FDj" secondAttribute="leading" id="w8d-ya-bro"/>
                             <constraint firstItem="SDM-6c-qQo" firstAttribute="leading" secondItem="9uo-hG-ceO" secondAttribute="leading" id="wn2-37-tdO"/>
@@ -125,6 +137,7 @@
                         <outlet property="dateAchieveTextField" destination="eV0-yh-BxI" id="ZKw-Dc-oNe"/>
                         <outlet property="noteWishingWellTextField" destination="9uo-hG-ceO" id="DCQ-3z-YZN"/>
                         <outlet property="saveWishButton" destination="SDM-6c-qQo" id="UIS-jd-I50"/>
+                        <outlet property="wishImage" destination="mlv-hm-hNS" id="QBK-aW-bKW"/>
                         <outlet property="wishingWellNameTextField" destination="2xo-aj-FDj" id="YKK-aT-r56"/>
                     </connections>
                 </viewController>
@@ -141,7 +154,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hM9-vS-U1Z">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.93333333730000001" green="0.87843137979999997" blue="0.79607844350000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.88235294117647056" green="0.83921568627450982" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -7,13 +7,14 @@
 
 import UIKit
 
-class AddWishingWellViewController: UIViewController {
+class AddWishingWellViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   @IBOutlet weak var addImageButton: UIButton!
   @IBOutlet weak var wishingWellNameTextField: UITextField!
   @IBOutlet weak var amountWishingWellTextField: UITextField!
   @IBOutlet weak var dateAchieveTextField: UITextField!
   @IBOutlet weak var noteWishingWellTextField: UITextField!
   @IBOutlet weak var saveWishButton: UIButton!
+  @IBOutlet weak var wishImage: UIImageView!
 
   let datePicker = UIDatePicker()
 
@@ -35,6 +36,24 @@ class AddWishingWellViewController: UIViewController {
     noteWishingWellTextField.keyboardType = .default
 
     // Do any additional setup after loading the view.
+  }
+
+
+  @IBAction func addImageButtonPressed(_ sender: Any) {
+    var myPickerController = UIImagePickerController()
+    myPickerController.delegate = self
+    myPickerController.sourceType = .photoLibrary
+
+    self.present(myPickerController, animated: true, completion: nil)
+  }
+
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    wishImage.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+    self.dismiss(animated: true, completion: nil)
+  }
+
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    self.dismiss(animated: true, completion: nil)
   }
 
   
@@ -75,8 +94,8 @@ class AddWishingWellViewController: UIViewController {
     newWishes.note = noteWishingWellTextField.text
     newWishes.amount = Int64(Int(amountWishingWellTextField.text!)!)
     newWishes.isCompleted = false
+    newWishes.isExpired = false
 
-    //ganti jadi datePicker.date
     do {
       try context.save()
     } catch {

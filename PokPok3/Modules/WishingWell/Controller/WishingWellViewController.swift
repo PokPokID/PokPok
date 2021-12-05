@@ -16,6 +16,7 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
 
   var wishes = [WishingWell]()
   let cellReuseIdentifier = "cell"
+  var manageObjectContext: NSManagedObjectContext!
 
 
   override func viewDidLoad() {
@@ -40,8 +41,9 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
   override func viewWillAppear(_ animated: Bool) {
 
     getData()
-    
+
     isViewEmpty()
+
 
     wishingWellTableView.dataSource = self
     wishingWellTableView.delegate = self
@@ -53,12 +55,6 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
     wishingWellTableView.register(nib, forCellReuseIdentifier: "wishingWellCell")
 
     wishingWellTableView.reloadData()
-  }
-
-  @IBAction func addAWishButtonPressed(_ sender: UIButton) {
-    let storyboard = UIStoryboard(name: "AddWishingWell", bundle: nil)
-    let addWishingWellViewController = storyboard.instantiateViewController(withIdentifier: "addWishingWell") as! AddWishingWellViewController
-    self.present(addWishingWellViewController, animated: true, completion: nil)
   }
 
   @IBAction func unwindToWishingWell(_ sender: UIStoryboardSegue) {}
@@ -83,6 +79,7 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
 
     do {
       try wishes = context.fetch(fetchRequest)
+      self.wishingWellTableView.reloadData()
     } catch {
 
     }
@@ -111,22 +108,49 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
     return 132
   }
 
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if let cell = tableView.cellForRow(at: indexPath) as? WishingWellTableViewCell {
+      let storyboard = UIStoryboard(name: "DetailWishingWell", bundle: nil)
+      let vc = storyboard.instantiateViewController(withIdentifier: "detailWishingWell") as! DetailWishingWellViewController
+
+      vc.titleItem.title = cell.wishNameLabel.text
+
+      self.navigationController?.pushViewController(vc, animated: true)
+    }
+  }
+
+  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    if let cell = tableView.cellForRow(at: indexPath) as? WishingWellTableViewCell {
+      cell.wishingWellView.backgroundColor = .white
+    }
+  }
+
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     isViewEmpty()
 
     if editingStyle == .delete {
 
+      context.delete(wishes[indexPath.row])
       wishes.remove(at: indexPath.row)
       tableView.deleteRows(at: [indexPath], with: .fade)
 
+
+      do {
+        try context.save()
+      } catch {
+        print("Error")
+      }
+
       isViewEmpty()
 
-      wishingWellTableView.reloadData()
-
-    } else if editingStyle == .insert {
-      // Not used in our example, but if you were adding a new row, this is where you would do it.
     }
+
+//    isViewEmpty()
+
+    getData()
   }
 
 

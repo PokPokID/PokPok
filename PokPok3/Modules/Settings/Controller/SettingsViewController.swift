@@ -77,9 +77,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
     let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as? SettingsTableViewCell
-    let line = budgets[indexPath.row]
+//    let line = budgets[indexPath.row]
 
-    cell?.commonInit(line: line)
+//    cell?.commonInit(line: line)
     cell?.categoryNameLabel.text = self.categories[indexPath.row]
 
 

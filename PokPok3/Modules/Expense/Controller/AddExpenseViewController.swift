@@ -78,7 +78,7 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
     newExpenses.amount = Int64(Int(amountTextField.text!)!)
     newExpenses.note = expenseNoteTextField.text
     newExpenses.dateCreated = datePicker.date
-    //ganti jadi datePicker.date
+
     do {
       try context.save()
     } catch {
