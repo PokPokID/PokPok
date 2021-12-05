@@ -47,6 +47,8 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
     self.present(myPickerController, animated: true, completion: nil)
   }
 
+
+
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     wishImage.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
     self.dismiss(animated: true, completion: nil)

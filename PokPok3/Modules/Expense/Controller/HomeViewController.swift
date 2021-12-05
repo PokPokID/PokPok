@@ -70,8 +70,20 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
   func getData() {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
     let fetchRequest = NSFetchRequest<Expenses>(entityName: "Expenses")
+
+    // Get today's beginning & end
+    let dateFrom = datePicker.date // eg. 2016-10-10 00:00:00
+    let dateTo = datePicker.calendar.date(byAdding: .hour, value: 24, to: dateFrom)
+    // Note: Times are printed in UTC. Depending on where you live it won't print 00:00:00 but it will work with UTC times which can be converted to local time
+
+    // Set predicate as date being today's date
+    let fromPredicate = NSPredicate(format: "%@ >= %K", dateFrom as NSDate, #keyPath(Expenses.dateCreated))
+    let toPredicate = NSPredicate(format: "%K < %@", #keyPath(Expenses.dateCreated), dateTo! as NSDate)
+    let datePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
+//    let datePredicate = NSPredicate(format: "%K == %@", #keyPath(Expenses.dateCreated), datePicker.date)
+    fetchRequest.predicate = datePredicate
+
     let sort = NSSortDescriptor(key: #keyPath(Expenses.dateCreated), ascending: false)
     fetchRequest.sortDescriptors = [sort]
 
@@ -90,19 +102,21 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
   @IBAction func goToPrevious(_ sender: UIButton) {
     datePicker.date = datePicker.calendar.date(byAdding: .day, value: -1, to: datePicker.date)!
     selectedDate()
+    getData()
   }
 
   @IBAction func goToNext(_ sender: UIButton) {
     datePicker.date = datePicker.calendar.date(byAdding: .day, value: 1, to: datePicker.date)!
     selectedDate()
+    getData()
   }
 
   // MARK: - DATEPICKER
 
   func selectedDate() {
-    let dateFormatter2 = DateFormatter()
-    dateFormatter2.dateFormat = "EEEE"
-    let selectedDays = dateFormatter2.string(from: datePicker.date)
+    let dateFormatterDay = DateFormatter()
+    dateFormatterDay.dateFormat = "EEEE"
+    let selectedDays = dateFormatterDay.string(from: datePicker.date)
     selectedDay.text = "\(selectedDays)"
 
     let dateFormatter = DateFormatter()
