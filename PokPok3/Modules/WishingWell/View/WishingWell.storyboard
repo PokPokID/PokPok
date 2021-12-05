@@ -60,28 +60,43 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Would you like to add a wish?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSc-Pa-wFc">
-                            <rect key="frame" x="8" y="28" width="224" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to add a wish?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSc-Pa-wFc">
+                            <rect key="frame" x="8" y="75.5" width="224" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7W6-QY-H7S">
-                            <rect key="frame" x="68" y="57" width="106" height="31"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7W6-QY-H7S">
+                            <rect key="frame" x="65" y="104.5" width="110.5" height="31"/>
+                            <color key="tintColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Make a Wish"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Make a Wish">
+                                <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
+                            </buttonConfiguration>
                             <connections>
-                                <action selector="addAWishButtonPressed:" destination="ugo-ak-aat" eventType="touchUpInside" id="5Mj-ps-AxF"/>
+                                <segue destination="dZo-yc-t11" kind="presentation" id="OTt-kf-81M"/>
                             </connections>
                         </button>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="5Vg-71-rFn"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="7W6-QY-H7S" firstAttribute="top" secondItem="lSc-Pa-wFc" secondAttribute="bottom" constant="8" symbolic="YES" id="0M8-48-sbz"/>
+                        <constraint firstItem="lSc-Pa-wFc" firstAttribute="centerX" secondItem="5Vg-71-rFn" secondAttribute="centerX" id="ghL-FP-Zq1"/>
+                        <constraint firstItem="7W6-QY-H7S" firstAttribute="centerX" secondItem="lSc-Pa-wFc" secondAttribute="centerX" id="laM-9K-8YE"/>
+                        <constraint firstItem="lSc-Pa-wFc" firstAttribute="centerY" secondItem="5Vg-71-rFn" secondAttribute="centerY" id="v4c-C7-Wuw"/>
+                    </constraints>
                 </view>
             </objects>
             <point key="canvasLocation" x="2344.9275362318845" y="1575"/>
+        </scene>
+        <!--AddWishingWell-->
+        <scene sceneID="cIH-zH-FrU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddWishingWell" id="dZo-yc-t11" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Aq-sG-Fq3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3067" y="1192"/>
         </scene>
         <!--Wishing Well-->
         <scene sceneID="pd5-8a-QtM">
@@ -108,9 +123,6 @@
     <resources>
         <image name="Background" width="375" height="811"/>
         <image name="cloud.fill" catalog="system" width="128" height="88"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

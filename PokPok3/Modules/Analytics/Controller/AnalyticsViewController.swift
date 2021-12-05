@@ -23,7 +23,29 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    createDatePicker()
+    datePicker.date = Date()
+
+//    createDatePicker()
+    selectedDate()
+
+    analyticsTableView.dataSource = self
+    analyticsTableView.delegate = self
+
+    analyticsTableView.showsVerticalScrollIndicator = true
+    analyticsTableView.separatorStyle = .none
+
+    let nib = UINib.init(nibName: "AnalyticsTableViewCell", bundle: nil)
+    analyticsTableView.register(nib, forCellReuseIdentifier: "analyticsCell")
+
+    analyticsTableView.reloadData()
+
+    // Do any additional setup after loading the view.
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    datePicker.date = Date()
+
+//    createDatePicker()
     selectedDate()
 
     analyticsTableView.dataSource = self
@@ -35,8 +57,6 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     analyticsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
     analyticsTableView.reloadData()
-
-    // Do any additional setup after loading the view.
   }
 
   // MARK: - DATEPICKER
@@ -48,12 +68,12 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     analyticsMonthTextField.text = "\(selectedDate)"
   }
 
-  func createDatePicker() {
-    createToolbar()
-    analyticsMonthTextField.inputView = datePicker
-    datePicker.preferredDatePickerStyle = .wheels
-    datePicker.datePickerMode = .date
-  }
+//  func createDatePicker() {
+//    createToolbar()
+//    analyticsMonthTextField.inputView = datePicker
+//    datePicker.preferredDatePickerStyle = .wheels
+//    datePicker.datePickerMode = .date
+//  }
 
   func createToolbar() {
     let toolbar = UIToolbar()
@@ -95,18 +115,18 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "analyticsCell", for: indexPath) as? AnalyticsTableViewCell
 
     // set the text from the data model
-    cell.textLabel?.text = self.categories[indexPath.row]
+    cell?.categoryLabel.text = self.categories[indexPath.row]
 
-    cell.selectionStyle = .none
+    cell?.selectionStyle = .none
 
-    return cell
+    return cell!
   }
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 60
+    return 68
   }
 
 

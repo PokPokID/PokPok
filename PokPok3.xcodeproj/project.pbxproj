@@ -26,7 +26,11 @@
 		960FE9F727367D2F00C44A5E /* AddExpense.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960FE9F627367D2F00C44A5E /* AddExpense.storyboard */; };
 		960FE9F927367E6400C44A5E /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960FE9F827367E6400C44A5E /* AddExpenseViewController.swift */; };
 		960FE9FB2736D39F00C44A5E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960FE9FA2736D39F00C44A5E /* TabBarViewController.swift */; };
+		96316629275255BE00C01BCE /* DetailWishingWell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96316628275255BE00C01BCE /* DetailWishingWell.storyboard */; };
+		9631662B275255D600C01BCE /* DetailWishingWellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9631662A275255D600C01BCE /* DetailWishingWellViewController.swift */; };
 		96672369274D0D5500048AEA /* WishingWellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96672367274D0D5500048AEA /* WishingWellViewController.swift */; };
+		96728215275CA26900B10165 /* AnalyticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96728213275CA26900B10165 /* AnalyticsTableViewCell.swift */; };
+		96728216275CA26900B10165 /* AnalyticsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96728214275CA26900B10165 /* AnalyticsTableViewCell.xib */; };
 		969E8B86274CBFED0060A2A0 /* AddWishingWellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969E8B85274CBFED0060A2A0 /* AddWishingWellViewController.swift */; };
 		96A80FE1274F39C3007779C5 /* AddWishingWell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A80FE0274F39C3007779C5 /* AddWishingWell.storyboard */; };
 		96A80FE3274F481D007779C5 /* WishingWellCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A80FE2274F481D007779C5 /* WishingWellCell.xib */; };
@@ -62,7 +66,11 @@
 		960FE9F627367D2F00C44A5E /* AddExpense.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddExpense.storyboard; sourceTree = "<group>"; };
 		960FE9F827367E6400C44A5E /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		960FE9FA2736D39F00C44A5E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		96316628275255BE00C01BCE /* DetailWishingWell.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailWishingWell.storyboard; sourceTree = "<group>"; };
+		9631662A275255D600C01BCE /* DetailWishingWellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWishingWellViewController.swift; sourceTree = "<group>"; };
 		96672367274D0D5500048AEA /* WishingWellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishingWellViewController.swift; sourceTree = "<group>"; };
+		96728213275CA26900B10165 /* AnalyticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTableViewCell.swift; sourceTree = "<group>"; };
+		96728214275CA26900B10165 /* AnalyticsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnalyticsTableViewCell.xib; sourceTree = "<group>"; };
 		969E8B85274CBFED0060A2A0 /* AddWishingWellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishingWellViewController.swift; sourceTree = "<group>"; };
 		96A80FE0274F39C3007779C5 /* AddWishingWell.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddWishingWell.storyboard; sourceTree = "<group>"; };
 		96A80FE2274F481D007779C5 /* WishingWellCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishingWellCell.xib; sourceTree = "<group>"; };
@@ -191,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				5634396F2712E6B80071FDE0 /* Analytics.storyboard */,
+				96728214275CA26900B10165 /* AnalyticsTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,6 +219,7 @@
 				969E8B85274CBFED0060A2A0 /* AddWishingWellViewController.swift */,
 				96672367274D0D5500048AEA /* WishingWellViewController.swift */,
 				96A80FE4274F4908007779C5 /* WishingWellTableViewCell.swift */,
+				9631662A275255D600C01BCE /* DetailWishingWellViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -220,6 +230,7 @@
 				96A80FE0274F39C3007779C5 /* AddWishingWell.storyboard */,
 				563439712712EBEB0071FDE0 /* WishingWell.storyboard */,
 				96A80FE2274F481D007779C5 /* WishingWellCell.xib */,
+				96316628275255BE00C01BCE /* DetailWishingWell.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				96A80FEB274F95BA007779C5 /* AnalyticsViewController.swift */,
+				96728213275CA26900B10165 /* AnalyticsTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -328,6 +340,7 @@
 			files = (
 				563439652712DCC50071FDE0 /* LaunchScreen.storyboard in Resources */,
 				563439622712DCC50071FDE0 /* Assets.xcassets in Resources */,
+				96728216275CA26900B10165 /* AnalyticsTableViewCell.xib in Resources */,
 				B8300415274E8B9800B8DD2D /* Add.storyboard in Resources */,
 				563439722712EBEB0071FDE0 /* WishingWell.storyboard in Resources */,
 				563439702712E6B80071FDE0 /* Analytics.storyboard in Resources */,
@@ -337,6 +350,7 @@
 				5634396E2712DE0C0071FDE0 /* Home.storyboard in Resources */,
 				563439752712EC010071FDE0 /* Settings.storyboard in Resources */,
 				96A80FF0274FD11C007779C5 /* SettingsCell.xib in Resources */,
+				96316629275255BE00C01BCE /* DetailWishingWell.storyboard in Resources */,
 				96A80FE7274F6515007779C5 /* HomeCell.xib in Resources */,
 				96A80FE1274F39C3007779C5 /* AddWishingWell.storyboard in Resources */,
 			);
@@ -354,11 +368,13 @@
 				960FE9FB2736D39F00C44A5E /* TabBarViewController.swift in Sources */,
 				960FE9F527367C9F00C44A5E /* AddViewController.swift in Sources */,
 				5634395B2712DCC30071FDE0 /* SceneDelegate.swift in Sources */,
+				9631662B275255D600C01BCE /* DetailWishingWellViewController.swift in Sources */,
 				960FE9F22736566F00C44A5E /* HomeViewController.swift in Sources */,
 				96A80FE9274F656F007779C5 /* HomeTableViewCell.swift in Sources */,
 				969E8B86274CBFED0060A2A0 /* AddWishingWellViewController.swift in Sources */,
 				96672369274D0D5500048AEA /* WishingWellViewController.swift in Sources */,
 				56F21F182721678A00C92300 /* PokPokDataModel.xcdatamodeld in Sources */,
+				96728215275CA26900B10165 /* AnalyticsTableViewCell.swift in Sources */,
 				96A80FE5274F4908007779C5 /* WishingWellTableViewCell.swift in Sources */,
 				96A80FF3274FD13E007779C5 /* SettingsTableViewCell.swift in Sources */,
 				56BA8B2E272015E700942836 /* SettingsViewController.swift in Sources */,

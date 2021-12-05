@@ -24,6 +24,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    getData()
+    datePicker.date = Date()
+    
     createDatePicker()
 
     selectedDate()
@@ -42,6 +46,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
   override func viewWillAppear(_ animated: Bool) {
     getData()
+
+    datePicker.date = Date()
 
     createDatePicker()
 
@@ -74,6 +80,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     } catch {
 
     }
+
+    self.expenseTableView.reloadData()
 
   }
 
@@ -152,18 +160,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     if editingStyle == .delete {
 
       // remove the item from the data model
+      context.delete(expenses[indexPath.row])
       expenses.remove(at: indexPath.row)
 
       // delete the table view row
       tableView.deleteRows(at: [indexPath], with: .fade)
-      expenseTableView.reloadData()
-
-    } else {
+      do {
+        try context.save()
+      } catch {
+        print("Error")
+      }
 
     }
+
+    getData()
+
   }
 
 }

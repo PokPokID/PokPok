@@ -50,7 +50,7 @@ class SettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
 
   @objc func donePressed(){
     self.endEditing(true)
-    saveData()
+//    saveData()
   }
 
   func saveData() {

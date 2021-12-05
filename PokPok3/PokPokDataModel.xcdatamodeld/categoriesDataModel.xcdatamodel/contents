@@ -17,12 +17,13 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="isCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isExpired" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="note" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="Category" positionX="-63" positionY="-18" width="128" height="74"/>
         <element name="Expenses" positionX="-63" positionY="9" width="128" height="104"/>
-        <element name="WishingWell" positionX="-63" positionY="36" width="128" height="119"/>
+        <element name="WishingWell" positionX="-63" positionY="36" width="128" height="134"/>
     </elements>
 </model>
