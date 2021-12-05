@@ -41,9 +41,11 @@
 		96A80FF0274FD11C007779C5 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A80FEF274FD11C007779C5 /* SettingsCell.xib */; };
 		96A80FF3274FD13E007779C5 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A80FF2274FD13E007779C5 /* SettingsTableViewCell.swift */; };
 		B8300415274E8B9800B8DD2D /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8300414274E8B9800B8DD2D /* Add.storyboard */; };
+		FDADA7DD404EECD80A218688 /* Pods_PokPok3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668B555120A5C3ADB0A90F8A /* Pods_PokPok3.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		525522FCF7A0654937B9945A /* Pods-PokPok3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokPok3.debug.xcconfig"; path = "Target Support Files/Pods-PokPok3/Pods-PokPok3.debug.xcconfig"; sourceTree = "<group>"; };
 		563439552712DCC30071FDE0 /* PokPok3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokPok3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		563439582712DCC30071FDE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5634395A2712DCC30071FDE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 		56CDEE952723F1DD0081AE22 /* categoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoryModel.swift; sourceTree = "<group>"; };
 		56CDEE972723F34E0081AE22 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		56F21F172721678A00C92300 /* categoriesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = categoriesDataModel.xcdatamodel; sourceTree = "<group>"; };
+		668B555120A5C3ADB0A90F8A /* Pods_PokPok3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokPok3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		960FE9EB273654CF00C44A5E /* PokPok3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PokPok3.entitlements; sourceTree = "<group>"; };
 		960FE9F12736566F00C44A5E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		960FE9F427367C9F00C44A5E /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 		96A80FEF274FD11C007779C5 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
 		96A80FF2274FD13E007779C5 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		B8300414274E8B9800B8DD2D /* Add.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Add.storyboard; sourceTree = "<group>"; };
+		E820F960170D5706C3CEDB15 /* Pods-PokPok3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokPok3.release.xcconfig"; path = "Target Support Files/Pods-PokPok3/Pods-PokPok3.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,17 +92,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDADA7DD404EECD80A218688 /* Pods_PokPok3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E0A73948957E6E5CE6EB429 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				668B555120A5C3ADB0A90F8A /* Pods_PokPok3.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2CE69DAA9F9C975637F5E493 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				525522FCF7A0654937B9945A /* Pods-PokPok3.debug.xcconfig */,
+				E820F960170D5706C3CEDB15 /* Pods-PokPok3.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5634394C2712DCC30071FDE0 = {
 			isa = PBXGroup;
 			children = (
 				563439572712DCC30071FDE0 /* PokPok3 */,
 				563439562712DCC30071FDE0 /* Products */,
+				2CE69DAA9F9C975637F5E493 /* Pods */,
+				0E0A73948957E6E5CE6EB429 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -288,9 +313,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 563439692712DCC50071FDE0 /* Build configuration list for PBXNativeTarget "PokPok3" */;
 			buildPhases = (
+				8A5EFC1CA69E86002D1E1AE7 /* [CP] Check Pods Manifest.lock */,
 				563439512712DCC30071FDE0 /* Sources */,
 				563439522712DCC30071FDE0 /* Frameworks */,
 				563439532712DCC30071FDE0 /* Resources */,
+				1263737C8B354D2BAB1BC6EA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -357,6 +384,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1263737C8B354D2BAB1BC6EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokPok3/Pods-PokPok3-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokPok3/Pods-PokPok3-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokPok3/Pods-PokPok3-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A5EFC1CA69E86002D1E1AE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokPok3-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		563439512712DCC30071FDE0 /* Sources */ = {
@@ -541,6 +610,7 @@
 		};
 		5634396A2712DCC50071FDE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 525522FCF7A0654937B9945A /* Pods-PokPok3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -562,6 +632,7 @@
 		};
 		5634396B2712DCC50071FDE0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E820F960170D5706C3CEDB15 /* Pods-PokPok3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

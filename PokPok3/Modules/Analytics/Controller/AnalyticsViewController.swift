@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import PieCharts
 
 class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   @IBOutlet weak var leftButton: UIButton!
   @IBOutlet weak var analyticsMonthTextField: UITextField!
   @IBOutlet weak var rightButton: UIButton!
+
+  @IBOutlet weak var analyticsPieChart: PieChart!
 
   @IBOutlet weak var analyticsTableView: UITableView!
 
@@ -38,6 +41,12 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     analyticsTableView.register(nib, forCellReuseIdentifier: "analyticsCell")
 
     analyticsTableView.reloadData()
+
+    analyticsPieChart.models = [
+      PieSliceModel(value: 2.1, color: UIColor.yellow),
+      PieSliceModel(value: 3, color: UIColor.blue),
+      PieSliceModel(value: 1, color: UIColor.green)
+    ]
 
     // Do any additional setup after loading the view.
   }

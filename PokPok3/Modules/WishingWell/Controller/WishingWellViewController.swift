@@ -57,7 +57,11 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
     wishingWellTableView.reloadData()
   }
 
-  @IBAction func unwindToWishingWell(_ sender: UIStoryboardSegue) {}
+
+  @IBAction func unwindToWishingWell(_ sender: UIStoryboardSegue) {
+    getData()
+    isViewEmpty()
+  }
 
   func isViewEmpty() {
     if wishes.count == 0 {
@@ -129,7 +133,7 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-    isViewEmpty()
+//    isViewEmpty()
 
     if editingStyle == .delete {
 
@@ -147,8 +151,6 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
       isViewEmpty()
 
     }
-
-//    isViewEmpty()
 
     getData()
   }
