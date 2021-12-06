@@ -32,12 +32,12 @@ class DetailWishingWellViewController: UIViewController {
     displayTargetDate.text = "\(selectedDate)"
 
     inputSavingTextfield.keyboardType = .decimalPad
+
     displayTotalSaving.text = "\(currentWish.saving)"
     displayTargetSaving.text = "out of \(currentWish.amount)"
-
     displayWishNote.text = currentWish.note
+
     let imageURL = URL(string: currentWish.image!)
-    //print(currentWish.image)
     do{
     let imageData = try Data(contentsOf:imageURL!)
       wishImage.image = UIImage(data: imageData)
@@ -45,18 +45,12 @@ class DetailWishingWellViewController: UIViewController {
 
     }
 
-
     getData()
-
-//    displayTotalSaving.text = detailWishingWell.saving
   }
 
   @IBAction func addSavingButtonPress(_ sender: Any) {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//    let addSavings = WishingWellSavings(context: context)
-//    addSavings.wishName = titleItem.title
-
 
     currentWish.saving = currentWish.saving + Int64(Int(inputSavingTextfield.text!)!)
     if(currentWish.saving >= currentWish.amount){
@@ -74,8 +68,6 @@ class DetailWishingWellViewController: UIViewController {
     displayTotalSaving.text = "\(currentWish.saving)"
 
     getData()
-
-    print(currentWish)
   }
 
 

@@ -135,8 +135,6 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-//    isViewEmpty()
-
     if editingStyle == .delete {
 
       context.delete(wishes[indexPath.row])
