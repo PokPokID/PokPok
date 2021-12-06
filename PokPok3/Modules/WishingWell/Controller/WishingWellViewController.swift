@@ -118,6 +118,8 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
       let vc = storyboard.instantiateViewController(withIdentifier: "detailWishingWell") as! DetailWishingWellViewController
 
       vc.titleItem.title = cell.wishNameLabel.text
+      vc.currentWish = wishes[indexPath.row]
+      
 
       self.navigationController?.pushViewController(vc, animated: true)
     }

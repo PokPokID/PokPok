@@ -51,8 +51,8 @@
                                     <segue destination="aAe-qk-eeM" kind="unwind" unwindAction="unwindToWishingWell:" id="iRS-5O-H1H"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqZ-qC-OFj">
-                                <rect key="frame" x="64" y="158" width="286" height="276"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqZ-qC-OFj">
+                                <rect key="frame" x="64" y="158" width="280" height="280"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YqZ-qC-OFj" secondAttribute="height" multiplier="143:138" id="3Wk-e9-cg2"/>

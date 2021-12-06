@@ -37,6 +37,8 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     analyticsTableView.showsVerticalScrollIndicator = true
     analyticsTableView.separatorStyle = .none
 
+    analyticsTableView.isScrollEnabled = false
+
     let nib = UINib.init(nibName: "AnalyticsTableViewCell", bundle: nil)
     analyticsTableView.register(nib, forCellReuseIdentifier: "analyticsCell")
 

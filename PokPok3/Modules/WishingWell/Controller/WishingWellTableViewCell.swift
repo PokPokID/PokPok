@@ -14,6 +14,7 @@ class WishingWellTableViewCell: UITableViewCell {
   @IBOutlet weak var wishDateLabel: UILabel!
   @IBOutlet weak var wishProgress: UIProgressView!
 
+
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -33,6 +34,7 @@ class WishingWellTableViewCell: UITableViewCell {
 
 
 
+
   }
 
   func commonInit(line: WishingWell) {
@@ -41,7 +43,15 @@ class WishingWellTableViewCell: UITableViewCell {
     dateFormatter.dateFormat = "dd MMMM yyyy"
     let selectedDate = dateFormatter.string(from: line.date!)
     wishDateLabel.text = "\(selectedDate)"
+    wishProgress.progress = Float(line.saving)/Float(line.amount)
+
+    if(line.date!.timeIntervalSinceNow < 0 && !line.isCompleted){
+      wishNameLabel.text = "Expired"
+      self.isUserInteractionEnabled = false
+    }
+
   }
+
 
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
