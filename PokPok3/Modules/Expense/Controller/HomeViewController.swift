@@ -64,36 +64,39 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     expenseTableView.reloadData()
   }
 
-  @IBAction func unwindToHome(_ sender: UIStoryboardSegue) {}
+  @IBAction func unwindToHome(_ sender: UIStoryboardSegue) {
+    getData()
+    expenseTableView.reloadData()
+  }
 
   // MARK: - CORE DATA
 
   func getData() {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let fetchRequest = NSFetchRequest<Expenses>(entityName: "Expenses")
+        let fetchRequest = NSFetchRequest<Expenses>(entityName: "Expenses")
 
-    // Get today's beginning & end
-    let dateFrom = datePicker.date // eg. 2016-10-10 00:00:00
-    let dateTo = datePicker.calendar.date(byAdding: .hour, value: 24, to: dateFrom)
-    // Note: Times are printed in UTC. Depending on where you live it won't print 00:00:00 but it will work with UTC times which can be converted to local time
+        // get the current calendar
+        let calendar = Calendar.current
 
-    // Set predicate as date being today's date
-    let fromPredicate = NSPredicate(format: "%@ >= %K", dateFrom as NSDate, #keyPath(Expenses.dateCreated))
-    let toPredicate = NSPredicate(format: "%K < %@", #keyPath(Expenses.dateCreated), dateTo! as NSDate)
-    let datePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
-//    let datePredicate = NSPredicate(format: "%K == %@", #keyPath(Expenses.dateCreated), datePicker.date)
-    fetchRequest.predicate = datePredicate
+        // get the start of the day of the selected date
+        let startDate = calendar.startOfDay(for: datePicker.date)
 
-    let sort = NSSortDescriptor(key: #keyPath(Expenses.dateCreated), ascending: false)
-    fetchRequest.sortDescriptors = [sort]
+        // get the start of the day after the selected date
+        let endDate = calendar.date(byAdding: .day, value: 1, to: startDate)
 
-    do {
-      try expenses = context.fetch(fetchRequest)
-    } catch {
+        let datePredicate = NSPredicate(format: "dateCreated >= %@ AND dateCreated < %@", startDate as NSDate, endDate! as NSDate)
+        fetchRequest.predicate = datePredicate
 
-    }
+        let sort = NSSortDescriptor(key: #keyPath(Expenses.dateCreated), ascending: false)
+        fetchRequest.sortDescriptors = [sort]
 
-    self.expenseTableView.reloadData()
+        do {
+          try expenses = context.fetch(fetchRequest)
+        } catch {
+
+        }
+
+        self.expenseTableView.reloadData()
 
   }
 
@@ -150,6 +153,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let selectedDate = dateFormatter.string(from: datePicker.date)
     dateTextField.text = "\(selectedDate)"
     view.endEditing(true)
+
+    getData()
+    expenseTableView.reloadData()
   }
 
   // MARK: - TABLE VIEW

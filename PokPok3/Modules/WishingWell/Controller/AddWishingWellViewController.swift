@@ -19,6 +19,7 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
   let datePicker = UIDatePicker()
 
   var wishes = [WishingWell]()
+  var imageURL: String? = ""
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -40,7 +41,7 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
 
 
   @IBAction func addImageButtonPressed(_ sender: Any) {
-    var myPickerController = UIImagePickerController()
+    let myPickerController = UIImagePickerController()
     myPickerController.delegate = self
     myPickerController.sourceType = .photoLibrary
 
@@ -51,6 +52,11 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
 
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     wishImage.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+
+    let url:URL = info[UIImagePickerController.InfoKey.imageURL] as! URL
+    imageURL = url.absoluteString
+    print(imageURL)
+
     self.dismiss(animated: true, completion: nil)
   }
 
@@ -91,7 +97,7 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let newWishes = WishingWell(context: context)
     newWishes.name = wishingWellNameTextField.text
-    newWishes.image = nil
+    newWishes.image = imageURL
     newWishes.date = datePicker.date
     newWishes.note = noteWishingWellTextField.text
     newWishes.amount = Int64(Int(amountWishingWellTextField.text!)!)
