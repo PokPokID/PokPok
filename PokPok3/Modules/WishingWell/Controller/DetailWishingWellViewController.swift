@@ -24,6 +24,8 @@ class DetailWishingWellViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    getData()
     self.hideKeyboardWhenTappedAround()
 
     let dateFormatter = DateFormatter()
@@ -45,7 +47,7 @@ class DetailWishingWellViewController: UIViewController {
 
     }
 
-    getData()
+
   }
 
   @IBAction func addSavingButtonPress(_ sender: Any) {

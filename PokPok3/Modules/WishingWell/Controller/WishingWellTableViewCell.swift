@@ -45,10 +45,11 @@ class WishingWellTableViewCell: UITableViewCell {
     wishDateLabel.text = "\(selectedDate)"
     wishProgress.progress = Float(line.saving)/Float(line.amount)
 
-    if(line.date!.timeIntervalSinceNow < 0 && !line.isCompleted){
+    if(line.date!.timeIntervalSinceNow < -86400 && !line.isCompleted){
       wishNameLabel.text = "Expired"
       self.isUserInteractionEnabled = false
     }
+
 
   }
 

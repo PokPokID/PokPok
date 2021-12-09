@@ -17,11 +17,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
   var budgets = [Category]()
 
-  var categories = ["Bills","Entertainment","Fashion","Food","Groceries"]
+  var categories = ["Bills","Entertainment","Fashion","Food","Groceries","Transportation"]
 
 
   override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
 
     self.hideKeyboardWhenTappedAround()
 
@@ -37,10 +37,12 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     budgetTableView.reloadData()
 
-    }
+  }
 
   override func viewWillAppear(_ animated: Bool) {
-    print(budgets)
+//    print(budgets)
+    getData()
+    budgetTableView.reloadData()
   }
 
   func getData() {
@@ -77,16 +79,34 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
     let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as? SettingsTableViewCell
-//    let line = budgets[indexPath.row]
 
-//    cell?.commonInit(line: line)
     cell?.categoryNameLabel.text = self.categories[indexPath.row]
-
 
     cell?.selectionStyle = .none
 
+//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//    let budget = Category(context: context)
+//    if(cell!.budgetTextField.text!.isEmpty) {
+//      budget.categoryBudget = 0
+//    } else {
+//      budget.categoryBudget = Int64(Int((cell?.budgetTextField.text!)!)!)
+//    }
+//    budget.categoryName = categories[indexPath.row]
+//    budget.categoryMonth = nil
+//
+//    do {
+//      try context.save()
+//    } catch {
+//      print("error")
+//    }
+
+//    cell?.budgetTextField.text = "\(budgets[indexPath.row].categoryBudget)"
+
+//    print(budgets)
+
     return cell!
   }
+
 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 60
