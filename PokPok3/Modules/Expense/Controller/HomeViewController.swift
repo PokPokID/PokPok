@@ -17,7 +17,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
   @IBOutlet weak var selectedDay: UILabel!
 
   var expenses = [Expenses]()
-//  var filteredExpenses: []
 
   let cellReuseIdentifier = "cell"
   let datePicker = UIDatePicker()

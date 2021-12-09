@@ -16,7 +16,7 @@ class AnalyticsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
 
-    analyticsProgressBar.transform = analyticsProgressBar.transform.scaledBy(x: 1, y: 3)
+    analyticsProgressBar.transform = analyticsProgressBar.transform.scaledBy(x: 1, y: 4)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

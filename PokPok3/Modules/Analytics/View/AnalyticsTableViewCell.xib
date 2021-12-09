@@ -20,19 +20,19 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jlp-h6-BWh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xO0-gA-ohG">
-                                <rect key="frame" x="16" y="8" width="136" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xO0-gA-ohG">
+                                <rect key="frame" x="32" y="8" width="41.5" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="epK-n1-hUw">
-                                <rect key="frame" x="16" y="63" width="288" height="4"/>
+                                <rect key="frame" x="32" y="63" width="256" height="4"/>
                                 <color key="progressTintColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="trackTintColor" red="0.88627450980392153" green="0.82745098039215681" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eK6-Z1-vXs">
-                                <rect key="frame" x="160" y="8" width="144" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eK6-Z1-vXs">
+                                <rect key="frame" x="246.5" y="8" width="41.5" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -40,16 +40,15 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eK6-Z1-vXs" firstAttribute="leading" secondItem="xO0-gA-ohG" secondAttribute="trailing" constant="8" id="1CH-jX-E05"/>
                             <constraint firstItem="xO0-gA-ohG" firstAttribute="top" secondItem="Jlp-h6-BWh" secondAttribute="top" constant="8" id="1PO-63-8oI"/>
                             <constraint firstItem="epK-n1-hUw" firstAttribute="leading" secondItem="xO0-gA-ohG" secondAttribute="leading" id="3a4-A9-tLv"/>
                             <constraint firstItem="epK-n1-hUw" firstAttribute="trailing" secondItem="eK6-Z1-vXs" secondAttribute="trailing" id="5xm-gZ-8Hp"/>
                             <constraint firstItem="eK6-Z1-vXs" firstAttribute="bottom" secondItem="xO0-gA-ohG" secondAttribute="bottom" id="9Gv-5O-v3z"/>
                             <constraint firstItem="epK-n1-hUw" firstAttribute="top" secondItem="xO0-gA-ohG" secondAttribute="bottom" constant="8" id="BaC-g1-abO"/>
-                            <constraint firstAttribute="trailing" secondItem="eK6-Z1-vXs" secondAttribute="trailing" constant="16" id="DUj-Qm-4FN"/>
+                            <constraint firstAttribute="trailing" secondItem="eK6-Z1-vXs" secondAttribute="trailing" constant="32" id="DUj-Qm-4FN"/>
                             <constraint firstItem="eK6-Z1-vXs" firstAttribute="top" secondItem="xO0-gA-ohG" secondAttribute="top" id="SA5-vh-enC"/>
                             <constraint firstItem="eK6-Z1-vXs" firstAttribute="centerY" secondItem="xO0-gA-ohG" secondAttribute="centerY" id="j7d-fj-3TS"/>
-                            <constraint firstItem="xO0-gA-ohG" firstAttribute="leading" secondItem="Jlp-h6-BWh" secondAttribute="leading" constant="16" id="yRJ-uJ-jRP"/>
+                            <constraint firstItem="xO0-gA-ohG" firstAttribute="leading" secondItem="Jlp-h6-BWh" secondAttribute="leading" constant="32" id="yRJ-uJ-jRP"/>
                             <constraint firstAttribute="bottom" secondItem="epK-n1-hUw" secondAttribute="bottom" constant="8" id="z0h-oW-waW"/>
                         </constraints>
                     </view>

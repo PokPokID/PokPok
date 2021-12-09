@@ -55,7 +55,7 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
 
     let url:URL = info[UIImagePickerController.InfoKey.imageURL] as! URL
     imageURL = url.absoluteString
-    print(imageURL)
+//    print(imageURL)
 
     self.dismiss(animated: true, completion: nil)
   }
@@ -101,6 +101,7 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
     newWishes.date = datePicker.date
     newWishes.note = noteWishingWellTextField.text
     newWishes.amount = Int64(Int(amountWishingWellTextField.text!)!)
+    newWishes.saving = 0
     newWishes.isCompleted = false
     newWishes.isExpired = false
 

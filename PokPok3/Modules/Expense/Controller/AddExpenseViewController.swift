@@ -18,7 +18,7 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
 
   var expenses = [Expenses]()
-  var categories = ["Bills","Entertainment","Fashion","Food","Groceries"]
+  var categories = ["Bills","Entertainment","Fashion","Food","Groceries","Transportation"]
   let datePicker = UIDatePicker()
 
   let categoryPickerView = UIPickerView()
