@@ -68,6 +68,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="analyticsProgressBar" destination="epK-n1-hUw" id="tOm-HL-d8C"/>
+                <outlet property="categoryBudgetLabel" destination="eK6-Z1-vXs" id="wGp-OT-50m"/>
                 <outlet property="categoryLabel" destination="xO0-gA-ohG" id="vEI-bg-cwO"/>
             </connections>
             <point key="canvasLocation" x="128.98550724637681" y="116.85267857142857"/>

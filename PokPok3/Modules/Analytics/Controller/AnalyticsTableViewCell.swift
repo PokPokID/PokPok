@@ -11,6 +11,7 @@ class AnalyticsTableViewCell: UITableViewCell {
 
   @IBOutlet weak var categoryLabel: UILabel!
   @IBOutlet weak var analyticsProgressBar: UIProgressView!
+  @IBOutlet weak var categoryBudgetLabel: UILabel!
 
   override func awakeFromNib() {
         super.awakeFromNib()

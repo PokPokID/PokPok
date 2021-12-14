@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -40,6 +40,8 @@
 		96A80FEC274F95BA007779C5 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A80FEB274F95BA007779C5 /* AnalyticsViewController.swift */; };
 		96A80FF0274FD11C007779C5 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A80FEF274FD11C007779C5 /* SettingsCell.xib */; };
 		96A80FF3274FD13E007779C5 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A80FF2274FD13E007779C5 /* SettingsTableViewCell.swift */; };
+		96FD1C4E276667C700B0C534 /* AnalyticsDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FD1C4D276667C700B0C534 /* AnalyticsDetail.storyboard */; };
+		96FD1C502766688900B0C534 /* AnalyticsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD1C4F2766688900B0C534 /* AnalyticsDetailViewController.swift */; };
 		B8300415274E8B9800B8DD2D /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8300414274E8B9800B8DD2D /* Add.storyboard */; };
 		FDADA7DD404EECD80A218688 /* Pods_PokPok3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668B555120A5C3ADB0A90F8A /* Pods_PokPok3.framework */; };
 /* End PBXBuildFile section */
@@ -83,6 +85,8 @@
 		96A80FEB274F95BA007779C5 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		96A80FEF274FD11C007779C5 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
 		96A80FF2274FD13E007779C5 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		96FD1C4D276667C700B0C534 /* AnalyticsDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnalyticsDetail.storyboard; sourceTree = "<group>"; };
+		96FD1C4F2766688900B0C534 /* AnalyticsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsDetailViewController.swift; sourceTree = "<group>"; };
 		B8300414274E8B9800B8DD2D /* Add.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Add.storyboard; sourceTree = "<group>"; };
 		E820F960170D5706C3CEDB15 /* Pods-PokPok3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokPok3.release.xcconfig"; path = "Target Support Files/Pods-PokPok3/Pods-PokPok3.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,7 +117,6 @@
 				525522FCF7A0654937B9945A /* Pods-PokPok3.debug.xcconfig */,
 				E820F960170D5706C3CEDB15 /* Pods-PokPok3.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -225,6 +228,7 @@
 			children = (
 				5634396F2712E6B80071FDE0 /* Analytics.storyboard */,
 				96728214275CA26900B10165 /* AnalyticsTableViewCell.xib */,
+				96FD1C4D276667C700B0C534 /* AnalyticsDetail.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,6 +288,7 @@
 			children = (
 				96A80FEB274F95BA007779C5 /* AnalyticsViewController.swift */,
 				96728213275CA26900B10165 /* AnalyticsTableViewCell.swift */,
+				96FD1C4F2766688900B0C534 /* AnalyticsDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				5634396E2712DE0C0071FDE0 /* Home.storyboard in Resources */,
 				563439752712EC010071FDE0 /* Settings.storyboard in Resources */,
 				96A80FF0274FD11C007779C5 /* SettingsCell.xib in Resources */,
+				96FD1C4E276667C700B0C534 /* AnalyticsDetail.storyboard in Resources */,
 				96316629275255BE00C01BCE /* DetailWishingWell.storyboard in Resources */,
 				96A80FE7274F6515007779C5 /* HomeCell.xib in Resources */,
 				96A80FE1274F39C3007779C5 /* AddWishingWell.storyboard in Resources */,
@@ -436,6 +442,7 @@
 				563439592712DCC30071FDE0 /* AppDelegate.swift in Sources */,
 				960FE9FB2736D39F00C44A5E /* TabBarViewController.swift in Sources */,
 				960FE9F527367C9F00C44A5E /* AddViewController.swift in Sources */,
+				96FD1C502766688900B0C534 /* AnalyticsDetailViewController.swift in Sources */,
 				5634395B2712DCC30071FDE0 /* SceneDelegate.swift in Sources */,
 				9631662B275255D600C01BCE /* DetailWishingWellViewController.swift in Sources */,
 				960FE9F22736566F00C44A5E /* HomeViewController.swift in Sources */,

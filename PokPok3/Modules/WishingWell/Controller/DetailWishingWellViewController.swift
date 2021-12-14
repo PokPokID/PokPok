@@ -17,6 +17,7 @@ class DetailWishingWellViewController: UIViewController {
   @IBOutlet weak var displayTargetSaving: UILabel!
   @IBOutlet var displayTargetDate: UILabel!
   @IBOutlet weak var displayWishNote: UILabel!
+  @IBOutlet weak var addSavingButton: UIButton!
 
   var currentWish: WishingWell!
 
@@ -47,6 +48,11 @@ class DetailWishingWellViewController: UIViewController {
 
     }
 
+    if(currentWish.isCompleted) {
+//      addSavingButton.tintColor = .darkGray
+      addSavingButton.isUserInteractionEnabled = false
+    }
+
 
   }
 
@@ -54,7 +60,11 @@ class DetailWishingWellViewController: UIViewController {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-    currentWish.saving = currentWish.saving + Int64(Int(inputSavingTextfield.text!)!)
+    if(inputSavingTextfield.text!.isEmpty) {
+      currentWish.saving = currentWish.saving
+    } else {
+      currentWish.saving = currentWish.saving + Int64(Int(inputSavingTextfield.text!)!)
+    }
     if(currentWish.saving >= currentWish.amount){
       currentWish.isCompleted = true
     }
