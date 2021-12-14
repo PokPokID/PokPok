@@ -20,22 +20,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="111"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7z-pG-DhZ">
-                                <rect key="frame" x="16" y="45" width="44" height="21"/>
+                                <rect key="frame" x="20" y="45" width="44" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" placeholder="Rp0,00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RIE-9S-6g0">
-                                <rect key="frame" x="340" y="44" width="58" height="23"/>
+                                <rect key="frame" x="336" y="44" width="58" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="RIE-9S-6g0" secondAttribute="trailing" constant="16" id="EIO-Zs-1DM"/>
+                            <constraint firstAttribute="trailing" secondItem="RIE-9S-6g0" secondAttribute="trailing" constant="20" id="EIO-Zs-1DM"/>
                             <constraint firstItem="RIE-9S-6g0" firstAttribute="centerY" secondItem="HZF-Gj-11G" secondAttribute="centerY" id="MhJ-eo-241"/>
-                            <constraint firstItem="G7z-pG-DhZ" firstAttribute="leading" secondItem="HZF-Gj-11G" secondAttribute="leading" constant="16" id="p6P-y8-RWR"/>
+                            <constraint firstItem="G7z-pG-DhZ" firstAttribute="leading" secondItem="HZF-Gj-11G" secondAttribute="leading" constant="20" id="p6P-y8-RWR"/>
                             <constraint firstItem="G7z-pG-DhZ" firstAttribute="centerY" secondItem="HZF-Gj-11G" secondAttribute="centerY" id="r18-2M-z4U"/>
                         </constraints>
                     </view>

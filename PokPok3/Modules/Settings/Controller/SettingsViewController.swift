@@ -12,10 +12,13 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
 
   @IBOutlet weak var budgetTableView: UITableView!
+  @IBOutlet weak var timePickerTextfield: UITextField!
 
   var cell = "cell"
 
   var budgets = [Category]()
+
+  let datePicker = UIDatePicker()
 
   var categories = ["Bills","Entertainment","Fashion","Food","Groceries","Transportation"]
 
@@ -27,10 +30,16 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     getData()
 
+    createDatePicker()
+
+    selectedDate()
+
+
     budgetTableView.dataSource = self
     budgetTableView.delegate = self
 
     budgetTableView.showsVerticalScrollIndicator = false
+    budgetTableView.isScrollEnabled = false
 
     let nib = UINib.init(nibName: "SettingsCell", bundle: nil)
     budgetTableView.register(nib, forCellReuseIdentifier: "settingsCell")
@@ -44,6 +53,38 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     getData()
     budgetTableView.reloadData()
   }
+
+  func selectedDate() {
+    let dateFormatterDay = DateFormatter()
+    dateFormatterDay.dateFormat = "hh:mm"
+    let selectedDays = dateFormatterDay.string(from: datePicker.date)
+    timePickerTextfield.text = "\(selectedDays)"
+  }
+
+  func createDatePicker() {
+    createToolbar()
+    timePickerTextfield.inputView = datePicker
+    datePicker.preferredDatePickerStyle = .wheels
+    datePicker.datePickerMode = .time
+  }
+
+  func createToolbar() {
+    let toolbar = UIToolbar()
+    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+    let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+    toolbar.sizeToFit()
+    toolbar.setItems([flexibleSpace, doneButton], animated: false)
+    toolbar.isUserInteractionEnabled = true
+
+    timePickerTextfield.inputAccessoryView = toolbar
+  }
+
+  @objc func donePressed() {
+    view.endEditing(true)
+    selectedDate()
+  }
+
 
   func getData() {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -70,6 +111,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
   }
 
 
+
   // MARK: - TABLE VIEW
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,30 +121,12 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
     let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as? SettingsTableViewCell
-
+    let userDefault = UserDefaults.standard
     cell?.categoryNameLabel.text = self.categories[indexPath.row]
+    cell?.budgetTextField.text = userDefault.string(forKey: self.categories[indexPath.row])
+    cell?.categoryBudget = self.categories[indexPath.row]
 
     cell?.selectionStyle = .none
-
-//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//    let budget = Category(context: context)
-//    if(cell!.budgetTextField.text!.isEmpty) {
-//      budget.categoryBudget = 0
-//    } else {
-//      budget.categoryBudget = Int64(Int((cell?.budgetTextField.text!)!)!)
-//    }
-//    budget.categoryName = categories[indexPath.row]
-//    budget.categoryMonth = nil
-//
-//    do {
-//      try context.save()
-//    } catch {
-//      print("error")
-//    }
-
-//    cell?.budgetTextField.text = "\(budgets[indexPath.row].categoryBudget)"
-
-//    print(budgets)
 
     return cell!
   }

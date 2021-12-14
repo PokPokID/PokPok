@@ -66,6 +66,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="chevronImage" destination="yK4-J3-euG" id="ovL-Ht-I5T"/>
                 <outlet property="wishDateLabel" destination="bXf-eB-avE" id="YOY-SV-4yj"/>
                 <outlet property="wishNameLabel" destination="GQu-YW-BeH" id="RBM-kq-YVT"/>
                 <outlet property="wishProgress" destination="HIb-o5-skC" id="RLY-ol-giR"/>

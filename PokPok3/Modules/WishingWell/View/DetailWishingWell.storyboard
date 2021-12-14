@@ -126,6 +126,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addSavingButton" destination="eer-JQ-Z8z" id="vF7-EH-tE2"/>
                         <outlet property="displayTargetDate" destination="2FG-fc-xyQ" id="Dfa-ln-gdi"/>
                         <outlet property="displayTargetSaving" destination="A6t-Wn-7qM" id="08T-7u-ELI"/>
                         <outlet property="displayTotalSaving" destination="tYy-f9-X6n" id="XYT-W0-Mhp"/>

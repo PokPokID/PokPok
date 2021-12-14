@@ -58,14 +58,14 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
       count = count + 1
     }while(count < 6)
 
-    analyticsPieChart.models = [
-      PieSliceModel(value: arr[0], color: UIColor.yellow),
-      PieSliceModel(value: arr[1], color: UIColor.blue),
-      PieSliceModel(value: arr[2], color: UIColor.green),
-      PieSliceModel(value: arr[3], color: UIColor.red),
-      PieSliceModel(value: arr[4], color: UIColor.orange),
-      PieSliceModel(value: arr[5], color: UIColor.purple)
-    ]
+//    analyticsPieChart.models = [
+//      PieSliceModel(value: arr[0], color: UIColor.yellow),
+//      PieSliceModel(value: arr[1], color: UIColor.blue),
+//      PieSliceModel(value: arr[2], color: UIColor.green),
+//      PieSliceModel(value: arr[3], color: UIColor.red),
+//      PieSliceModel(value: arr[4], color: UIColor.orange),
+//      PieSliceModel(value: arr[5], color: UIColor.purple)
+//    ]
 
 
 //    WHY DOESNT THIS WORK HONESTLY?!?!?! IT'S EXACTLY THE SAME AS THE ONE UNDER IT?!?
@@ -79,14 +79,14 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
 //      ]
 
 
-//    analyticsPieChart.models = [
-//      PieSliceModel(value: 0.15789473684210525, color: UIColor.yellow),
-//      PieSliceModel(value: 0.5263157894736842, color: UIColor.blue),
-//      PieSliceModel(value: 0.15789473684210525, color: UIColor.green),
-//      PieSliceModel(value: 0.07894736842105263, color: UIColor.red),
-//      PieSliceModel(value: 0.05263157894736842, color: UIColor.orange),
-//      PieSliceModel(value: 0.02631578947368421, color: UIColor.purple)
-//    ]
+    analyticsPieChart.models = [
+      PieSliceModel(value: 0.71, color: UIColor.yellow),
+      PieSliceModel(value: 0.26, color: UIColor.blue),
+      PieSliceModel(value: 0.0, color: UIColor.green),
+      PieSliceModel(value: 0.03, color: UIColor.red),
+      PieSliceModel(value: 0.0, color: UIColor.orange),
+      PieSliceModel(value: 0.0, color: UIColor.purple)
+    ]
 
   }
 
@@ -175,8 +175,6 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     // get the current calendar
     let calendar = Calendar.current
 
-    // get the start of the day of the selected date
-//    let startDate = calendar.startOfDay(for: datePicker.date)
     let components = calendar.dateComponents([.year, .month], from: datePicker.date)
     let startOfMonth = calendar.date(from: components)
 
@@ -244,6 +242,7 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
       calculateData()
       calculateCategory()
     }
+    analyticsTableView.reloadData()
   }
 
   @IBAction func goToNext(_ sender: UIButton) {
@@ -256,6 +255,7 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
       calculateData()
       calculateCategory()
     }
+    analyticsTableView.reloadData()
   }
 
 
@@ -269,10 +269,19 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
 
     let cell = tableView.dequeueReusableCell(withIdentifier: "analyticsCell", for: indexPath) as? AnalyticsTableViewCell
 
-    // set the text from the data model
     cell?.categoryLabel.text = self.categories[indexPath.row]
+    cell?.categoryBudgetLabel.text = UserDefaults.standard.string(forKey: self.categories[indexPath.row])
+    cell?.analyticsProgressBar.progress = Float(categoryTotal[indexPath.row])/Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!
+
+    if(Float(categoryTotal[indexPath.row]) >= Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!) {
+      cell?.analyticsProgressBar.progressTintColor = .red
+    }else if(Float(categoryTotal[indexPath.row]) < Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!) {
+      cell?.analyticsProgressBar.progressTintColor = UIColor(red: 107.0/255.0, green: 46.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+    }
 
     cell?.selectionStyle = .none
+
+//    analyticsTableView.reloadData()
 
     return cell!
   }
@@ -280,6 +289,10 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 68
   }
+
+//  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//    <#code#>
+//  }
 
 
 }
