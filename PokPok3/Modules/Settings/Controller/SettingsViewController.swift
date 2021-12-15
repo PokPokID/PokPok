@@ -37,8 +37,13 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     if(timePickerTextfield.text == "") {
       let dateFormatterTime = DateFormatter()
-      dateFormatterTime.dateFormat = "hh:mm"
-      let selectedTime = dateFormatterTime.string(from: Date())
+      dateFormatterTime.dateFormat = "hh:mm a"
+      let selected = dateFormatterTime.string(from: Date())
+      let time = dateFormatterTime.date(from: selected)!
+
+      dateFormatterTime.dateFormat = "HH:mm"
+      let selectedTime = dateFormatterTime.string(from: time)
+
       timePickerTextfield.text? = selectedTime
     }
 
@@ -63,8 +68,15 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
   func selectedDate() {
     let dateFormatterTime = DateFormatter()
-    dateFormatterTime.dateFormat = "hh:mm"
-    let selectedTime = dateFormatterTime.string(from: timePicker.date)
+
+    dateFormatterTime.dateFormat = "hh:mm a"
+    let selected = dateFormatterTime.string(from: timePicker.date)
+    let time = dateFormatterTime.date(from: selected)!
+
+    dateFormatterTime.dateFormat = "HH:mm"
+    let selectedTime = dateFormatterTime.string(from: time)
+
+    timePickerTextfield.text? = selectedTime
 //    UserDefaults.standard.set(selectedTime, forKey: "notificationTime")
     timePickerTextfield.text = UserDefaults.standard.string(forKey: "notificationTime")
   }
@@ -91,8 +103,13 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
   @objc func donePressed() {
     view.endEditing(true)
     let dateFormatterTime = DateFormatter()
-    dateFormatterTime.dateFormat = "hh:mm"
-    let selectedTime = dateFormatterTime.string(from: timePicker.date)
+
+    dateFormatterTime.dateFormat = "hh:mm a"
+    let selected = dateFormatterTime.string(from: timePicker.date)
+    let time = dateFormatterTime.date(from: selected)!
+
+    dateFormatterTime.dateFormat = "HH:mm"
+    let selectedTime = dateFormatterTime.string(from: time)
     UserDefaults.standard.set(selectedTime, forKey: "notificationTime")
     selectedDate()
 

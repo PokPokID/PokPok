@@ -13,7 +13,7 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
   @IBOutlet weak var categoryTextField: UITextField!
   @IBOutlet weak var amountTextField: UITextField!
   @IBOutlet weak var expenseDateTextField: UITextField!
-  @IBOutlet weak var expenseNoteTextField: UITextField!
+//  @IBOutlet weak var expenseNoteTextField: UITextField!
   @IBOutlet weak var saveExpenseButton: UIButton!
 
 
@@ -29,7 +29,7 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
     self.hideKeyboardWhenTappedAround()
     expenseNameTextField.keyboardType = .default
     amountTextField.keyboardType = .decimalPad
-    expenseNoteTextField.keyboardType = .default
+//    expenseNoteTextField.keyboardType = .default
     picker()
     createToolbar()
     checkAmount()
@@ -76,7 +76,7 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
     newExpenses.name = expenseNameTextField.text
     newExpenses.category = categoryTextField.text
     newExpenses.amount = Int64(Int(amountTextField.text!)!)
-    newExpenses.note = expenseNoteTextField.text
+    newExpenses.note = nil
     newExpenses.dateCreated = datePicker.date
 
     do {
@@ -126,7 +126,7 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
     categoryTextField.inputAccessoryView = toolbar
     expenseNameTextField.inputAccessoryView = toolbar
     amountTextField.inputAccessoryView = toolbar
-    expenseNoteTextField.inputAccessoryView = toolbar
+//    expenseNoteTextField.inputAccessoryView = toolbar
     expenseDateTextField.inputAccessoryView = toolbar
   }
 
@@ -180,7 +180,7 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
     bottomBorder(myTextField: categoryTextField)
     bottomBorder(myTextField: amountTextField)
     bottomBorder(myTextField: expenseDateTextField)
-    bottomBorder(myTextField: expenseNoteTextField)
+//    bottomBorder(myTextField: expenseNoteTextField)
   }
 
 

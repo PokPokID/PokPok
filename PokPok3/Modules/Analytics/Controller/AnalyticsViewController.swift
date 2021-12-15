@@ -44,6 +44,12 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
       categoryTotal = [0,0,0,0,0,0]
       calculateData()
       calculateCategory()
+      var count = 0
+      repeat{
+        arr[count] = Double(categoryTotal[count])/Double(total)
+        arr[count] = (arr[count]*100).rounded()/100
+        count = count + 1
+      }while(count < 6)
     }
 
     analyticsTableView.dataSource = self
@@ -59,42 +65,9 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
 
     analyticsTableView.reloadData()
 
-    var count = 0
-    repeat{
-      arr[count] = Double(categoryTotal[count])/Double(total)
-      arr[count] = (arr[count]*100).rounded()/100
-      count = count + 1
-    }while(count < 6)
-
-//    analyticsPieChart.models = [
-//      PieSliceModel(value: arr[0], color: UIColor.yellow),
-//      PieSliceModel(value: arr[1], color: UIColor.blue),
-//      PieSliceModel(value: arr[2], color: UIColor.green),
-//      PieSliceModel(value: arr[3], color: UIColor.red),
-//      PieSliceModel(value: arr[4], color: UIColor.orange),
-//      PieSliceModel(value: arr[5], color: UIColor.purple)
-//    ]
+    pieChartModels()
 
 
-//    WHY DOESNT THIS WORK HONESTLY?!?!?! IT'S EXACTLY THE SAME AS THE ONE UNDER IT?!?
-//      analyticsPieChart.models = [
-//        PieSliceModel(value: Double(categoryTotal[0])/Double(total), color: UIColor.yellow),
-//        PieSliceModel(value: Double(categoryTotal[1])/Double(total), color: UIColor.blue),
-//        PieSliceModel(value: Double(categoryTotal[2])/Double(total), color: UIColor.green),
-//        PieSliceModel(value: Double(categoryTotal[3])/Double(total), color: UIColor.red),
-//        PieSliceModel(value: Double(categoryTotal[4])/Double(total), color: UIColor.orange),
-//        PieSliceModel(value: Double(categoryTotal[5])/Double(total), color: UIColor.purple)
-//      ]
-
-
-    analyticsPieChart.models = [
-      PieSliceModel(value: 0.71, color: UIColor.yellow),
-      PieSliceModel(value: 0.26, color: UIColor.blue),
-      PieSliceModel(value: 0.0, color: UIColor.green),
-      PieSliceModel(value: 0.03, color: UIColor.red),
-      PieSliceModel(value: 0.0, color: UIColor.orange),
-      PieSliceModel(value: 0.0, color: UIColor.purple)
-    ]
 
   }
 
@@ -107,27 +80,24 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     selectedDate()
 
     getData()
+
     if(!expenses.isEmpty){
       total = 0
       categoryTotal = [0,0,0,0,0,0]
       calculateData()
       calculateCategory()
+      var count = 0
+      repeat{
+        arr[count] = Double(categoryTotal[count])/Double(total)
+        arr[count] = (arr[count]*100).rounded()/100
+        count = count + 1
+      }while(count < 6)
     }
+
+    pieChartModels()
+
 
     analyticsTableView.reloadData()
-
-    var count = 0
-    repeat{
-      arr[count] = Double(categoryTotal[count])/Double(total)
-      arr[count] = (arr[count]*100).rounded()/100
-      count = count + 1
-    }while(count < 6)
-
-    for i in 0..<6 {
-//      print(Double(categoryTotal[i])/Double(total))
-      print(arr[i])
-    }
-
     
   }
 
@@ -173,7 +143,18 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
 
     print(categoryTotal)
   }
-  
+
+  func pieChartModels() {
+    analyticsPieChart.clear()
+    analyticsPieChart.models = [
+      PieSliceModel(value: arr[0], color: UIColor.yellow),
+      PieSliceModel(value: arr[1], color: UIColor.blue),
+      PieSliceModel(value: arr[2], color: UIColor.green),
+      PieSliceModel(value: arr[3], color: UIColor.red),
+      PieSliceModel(value: arr[4], color: UIColor.orange),
+      PieSliceModel(value: arr[5], color: UIColor.purple)
+    ]
+  }
 
   // MARK: - CORE DATA
 
@@ -237,6 +218,23 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     dateFormatter.dateFormat = "MMMM yyyy"
     let selectedDate = dateFormatter.string(from: datePicker.date)
     analyticsMonthTextField.text = "\(selectedDate)"
+    getData()
+    if(!expenses.isEmpty){
+      total = 0
+      categoryTotal = [0,0,0,0,0,0]
+      calculateData()
+      calculateCategory()
+      var count = 0
+      repeat{
+        arr[count] = Double(categoryTotal[count])/Double(total)
+        arr[count] = (arr[count]*100).rounded()/100
+        count = count + 1
+      }while(count < 6)
+    }
+
+    pieChartModels()
+
+    analyticsTableView.reloadData()
     view.endEditing(true)
   }
 
@@ -250,7 +248,14 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
       categoryTotal = [0,0,0,0,0,0]
       calculateData()
       calculateCategory()
+      var count = 0
+      repeat{
+        arr[count] = Double(categoryTotal[count])/Double(total)
+        arr[count] = (arr[count]*100).rounded()/100
+        count = count + 1
+      }while(count < 6)
     }
+    pieChartModels()
     analyticsTableView.reloadData()
   }
 
@@ -258,12 +263,20 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     datePicker.date = datePicker.calendar.date(byAdding: .month, value: 1, to: datePicker.date)!
     selectedDate()
     getData()
+
     if(!expenses.isEmpty){
       total = 0
       categoryTotal = [0,0,0,0,0,0]
       calculateData()
       calculateCategory()
+      var count = 0
+      repeat{
+        arr[count] = Double(categoryTotal[count])/Double(total)
+        arr[count] = (arr[count]*100).rounded()/100
+        count = count + 1
+      }while(count < 6)
     }
+    pieChartModels()
     analyticsTableView.reloadData()
   }
 
@@ -281,15 +294,22 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     cell?.categoryLabel.text = self.categories[indexPath.row]
     cell?.categoryBudgetLabel.text = UserDefaults.standard.string(forKey: self.categories[indexPath.row])
     if let budget = UserDefaults.standard.string(forKey: self.categories[indexPath.row]) {
-      if ( !expenses.isEmpty ){
+      if (!expenses.isEmpty && !budget.isEmpty){
         cell?.analyticsProgressBar.progress = Float(categoryTotal[indexPath.row])/Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!
         if(Float(categoryTotal[indexPath.row]) >= Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!) {
           cell?.analyticsProgressBar.progressTintColor = .red
-        }else if(Float(categoryTotal[indexPath.row]) < Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!) {
+        }
+        else if (Float(categoryTotal[indexPath.row])/Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)! >= 0.75) {
+          cell?.analyticsProgressBar.progressTintColor = UIColor(red: 1, green: 0.521, blue: 0.521, alpha: 1)
+        }
+        else if(Float(categoryTotal[indexPath.row]) < Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!) {
           cell?.analyticsProgressBar.progressTintColor = UIColor(red: 107.0/255.0, green: 46.0/255.0, blue: 51.0/255.0, alpha: 1.0)
         }
+      } else {
+        cell?.analyticsProgressBar.progress = 0/1
       }
-    } else {
+    }
+    else {
       cell?.analyticsProgressBar.progress = 0/1
     }
 
