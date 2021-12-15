@@ -65,19 +65,28 @@ class WishingWellTableViewCell: UITableViewCell {
     } else if (line.isCompleted || !line.isCompleted) {
       if(line.isCompleted){
         wishNameLabel.text = line.name! + " (Completed)"
+        wishNameLabel.textColor = .black
+        wishDateLabel.textColor = .black
+        chevronImage.tintColor = UIColor(red: 1, green: 0.984, blue: 0.946, alpha: 1)
+
+        self.wishingWellView.layer.backgroundColor = UIColor(red: 1, green: 0.984, blue: 0.946, alpha: 1).cgColor
+
+        wishProgress.progressTintColor = UIColor(red: 107.0/255.0, green: 46.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+//        wishProgress.trackTintColor = UIColor(red: 1, green: 0.984, blue: 0.946, alpha: 0.5)
+        isUserInteractionEnabled = false
       } else {
         wishNameLabel.text = line.name
+        wishNameLabel.textColor = .white
+        wishDateLabel.textColor = .white
+        chevronImage.tintColor = UIColor(red: 1, green: 0.984, blue: 0.946, alpha: 1)
+
+        self.wishingWellView.layer.backgroundColor = UIColor(red: 107.0/255.0, green: 46.0/255.0, blue: 51.0/255.0, alpha: 1.0).cgColor
+
+        wishProgress.progressTintColor = UIColor(red: 1, green: 0.984, blue: 0.946, alpha: 1)
+        wishProgress.trackTintColor = UIColor(red: 1, green: 0.984, blue: 0.946, alpha: 0.5)
+        isUserInteractionEnabled = true
       }
 
-      wishNameLabel.textColor = .white
-      wishDateLabel.textColor = .white
-      chevronImage.tintColor = UIColor(red: 1, green: 0.984, blue: 0.946, alpha: 1)
-
-      self.wishingWellView.layer.backgroundColor = UIColor(red: 107.0/255.0, green: 46.0/255.0, blue: 51.0/255.0, alpha: 1.0).cgColor
-
-      wishProgress.progressTintColor = UIColor(red: 1, green: 0.984, blue: 0.946, alpha: 1)
-      wishProgress.trackTintColor = UIColor(red: 1, green: 0.984, blue: 0.946, alpha: 0.5)
-      isUserInteractionEnabled = true
     }
 
 
