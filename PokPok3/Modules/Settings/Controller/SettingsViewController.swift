@@ -35,6 +35,12 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     selectedDate()
 
+    if(timePickerTextfield.text == "") {
+      let dateFormatterTime = DateFormatter()
+      dateFormatterTime.dateFormat = "hh:mm"
+      let selectedTime = dateFormatterTime.string(from: Date())
+      timePickerTextfield.text? = selectedTime
+    }
 
     budgetTableView.dataSource = self
     budgetTableView.delegate = self
