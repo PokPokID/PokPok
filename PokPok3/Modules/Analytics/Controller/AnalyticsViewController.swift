@@ -31,12 +31,20 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    getData()
 
     datePicker.date = Date()
 
     createDatePicker()
     selectedDate()
+
+    getData()
+
+    if(!expenses.isEmpty){
+      total = 0
+      categoryTotal = [0,0,0,0,0,0]
+      calculateData()
+      calculateCategory()
+    }
 
     analyticsTableView.dataSource = self
     analyticsTableView.delegate = self
@@ -92,6 +100,12 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
 
   override func viewWillAppear(_ animated: Bool) {
 
+
+    datePicker.date = Date()
+
+    createDatePicker()
+    selectedDate()
+
     getData()
     if(!expenses.isEmpty){
       total = 0
@@ -99,11 +113,6 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
       calculateData()
       calculateCategory()
     }
-
-    datePicker.date = Date()
-
-    createDatePicker()
-    selectedDate()
 
     analyticsTableView.reloadData()
 
@@ -271,12 +280,17 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
 
     cell?.categoryLabel.text = self.categories[indexPath.row]
     cell?.categoryBudgetLabel.text = UserDefaults.standard.string(forKey: self.categories[indexPath.row])
-    cell?.analyticsProgressBar.progress = Float(categoryTotal[indexPath.row])/Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!
-
-    if(Float(categoryTotal[indexPath.row]) >= Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!) {
-      cell?.analyticsProgressBar.progressTintColor = .red
-    }else if(Float(categoryTotal[indexPath.row]) < Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!) {
-      cell?.analyticsProgressBar.progressTintColor = UIColor(red: 107.0/255.0, green: 46.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+    if let budget = UserDefaults.standard.string(forKey: self.categories[indexPath.row]) {
+      if ( !expenses.isEmpty ){
+        cell?.analyticsProgressBar.progress = Float(categoryTotal[indexPath.row])/Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!
+        if(Float(categoryTotal[indexPath.row]) >= Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!) {
+          cell?.analyticsProgressBar.progressTintColor = .red
+        }else if(Float(categoryTotal[indexPath.row]) < Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!) {
+          cell?.analyticsProgressBar.progressTintColor = UIColor(red: 107.0/255.0, green: 46.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+        }
+      }
+    } else {
+      cell?.analyticsProgressBar.progress = 0/1
     }
 
     cell?.selectionStyle = .none
