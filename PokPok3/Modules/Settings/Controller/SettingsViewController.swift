@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import NotificationCenter
 
 class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
@@ -18,7 +19,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
   var budgets = [Category]()
 
-  let datePicker = UIDatePicker()
+  let timePicker = UIDatePicker()
 
   var categories = ["Bills","Entertainment","Fashion","Food","Groceries","Transportation"]
 
@@ -55,17 +56,18 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
   }
 
   func selectedDate() {
-    let dateFormatterDay = DateFormatter()
-    dateFormatterDay.dateFormat = "hh:mm"
-    let selectedDays = dateFormatterDay.string(from: datePicker.date)
-    timePickerTextfield.text = "\(selectedDays)"
+    let dateFormatterTime = DateFormatter()
+    dateFormatterTime.dateFormat = "hh:mm"
+    let selectedTime = dateFormatterTime.string(from: timePicker.date)
+//    UserDefaults.standard.set(selectedTime, forKey: "notificationTime")
+    timePickerTextfield.text = UserDefaults.standard.string(forKey: "notificationTime")
   }
 
   func createDatePicker() {
     createToolbar()
-    timePickerTextfield.inputView = datePicker
-    datePicker.preferredDatePickerStyle = .wheels
-    datePicker.datePickerMode = .time
+    timePickerTextfield.inputView = timePicker
+    timePicker.preferredDatePickerStyle = .wheels
+    timePicker.datePickerMode = .time
   }
 
   func createToolbar() {
@@ -82,8 +84,13 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
   @objc func donePressed() {
     view.endEditing(true)
+    let dateFormatterTime = DateFormatter()
+    dateFormatterTime.dateFormat = "hh:mm"
+    let selectedTime = dateFormatterTime.string(from: timePicker.date)
+    UserDefaults.standard.set(selectedTime, forKey: "notificationTime")
     selectedDate()
-  }
+
+    LocalNotificationManager.setNotification(timePicker.date, title: "PokPok", body: "Hello", userInfo: ["aps" : ["hello" : "world"]])  }
 
 
   func getData() {

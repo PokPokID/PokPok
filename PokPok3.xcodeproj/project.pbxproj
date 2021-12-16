@@ -40,6 +40,7 @@
 		96A80FEC274F95BA007779C5 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A80FEB274F95BA007779C5 /* AnalyticsViewController.swift */; };
 		96A80FF0274FD11C007779C5 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A80FEF274FD11C007779C5 /* SettingsCell.xib */; };
 		96A80FF3274FD13E007779C5 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A80FF2274FD13E007779C5 /* SettingsTableViewCell.swift */; };
+		96E4770F276B89430039918A /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E4770E276B89430039918A /* LocalNotificationManager.swift */; };
 		96FD1C4E276667C700B0C534 /* AnalyticsDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FD1C4D276667C700B0C534 /* AnalyticsDetail.storyboard */; };
 		96FD1C502766688900B0C534 /* AnalyticsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD1C4F2766688900B0C534 /* AnalyticsDetailViewController.swift */; };
 		B8300415274E8B9800B8DD2D /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8300414274E8B9800B8DD2D /* Add.storyboard */; };
@@ -85,6 +86,7 @@
 		96A80FEB274F95BA007779C5 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		96A80FEF274FD11C007779C5 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
 		96A80FF2274FD13E007779C5 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		96E4770E276B89430039918A /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		96FD1C4D276667C700B0C534 /* AnalyticsDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnalyticsDetail.storyboard; sourceTree = "<group>"; };
 		96FD1C4F2766688900B0C534 /* AnalyticsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsDetailViewController.swift; sourceTree = "<group>"; };
 		B8300414274E8B9800B8DD2D /* Add.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Add.storyboard; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				563439612712DCC50071FDE0 /* Assets.xcassets */,
 				563439632712DCC50071FDE0 /* LaunchScreen.storyboard */,
 				563439662712DCC50071FDE0 /* Info.plist */,
+				96E4770E276B89430039918A /* LocalNotificationManager.swift */,
 			);
 			path = PokPok3;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E4770F276B89430039918A /* LocalNotificationManager.swift in Sources */,
 				5634395D2712DCC30071FDE0 /* ViewController.swift in Sources */,
 				563439592712DCC30071FDE0 /* AppDelegate.swift in Sources */,
 				960FE9FB2736D39F00C44A5E /* TabBarViewController.swift in Sources */,
