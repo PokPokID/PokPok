@@ -30,9 +30,18 @@ class HomeTableViewCell: UITableViewCell {
   }
 
   func commonInit(line: Expenses) {
+    
     expenseName.text = line.name
     expenseCategory.text = line.category
-    expenseAmount.text = "\(line.amount)"
+
+    let amount = line.amount
+    let formatter = NumberFormatter()
+    formatter.numberStyle = NumberFormatter.Style.currencyAccounting
+    formatter.locale = Locale(identifier: "IN")
+    formatter.currencyCode = "idr"
+    let string = formatter.string(from: amount as NSNumber)
+
+    expenseAmount.text = string
   }
 
 }

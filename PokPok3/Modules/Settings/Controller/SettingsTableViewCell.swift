@@ -36,9 +36,25 @@ class SettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
     // Configure the view for the selected state
   }
 
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    budgetTextField.text = ""
+  }
+
   func textFieldDidEndEditing(_ textField: UITextField) {
     userDefault.set(textField.text, forKey: categoryBudget)
-    self.budgetTextField.text = userDefault.string(forKey: categoryBudget)
+
+    if(userDefault.string(forKey: categoryBudget) == nil || userDefault.string(forKey: categoryBudget) == "") {
+      budgetTextField.text = ""
+    } else {
+      let budget = Int(userDefault.string(forKey: categoryBudget)!)
+      let formatter = NumberFormatter()
+      formatter.numberStyle = NumberFormatter.Style.currencyAccounting
+      formatter.locale = Locale(identifier: "IN")
+      formatter.currencyCode = "idr"
+      let string = formatter.string(from: budget as! NSNumber)
+
+      budgetTextField.text = string
+    }
   }
 
 

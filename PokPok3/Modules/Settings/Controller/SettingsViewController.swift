@@ -18,6 +18,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
   var cell = "cell"
 
   var budgets = [Category]()
+  var wishes = [WishingWell]()
 
   let timePicker = UIDatePicker()
 
@@ -30,6 +31,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     self.hideKeyboardWhenTappedAround()
 
     getData()
+    getWishData()
 
     createDatePicker()
 
@@ -38,7 +40,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     if(timePickerTextfield.text == "") {
       let dateFormatterTime = DateFormatter()
       dateFormatterTime.dateFormat = "hh:mm a"
-      let selected = dateFormatterTime.string(from: Date())
+      let selected = dateFormatterTime.string(from: timePicker.date)
       let time = dateFormatterTime.date(from: selected)!
 
       dateFormatterTime.dateFormat = "HH:mm"
@@ -113,7 +115,17 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     UserDefaults.standard.set(selectedTime, forKey: "notificationTime")
     selectedDate()
 
-    LocalNotificationManager.setNotification(timePicker.date, title: "PokPok", body: "Hello", userInfo: ["aps" : ["hello" : "world"]])  }
+    let rand = wishes.randomElement()
+//    print(rand)
+
+    if (!rand!.isCompleted && !rand!.isExpired) {
+      LocalNotificationManager.setNotification(timePicker.date, title: "PokPok", body: "Do you still want to buy " + rand!.name! + "? Save your money now!", userInfo: ["aps" : ["hello" : "world"]])
+    } else {
+      let bodies = ["What did you buy today?", "How much did you spend today?", "Don’t forget to write down your transactions!", "Don't forget to save money!"]
+      LocalNotificationManager.setNotification(timePicker.date, title: "PokPok", body: bodies.randomElement()!, userInfo: ["aps" : ["hello" : "world"]])
+    }
+
+  }
 
 
   func getData() {
@@ -123,6 +135,21 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     do {
       try budgets = context.fetch(fetchRequest)
+    } catch {
+
+    }
+
+  }
+
+  func getWishData() {
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+    let fetchRequest = NSFetchRequest<WishingWell>(entityName: "WishingWell")
+    let sort = NSSortDescriptor(key: #keyPath(WishingWell.date), ascending: true)
+    fetchRequest.sortDescriptors = [sort]
+
+    do {
+      try wishes = context.fetch(fetchRequest)
     } catch {
 
     }
@@ -153,7 +180,20 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as? SettingsTableViewCell
     let userDefault = UserDefaults.standard
     cell?.categoryNameLabel.text = self.categories[indexPath.row]
-    cell?.budgetTextField.text = userDefault.string(forKey: self.categories[indexPath.row])
+
+    if(userDefault.string(forKey: self.categories[indexPath.row]) == nil || userDefault.string(forKey: self.categories[indexPath.row]) == ""){
+      cell?.budgetTextField.text = ""
+    } else {
+      let budget = Int(userDefault.string(forKey: self.categories[indexPath.row])!)
+      let formatter = NumberFormatter()
+      formatter.numberStyle = NumberFormatter.Style.currencyAccounting
+      formatter.locale = Locale(identifier: "IN")
+      formatter.currencyCode = "idr"
+      let string = formatter.string(from: budget as! NSNumber)
+
+      cell?.budgetTextField.text = string
+    }
+
     cell?.categoryBudget = self.categories[indexPath.row]
 
     cell?.selectionStyle = .none

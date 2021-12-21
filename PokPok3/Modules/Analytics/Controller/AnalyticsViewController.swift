@@ -15,8 +15,10 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
   @IBOutlet weak var rightButton: UIButton!
 
   @IBOutlet weak var analyticsPieChart: PieChart!
+  @IBOutlet weak var emptyChartLabel: UILabel!
 
   @IBOutlet weak var analyticsTableView: UITableView!
+  @IBOutlet weak var progressButton: UIButton!
 
   let datePicker = UIDatePicker()
 
@@ -32,6 +34,8 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    emptyChartLabel.isHidden = true
+
     datePicker.date = Date()
 
     createDatePicker()
@@ -50,6 +54,9 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
         arr[count] = (arr[count]*100).rounded()/100
         count = count + 1
       }while(count < 6)
+      pieChartModels()
+    } else if (expenses.isEmpty) {
+      pieChartModelsEmpty()
     }
 
     analyticsTableView.dataSource = self
@@ -65,14 +72,13 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
 
     analyticsTableView.reloadData()
 
-    pieChartModels()
-
 
 
   }
 
   override func viewWillAppear(_ animated: Bool) {
 
+    emptyChartLabel.isHidden = true
 
     datePicker.date = Date()
 
@@ -92,9 +98,10 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
         arr[count] = (arr[count]*100).rounded()/100
         count = count + 1
       }while(count < 6)
+      pieChartModels()
+    } else if (expenses.isEmpty) {
+      pieChartModelsEmpty()
     }
-
-    pieChartModels()
 
 
     analyticsTableView.reloadData()
@@ -154,6 +161,27 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
       PieSliceModel(value: arr[4], color: UIColor.orange),
       PieSliceModel(value: arr[5], color: UIColor.purple)
     ]
+    analyticsPieChart.isUserInteractionEnabled = false
+    emptyChartLabel.isHidden = true
+
+    progressButton.layer.cornerRadius = 5
+    progressButton.tintColor = #colorLiteral(red: 0.8988185525, green: 0.8248531818, blue: 0.8305549026, alpha: 1)
+    progressButton.backgroundColor = #colorLiteral(red: 0.4995350242, green: 0.2460623384, blue: 0.2599021196, alpha: 1)
+    progressButton.isEnabled = true
+  }
+
+  func pieChartModelsEmpty() {
+    analyticsPieChart.clear()
+    analyticsPieChart.models = [
+      PieSliceModel(value: 1, color: UIColor.clear)
+    ]
+    analyticsPieChart.isUserInteractionEnabled = false
+    emptyChartLabel.isHidden = false
+
+    progressButton.layer.cornerRadius = 5
+    progressButton.backgroundColor = #colorLiteral(red: 0.8988185525, green: 0.8248531818, blue: 0.8305549026, alpha: 1)
+    progressButton.tintColor = #colorLiteral(red: 0.4995350242, green: 0.2460623384, blue: 0.2599021196, alpha: 1)
+    progressButton.isEnabled = false
   }
 
   // MARK: - CORE DATA
@@ -230,9 +258,10 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
         arr[count] = (arr[count]*100).rounded()/100
         count = count + 1
       }while(count < 6)
+      pieChartModels()
+    } else if (expenses.isEmpty) {
+      pieChartModelsEmpty()
     }
-
-    pieChartModels()
 
     analyticsTableView.reloadData()
     view.endEditing(true)
@@ -254,8 +283,10 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
         arr[count] = (arr[count]*100).rounded()/100
         count = count + 1
       }while(count < 6)
+      pieChartModels()
+    } else if (expenses.isEmpty) {
+      pieChartModelsEmpty()
     }
-    pieChartModels()
     analyticsTableView.reloadData()
   }
 
@@ -275,8 +306,10 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
         arr[count] = (arr[count]*100).rounded()/100
         count = count + 1
       }while(count < 6)
+      pieChartModels()
+    } else if (expenses.isEmpty) {
+      pieChartModelsEmpty()
     }
-    pieChartModels()
     analyticsTableView.reloadData()
   }
 
@@ -292,7 +325,20 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     let cell = tableView.dequeueReusableCell(withIdentifier: "analyticsCell", for: indexPath) as? AnalyticsTableViewCell
 
     cell?.categoryLabel.text = self.categories[indexPath.row]
-    cell?.categoryBudgetLabel.text = UserDefaults.standard.string(forKey: self.categories[indexPath.row])
+
+    if(UserDefaults.standard.string(forKey: self.categories[indexPath.row]) == nil || UserDefaults.standard.string(forKey: self.categories[indexPath.row]) == ""){
+      cell?.categoryBudgetLabel.text = ""
+    } else {
+      let budget = Int(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)
+      let formatter = NumberFormatter()
+      formatter.numberStyle = NumberFormatter.Style.currencyAccounting
+      formatter.locale = Locale(identifier: "IN")
+      formatter.currencyCode = "idr"
+      let string = formatter.string(from: budget! as NSNumber)
+
+      cell?.categoryBudgetLabel.text = string
+    }
+
     if let budget = UserDefaults.standard.string(forKey: self.categories[indexPath.row]) {
       if (!expenses.isEmpty && !budget.isEmpty){
         cell?.analyticsProgressBar.progress = Float(categoryTotal[indexPath.row])/Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!

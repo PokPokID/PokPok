@@ -27,7 +27,7 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
     bottomBorderAll()
     checkAmount()
     createDatePicker()
-    self.hideKeyboardWhenTappedAround()
+//    self.hideKeyboardWhenTappedAround()
 //
 //    navigationController?.title = "Wishing Well"
 //    navigationController?.isNavigationBarHidden = false
@@ -101,6 +101,19 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
     newWishes.date = datePicker.date
     newWishes.note = noteWishingWellTextField.text
     newWishes.amount = Int64(Int(amountWishingWellTextField.text!)!)
+
+
+//    let formatter = NumberFormatter()
+//    formatter.numberStyle = .currency
+//
+//    if let number = formatter.number(from: amountWishingWellTextField.text!) {
+//      let amount = number.int64Value
+//        print(amount)
+//        newWishes.amount = amount
+//    }
+    //STILL EROR
+
+
     newWishes.saving = 0
     newWishes.isCompleted = false
     newWishes.isExpired = false
@@ -139,12 +152,20 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
 
   func createToolbar() {
     let toolbar = UIToolbar()
-    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+    let doneButtonDate = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedDate))
     let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 
     toolbar.sizeToFit()
-    toolbar.setItems([flexibleSpace, doneButton], animated: false)
+    toolbar.setItems([flexibleSpace, doneButtonDate], animated: false)
     toolbar.isUserInteractionEnabled = true
+
+    let toolbarAmount = UIToolbar()
+    let doneButtonAmount = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedAmount))
+    let flexibleSpaceAmount = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+    toolbarAmount.sizeToFit()
+    toolbarAmount.setItems([flexibleSpaceAmount, doneButtonAmount], animated: false)
+    toolbarAmount.isUserInteractionEnabled = true
 
     dateAchieveTextField.inputAccessoryView = toolbar
     wishingWellNameTextField.inputAccessoryView = toolbar
@@ -152,13 +173,33 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
     noteWishingWellTextField.inputAccessoryView = toolbar
   }
 
-  @objc func donePressed() {
+  @objc func donePressedDate() {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "dd MMMM yyyy"
     let selectedDate = dateFormatter.string(from: datePicker.date)
     dateAchieveTextField.text = "\(selectedDate)"
+
     view.endEditing(true)
   }
+
+  @objc func donePressedAmount() {
+    if(amountWishingWellTextField.text == nil || amountWishingWellTextField.text == "") {
+      amountWishingWellTextField.text = ""
+    } else {
+      let budget = Int(amountWishingWellTextField.text!)
+      let formatter = NumberFormatter()
+      formatter.numberStyle = NumberFormatter.Style.currencyAccounting
+      formatter.locale = Locale(identifier: "id")
+      formatter.currencyCode = "idr"
+      let string = formatter.string(from: budget as! NSNumber)
+
+      amountWishingWellTextField.text = string
+    }
+
+    view.endEditing(true)
+  }
+
+
 
   //MARK: - KEYBOARD
   func hideKeyboardWhenTappedAround() {
