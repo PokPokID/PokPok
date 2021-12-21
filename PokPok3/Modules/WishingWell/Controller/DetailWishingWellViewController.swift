@@ -28,6 +28,7 @@ class DetailWishingWellViewController: UIViewController {
 
     getData()
     self.hideKeyboardWhenTappedAround()
+    bottomBorder(myTextField: inputSavingTextfield)
 
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "dd MMMM yyyy"
@@ -36,8 +37,17 @@ class DetailWishingWellViewController: UIViewController {
 
     inputSavingTextfield.keyboardType = .decimalPad
 
-    displayTotalSaving.text = "\(currentWish.saving)"
-    displayTargetSaving.text = "out of \(currentWish.amount)"
+    let amount = currentWish.amount
+    let saving = currentWish.saving
+    let formatter = NumberFormatter()
+    formatter.numberStyle = NumberFormatter.Style.currencyAccounting
+    formatter.locale = Locale(identifier: "id")
+    formatter.currencyCode = "idr"
+    let amountStr = formatter.string(from: amount as! NSNumber)
+    let savingStr = formatter.string(from: saving as! NSNumber)
+
+    displayTotalSaving.text = savingStr
+    displayTargetSaving.text = "out of " + amountStr!
     displayWishNote.text = currentWish.note
 
     let imageURL = URL(string: currentWish.image!)
@@ -77,7 +87,14 @@ class DetailWishingWellViewController: UIViewController {
 
     inputSavingTextfield.text = nil
 
-    displayTotalSaving.text = "\(currentWish.saving)"
+    let saving = currentWish.saving
+    let formatter = NumberFormatter()
+    formatter.numberStyle = NumberFormatter.Style.currencyAccounting
+    formatter.locale = Locale(identifier: "id")
+    formatter.currencyCode = "idr"
+    let savingStr = formatter.string(from: saving as! NSNumber)
+
+    displayTotalSaving.text = savingStr
 
     getData()
   }
@@ -85,6 +102,14 @@ class DetailWishingWellViewController: UIViewController {
 
   @IBAction func backButtonPressed(_ sender: Any) {
     self.navigationController?.popViewController(animated: true)
+  }
+
+  func bottomBorder(myTextField: UITextField) {
+    let bottomLine = CALayer()
+    bottomLine.frame = CGRect(x: 0.0, y: myTextField.frame.height - 3, width: myTextField.frame.width-20, height: 1.0)
+    bottomLine.backgroundColor = UIColor.gray.cgColor
+    myTextField.borderStyle = UITextField.BorderStyle.none
+    myTextField.layer.addSublayer(bottomLine)
   }
 
   // MARK: - CORE DATA

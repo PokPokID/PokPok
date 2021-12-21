@@ -67,10 +67,22 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ny-3B-Pta" customClass="PieChart" customModule="PieCharts">
                                                 <rect key="frame" x="82" y="0.0" width="250" height="250"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There hasn't been any transactions yet!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="154-XS-OJu">
+                                                        <rect key="frame" x="0.0" y="103.5" width="250" height="43"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="0P2-8G-bHL"/>
+                                                    <constraint firstItem="154-XS-OJu" firstAttribute="centerY" secondItem="0Ny-3B-Pta" secondAttribute="centerY" id="BsP-hS-EQi"/>
+                                                    <constraint firstItem="154-XS-OJu" firstAttribute="leading" secondItem="0Ny-3B-Pta" secondAttribute="leading" id="TNo-57-AfI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="154-XS-OJu" secondAttribute="trailing" id="TvA-gW-e6h"/>
                                                     <constraint firstAttribute="height" constant="250" id="kOJ-3t-G7r"/>
+                                                    <constraint firstItem="154-XS-OJu" firstAttribute="centerX" secondItem="0Ny-3B-Pta" secondAttribute="centerX" id="mMx-tK-xmv"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="innerRadius">
@@ -82,12 +94,12 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XFS-z0-OKs">
-                                                <rect key="frame" x="0.0" y="289" width="414" height="484.5"/>
+                                                <rect key="frame" x="0.0" y="297" width="414" height="476.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0x-22-36c">
-                                                <rect key="frame" x="166.5" y="242" width="81.5" height="31"/>
+                                                <rect key="frame" x="166.5" y="250" width="81.5" height="31"/>
                                                 <color key="tintColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Progress">
@@ -101,7 +113,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="XFS-z0-OKs" firstAttribute="leading" secondItem="dbD-2O-y3A" secondAttribute="leading" id="7I3-2m-Scy"/>
-                                            <constraint firstItem="H0x-22-36c" firstAttribute="top" secondItem="0Ny-3B-Pta" secondAttribute="bottom" constant="-8" id="AcV-zS-nGI"/>
+                                            <constraint firstItem="H0x-22-36c" firstAttribute="top" secondItem="0Ny-3B-Pta" secondAttribute="bottom" id="AcV-zS-nGI"/>
                                             <constraint firstAttribute="trailing" secondItem="XFS-z0-OKs" secondAttribute="trailing" id="BLu-nI-9em"/>
                                             <constraint firstItem="XFS-z0-OKs" firstAttribute="width" secondItem="dbD-2O-y3A" secondAttribute="width" id="Bac-tU-CjX"/>
                                             <constraint firstItem="0Ny-3B-Pta" firstAttribute="top" secondItem="dbD-2O-y3A" secondAttribute="top" id="CmR-9o-7bh"/>
@@ -155,7 +167,9 @@
                         <outlet property="analyticsMonthTextField" destination="iKA-5q-ExU" id="zty-KM-c8G"/>
                         <outlet property="analyticsPieChart" destination="0Ny-3B-Pta" id="56M-x6-CCq"/>
                         <outlet property="analyticsTableView" destination="XFS-z0-OKs" id="hEK-jE-f8I"/>
+                        <outlet property="emptyChartLabel" destination="154-XS-OJu" id="Dnu-NH-AsB"/>
                         <outlet property="leftButton" destination="bav-la-ev1" id="HIA-EG-aBJ"/>
+                        <outlet property="progressButton" destination="H0x-22-36c" id="mEY-5n-a7X"/>
                         <outlet property="rightButton" destination="Hcc-rK-8R8" id="y5y-BM-PBJ"/>
                     </connections>
                 </viewController>
