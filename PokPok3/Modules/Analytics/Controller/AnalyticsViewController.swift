@@ -29,6 +29,8 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
 
   var arr = [0.0,0.0,0.0,0.0,0.0,0.0]
 
+  var overBudget = 0
+
   var categories = ["Bills","Entertainment","Fashion","Food","Groceries","Transportation"]
 
   override func viewDidLoad() {
@@ -43,21 +45,7 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
 
     getData()
 
-    if(!expenses.isEmpty){
-      total = 0
-      categoryTotal = [0,0,0,0,0,0]
-      calculateData()
-      calculateCategory()
-      var count = 0
-      repeat{
-        arr[count] = Double(categoryTotal[count])/Double(total)
-        arr[count] = (arr[count]*100).rounded()/100
-        count = count + 1
-      }while(count < 6)
-      pieChartModels()
-    } else if (expenses.isEmpty) {
-      pieChartModelsEmpty()
-    }
+    pieChartCalculateAll()
 
     analyticsTableView.dataSource = self
     analyticsTableView.delegate = self
@@ -87,31 +75,21 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
 
     getData()
 
-    if(!expenses.isEmpty){
-      total = 0
-      categoryTotal = [0,0,0,0,0,0]
-      calculateData()
-      calculateCategory()
-      var count = 0
-      repeat{
-        arr[count] = Double(categoryTotal[count])/Double(total)
-        arr[count] = (arr[count]*100).rounded()/100
-        count = count + 1
-      }while(count < 6)
-      pieChartModels()
-    } else if (expenses.isEmpty) {
-      pieChartModelsEmpty()
-    }
+    pieChartCalculateAll()
 
 
     analyticsTableView.reloadData()
-    
+
+
   }
 
   override func viewWillDisappear(_ animated: Bool) {
     total = 0
     categoryTotal = [0,0,0,0,0,0]
+    overBudget = 0
   }
+
+  //MARK: - CALCULATE
 
   func calculateData() {
     var count = 0
@@ -151,6 +129,8 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     print(categoryTotal)
   }
 
+  //MARK: - PIE CHART
+
   func pieChartModels() {
     analyticsPieChart.clear()
     analyticsPieChart.models = [
@@ -182,6 +162,33 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     progressButton.backgroundColor = #colorLiteral(red: 0.8988185525, green: 0.8248531818, blue: 0.8305549026, alpha: 1)
     progressButton.tintColor = #colorLiteral(red: 0.4995350242, green: 0.2460623384, blue: 0.2599021196, alpha: 1)
     progressButton.isEnabled = false
+  }
+
+  func pieChartCalculateAll() {
+    if(!expenses.isEmpty){
+      total = 0
+      categoryTotal = [0,0,0,0,0,0]
+      overBudget = 0
+      calculateData()
+      calculateCategory()
+      var count = 0
+      repeat{
+        arr[count] = Double(categoryTotal[count])/Double(total)
+        arr[count] = (arr[count]*100).rounded()/100
+        if let budget = UserDefaults.standard.string(forKey: self.categories[count]) {
+          if(!expenses.isEmpty) {
+            if(Float(categoryTotal[count]) >= Float(budget)!) {
+              overBudget = overBudget + 1
+            }
+          }
+        }
+        count = count + 1
+      }while(count < 6)
+      pieChartModels()
+      print(overBudget)
+    } else if (expenses.isEmpty) {
+      pieChartModelsEmpty()
+    }
   }
 
   // MARK: - CORE DATA
@@ -247,21 +254,7 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     let selectedDate = dateFormatter.string(from: datePicker.date)
     analyticsMonthTextField.text = "\(selectedDate)"
     getData()
-    if(!expenses.isEmpty){
-      total = 0
-      categoryTotal = [0,0,0,0,0,0]
-      calculateData()
-      calculateCategory()
-      var count = 0
-      repeat{
-        arr[count] = Double(categoryTotal[count])/Double(total)
-        arr[count] = (arr[count]*100).rounded()/100
-        count = count + 1
-      }while(count < 6)
-      pieChartModels()
-    } else if (expenses.isEmpty) {
-      pieChartModelsEmpty()
-    }
+    pieChartCalculateAll()
 
     analyticsTableView.reloadData()
     view.endEditing(true)
@@ -272,21 +265,7 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     datePicker.date = datePicker.calendar.date(byAdding: .month, value: -1, to: datePicker.date)!
     selectedDate()
     getData()
-    if(!expenses.isEmpty){
-      total = 0
-      categoryTotal = [0,0,0,0,0,0]
-      calculateData()
-      calculateCategory()
-      var count = 0
-      repeat{
-        arr[count] = Double(categoryTotal[count])/Double(total)
-        arr[count] = (arr[count]*100).rounded()/100
-        count = count + 1
-      }while(count < 6)
-      pieChartModels()
-    } else if (expenses.isEmpty) {
-      pieChartModelsEmpty()
-    }
+    pieChartCalculateAll()
     analyticsTableView.reloadData()
   }
 
@@ -295,22 +274,39 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     selectedDate()
     getData()
 
-    if(!expenses.isEmpty){
-      total = 0
-      categoryTotal = [0,0,0,0,0,0]
-      calculateData()
-      calculateCategory()
-      var count = 0
-      repeat{
-        arr[count] = Double(categoryTotal[count])/Double(total)
-        arr[count] = (arr[count]*100).rounded()/100
-        count = count + 1
-      }while(count < 6)
-      pieChartModels()
-    } else if (expenses.isEmpty) {
-      pieChartModelsEmpty()
-    }
+    pieChartCalculateAll()
     analyticsTableView.reloadData()
+  }
+
+
+//  @IBAction func progressButtonPressed(_ sender: Any) {
+//    let storyboard = UIStoryboard(name: "AnalyticsDetail", bundle: nil)
+//    let vc = storyboard.instantiateViewController(withIdentifier: "analyticsDetail") as! AnalyticsDetailViewController
+//
+//    let dateFormatter = DateFormatter()
+//    dateFormatter.dateFormat = "MMMM yyyy"
+//    let selectedDate = dateFormatter.string(from: datePicker.date)
+//
+//    vc.titleItem.title = selectedDate + "'s Progress"
+//    vc.datePicker = datePicker
+//    vc.overBudget = overBudget
+//
+//    self.navigationController?.pushViewController(vc, animated: true)
+//
+//  }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if(segue.identifier == "toDetail") {
+      let vc = segue.destination as? AnalyticsDetailViewController
+
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = "MMMM yyyy"
+      let selectedDate = dateFormatter.string(from: datePicker.date)
+
+      vc?.titleItem.title = selectedDate + "'s Progress"
+      vc?.datePicker = datePicker
+      vc?.overBudget = overBudget
+    }
   }
 
 
@@ -340,15 +336,21 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     if let budget = UserDefaults.standard.string(forKey: self.categories[indexPath.row]) {
+
+      let catTotal = Float(categoryTotal[indexPath.row])
+      let budgetTotal = Float(budget)!
+
       if (!expenses.isEmpty && !budget.isEmpty){
-        cell?.analyticsProgressBar.progress = Float(categoryTotal[indexPath.row])/Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!
-        if(Float(categoryTotal[indexPath.row]) >= Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!) {
+        cell?.analyticsProgressBar.progress = catTotal/budgetTotal
+
+        if(catTotal >= budgetTotal) {
           cell?.analyticsProgressBar.progressTintColor = .red
+          overBudget = overBudget + 1
         }
-        else if (Float(categoryTotal[indexPath.row])/Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)! >= 0.75) {
+        else if (catTotal/budgetTotal >= 0.75) {
           cell?.analyticsProgressBar.progressTintColor = UIColor(red: 1, green: 0.521, blue: 0.521, alpha: 1)
         }
-        else if(Float(categoryTotal[indexPath.row]) < Float(UserDefaults.standard.string(forKey: self.categories[indexPath.row])!)!) {
+        else if(catTotal < budgetTotal) {
           cell?.analyticsProgressBar.progressTintColor = UIColor(red: 107.0/255.0, green: 46.0/255.0, blue: 51.0/255.0, alpha: 1.0)
         }
       } else {
