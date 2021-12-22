@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,15 +14,19 @@
             <objects>
                 <viewController storyboardIdentifier="addView" id="BYZ-38-t0r" customClass="AddViewController" customModule="PokPok3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWd-wX-F6v">
-                                <rect key="frame" x="167.5" y="544" width="79" height="31"/>
+                                <rect key="frame" x="108" y="644" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="Nt5-de-Z2M"/>
+                                    <constraint firstAttribute="height" constant="70" id="srs-sP-CrC"/>
+                                </constraints>
                                 <color key="tintColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Expense" cornerStyle="small">
-                                    <color key="baseBackgroundColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <buttonConfiguration key="configuration" style="filled" image="addExpenseButton" title="" cornerStyle="small">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="goToAddExpense:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dcP-xk-pyo"/>
@@ -30,11 +34,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsC-Fg-3gY">
-                                <rect key="frame" x="155" y="595" width="104" height="31"/>
+                                <rect key="frame" x="236" y="644" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="Rec-CK-APh"/>
+                                    <constraint firstAttribute="height" constant="70" id="iKS-DZ-QKj"/>
+                                </constraints>
                                 <color key="tintColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="WishingWell" cornerStyle="small">
-                                    <color key="baseBackgroundColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <buttonConfiguration key="configuration" style="filled" image="addWishButton" cornerStyle="small">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="CTw-M7-xKx" kind="presentation" id="XMJ-TW-we0"/>
@@ -44,10 +52,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GsC-Fg-3gY" firstAttribute="top" secondItem="TWd-wX-F6v" secondAttribute="bottom" constant="20" id="7Xy-9s-q2W"/>
-                            <constraint firstItem="GsC-Fg-3gY" firstAttribute="centerX" secondItem="TWd-wX-F6v" secondAttribute="centerX" id="LVI-WM-0pC"/>
-                            <constraint firstItem="TWd-wX-F6v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="500" id="Lz3-sx-UFB"/>
-                            <constraint firstItem="TWd-wX-F6v" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xGj-4k-exx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TWd-wX-F6v" secondAttribute="bottom" constant="47" id="Ief-Ok-HS5"/>
+                            <constraint firstItem="TWd-wX-F6v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="108" id="PED-ym-JhC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GsC-Fg-3gY" secondAttribute="bottom" constant="47" id="VGq-W3-Tqr"/>
+                            <constraint firstItem="GsC-Fg-3gY" firstAttribute="leading" secondItem="TWd-wX-F6v" secondAttribute="trailing" constant="58" id="e6H-IS-aCE"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="buttonAdd" selectedImage="buttonAdd" id="g6Y-W7-GPg">
@@ -62,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1729" y="822"/>
+            <point key="canvasLocation" x="1728.985507246377" y="821.65178571428567"/>
         </scene>
         <!--AddExpense-->
         <scene sceneID="r40-TU-R6Z">
@@ -82,6 +90,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addExpenseButton" width="70" height="70"/>
+        <image name="addWishButton" width="78" height="70"/>
         <image name="buttonAdd" width="70" height="70"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

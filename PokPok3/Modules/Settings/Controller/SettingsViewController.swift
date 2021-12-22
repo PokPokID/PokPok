@@ -33,6 +33,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     getData()
     getWishData()
 
+    print(wishes)
+
     createDatePicker()
 
     selectedDate()
@@ -65,6 +67,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
   override func viewWillAppear(_ animated: Bool) {
 //    print(budgets)
     getData()
+    getWishData()
     budgetTableView.reloadData()
   }
 
@@ -115,10 +118,12 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     UserDefaults.standard.set(selectedTime, forKey: "notificationTime")
     selectedDate()
 
-    let rand = wishes.randomElement()
+    print(wishes)
+
 //    print(rand)
 
-    if (!rand!.isCompleted && !rand!.isExpired) {
+    if !wishes.isEmpty {
+      let rand = wishes.randomElement()
       LocalNotificationManager.setNotification(timePicker.date, title: "PokPok", body: "Do you still want to buy " + rand!.name! + "? Save your money now!", userInfo: ["aps" : ["hello" : "world"]])
     } else {
       let bodies = ["What did you buy today?", "How much did you spend today?", "Don’t forget to write down your transactions!", "Don't forget to save money!"]
@@ -145,8 +150,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     let fetchRequest = NSFetchRequest<WishingWell>(entityName: "WishingWell")
-    let sort = NSSortDescriptor(key: #keyPath(WishingWell.date), ascending: true)
-    fetchRequest.sortDescriptors = [sort]
+    let notComplete = NSPredicate(format: "isCompleted == 0")
+    let notExpired = NSPredicate(format: "isExpired == 0")
+    fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [notComplete, notExpired])
 
     do {
       try wishes = context.fetch(fetchRequest)
