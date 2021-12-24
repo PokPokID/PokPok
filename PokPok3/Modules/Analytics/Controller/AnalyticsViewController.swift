@@ -37,11 +37,12 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
   var lastOverBudget = 0
 
   var noTransaction = false
+  var noTransactionThisMonth = false
 
   var categories = ["Bills","Entertainment","Fashion","Food","Groceries","Transportation"]
 
   override func viewDidLoad() {
-    
+
     super.viewDidLoad()
 
     emptyChartLabel.isHidden = true
@@ -80,7 +81,7 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
   override func viewWillDisappear(_ animated: Bool) {
     total = 0
     categoryTotal = [0,0,0,0,0,0]
-    
+
     lastMonthTotal = 0
     lastCategoryTotal = [0,0,0,0,0,0]
   }
@@ -183,6 +184,7 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
       pieChartModels()
     } else if (expenses.isEmpty) {
       pieChartModelsEmpty()
+      noTransactionThisMonth = true
     }
   }
 
@@ -373,6 +375,7 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     vc.overBudget = overBudget
     vc.lastOverBudget = lastOverBudget
     vc.noTransaction = noTransaction
+    vc.noTransactionThisMonth = noTransactionThisMonth
 
     self.navigationController?.pushViewController(vc, animated: true)
 
@@ -427,6 +430,7 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     }
     else {
       cell?.analyticsProgressBar.progress = 0/1
+
     }
 
     cell?.selectionStyle = .none
