@@ -23,27 +23,38 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
   let datePicker = UIDatePicker()
 
   var expenses = [Expenses]()
+  var lastExpenses = [Expenses]()
 
   var total = 0
   var categoryTotal = [0,0,0,0,0,0]
 
+  var lastMonthTotal = 0
+  var lastCategoryTotal = [0,0,0,0,0,0]
+
   var arr = [0.0,0.0,0.0,0.0,0.0,0.0]
 
   var overBudget = 0
+  var lastOverBudget = 0
+
+  var noTransaction = false
 
   var categories = ["Bills","Entertainment","Fashion","Food","Groceries","Transportation"]
 
   override func viewDidLoad() {
+    
     super.viewDidLoad()
 
     emptyChartLabel.isHidden = true
 
     datePicker.date = Date()
 
-    createDatePicker()
+//    createDatePicker()
     selectedDate()
 
     getData()
+    getLastMonthData()
+
+    analyticsMonthTextField.isUserInteractionEnabled = false
 
     pieChartCalculateAll()
 
@@ -64,29 +75,14 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
 
   }
 
-  override func viewWillAppear(_ animated: Bool) {
 
-    emptyChartLabel.isHidden = true
-
-    datePicker.date = Date()
-
-    createDatePicker()
-    selectedDate()
-
-    getData()
-
-    pieChartCalculateAll()
-
-
-    analyticsTableView.reloadData()
-
-
-  }
 
   override func viewWillDisappear(_ animated: Bool) {
     total = 0
     categoryTotal = [0,0,0,0,0,0]
-    overBudget = 0
+    
+    lastMonthTotal = 0
+    lastCategoryTotal = [0,0,0,0,0,0]
   }
 
   //MARK: - CALCULATE
@@ -185,7 +181,6 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
         count = count + 1
       }while(count < 6)
       pieChartModels()
-      print(overBudget)
     } else if (expenses.isEmpty) {
       pieChartModelsEmpty()
     }
@@ -217,6 +212,91 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     } catch {
 
     }
+
+  }
+
+  func getLastMonthData() {
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let fetchRequest = NSFetchRequest<Expenses>(entityName: "Expenses")
+
+    // get the current calendar
+    let calendar = Calendar.current
+
+    let lastMonth = calendar.date(byAdding: .month, value: -1, to: datePicker.date)
+    let components = calendar.dateComponents([.year, .month], from: lastMonth!)
+    let startOfLastMonth = calendar.date(from: components)
+
+    // get the start of the day after the selected date
+    let endDate = calendar.date(byAdding: .month, value: 1, to: startOfLastMonth!)
+
+    let datePredicate = NSPredicate(format: "dateCreated >= %@ AND dateCreated < %@", startOfLastMonth! as NSDate, endDate! as NSDate)
+    fetchRequest.predicate = datePredicate
+
+    let sort = NSSortDescriptor(key: #keyPath(Expenses.dateCreated), ascending: false)
+    fetchRequest.sortDescriptors = [sort]
+
+    do {
+      try lastExpenses = context.fetch(fetchRequest)
+      print(lastExpenses)
+    } catch {
+
+    }
+
+    func calculateLastData() {
+      var count = 0
+      repeat {
+        lastMonthTotal = total + Int(lastExpenses[count].amount)
+        count = count + 1
+      } while(count < lastExpenses.count)
+    }
+
+    func calculateLastCategory() {
+      var count = 0
+
+      repeat {
+        if(lastExpenses[count].category == "Bills") {
+          lastCategoryTotal[0] = lastCategoryTotal[0] + Int(lastExpenses[count].amount)
+          count = count + 1
+        } else if(lastExpenses[count].category == "Entertainment") {
+          lastCategoryTotal[1] = lastCategoryTotal[1] + Int(lastExpenses[count].amount)
+          count = count + 1
+        } else if(lastExpenses[count].category == "Fashion") {
+          lastCategoryTotal[2] = lastCategoryTotal[2] + Int(lastExpenses[count].amount)
+          count = count + 1
+        } else if(lastExpenses[count].category == "Food") {
+          lastCategoryTotal[3] = lastCategoryTotal[3] + Int(lastExpenses[count].amount)
+          count = count + 1
+        } else if(lastExpenses[count].category == "Groceries") {
+          lastCategoryTotal[4] = lastCategoryTotal[4] + Int(lastExpenses[count].amount)
+          count = count + 1
+        } else if(lastExpenses[count].category == "Transportation") {
+          lastCategoryTotal[5] = lastCategoryTotal[5] + Int(lastExpenses[count].amount)
+          count = count + 1
+        }
+      } while(count < lastExpenses.count)
+
+    }
+
+    if(!lastExpenses.isEmpty) {
+      calculateLastData()
+      calculateLastCategory()
+    } else {
+      noTransaction = true
+    }
+
+    var count = 0
+    repeat{
+      if let budget = UserDefaults.standard.string(forKey: self.categories[count]) {
+        if(!lastExpenses.isEmpty) {
+          if(Float(lastCategoryTotal[count]) >= Float(budget)!) {
+            lastOverBudget = lastOverBudget + 1
+          }
+        } else {
+          lastOverBudget = 0
+        }
+      }
+      count = count + 1
+    }while(count < 6)
 
   }
 
@@ -265,6 +345,7 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     datePicker.date = datePicker.calendar.date(byAdding: .month, value: -1, to: datePicker.date)!
     selectedDate()
     getData()
+    getLastMonthData()
     pieChartCalculateAll()
     analyticsTableView.reloadData()
   }
@@ -273,40 +354,28 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     datePicker.date = datePicker.calendar.date(byAdding: .month, value: 1, to: datePicker.date)!
     selectedDate()
     getData()
-
+    getLastMonthData()
     pieChartCalculateAll()
     analyticsTableView.reloadData()
   }
 
 
-//  @IBAction func progressButtonPressed(_ sender: Any) {
-//    let storyboard = UIStoryboard(name: "AnalyticsDetail", bundle: nil)
-//    let vc = storyboard.instantiateViewController(withIdentifier: "analyticsDetail") as! AnalyticsDetailViewController
-//
-//    let dateFormatter = DateFormatter()
-//    dateFormatter.dateFormat = "MMMM yyyy"
-//    let selectedDate = dateFormatter.string(from: datePicker.date)
-//
-//    vc.titleItem.title = selectedDate + "'s Progress"
-//    vc.datePicker = datePicker
-//    vc.overBudget = overBudget
-//
-//    self.navigationController?.pushViewController(vc, animated: true)
-//
-//  }
+  @IBAction func progressButtonPressed(_ sender: Any) {
+    let storyboard = UIStoryboard(name: "AnalyticsDetail", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "analyticsDetail") as! AnalyticsDetailViewController
 
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if(segue.identifier == "toDetail") {
-      let vc = segue.destination as? AnalyticsDetailViewController
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MMMM yyyy"
+    let selectedDate = dateFormatter.string(from: datePicker.date)
 
-      let dateFormatter = DateFormatter()
-      dateFormatter.dateFormat = "MMMM yyyy"
-      let selectedDate = dateFormatter.string(from: datePicker.date)
+    vc.titleItem.title = selectedDate
+    vc.datePicker = datePicker
+    vc.overBudget = overBudget
+    vc.lastOverBudget = lastOverBudget
+    vc.noTransaction = noTransaction
 
-      vc?.titleItem.title = selectedDate + "'s Progress"
-      vc?.datePicker = datePicker
-      vc?.overBudget = overBudget
-    }
+    self.navigationController?.pushViewController(vc, animated: true)
+
   }
 
 
@@ -345,7 +414,6 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
 
         if(catTotal >= budgetTotal) {
           cell?.analyticsProgressBar.progressTintColor = .red
-          overBudget = overBudget + 1
         }
         else if (catTotal/budgetTotal >= 0.75) {
           cell?.analyticsProgressBar.progressTintColor = UIColor(red: 1, green: 0.521, blue: 0.521, alpha: 1)

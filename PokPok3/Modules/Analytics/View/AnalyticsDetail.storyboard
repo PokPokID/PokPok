@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gkj-wa-La1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wyb-pq-ZXb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Analytics Detail View Controller-->
+        <!--Hello-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="analyticsDetail" id="Y6W-OH-hqX" customClass="AnalyticsDetailViewController" customModule="PokPok3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="analyticsDetail" title="Hello" id="Y6W-OH-hqX" customClass="AnalyticsDetailViewController" customModule="PokPok3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,19 +21,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Month's Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLi-QZ-rJe">
-                                <rect key="frame" x="64" y="160" width="189" height="22"/>
+                                <rect key="frame" x="64" y="128" width="189" height="22"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[progress name]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpU-fQ-1y1">
-                                <rect key="frame" x="87" y="189" width="143" height="22"/>
+                                <rect key="frame" x="87" y="157" width="143" height="22"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiley.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8er-1Q-xpo">
-                                <rect key="frame" x="300" y="160.5" width="50" height="49"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="8er-1Q-xpo">
+                                <rect key="frame" x="300" y="128" width="50" height="50"/>
                                 <color key="tintColor" red="0.41960784309999999" green="0.18039215689999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="7Ge-DP-JWf"/>
@@ -41,7 +41,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGt-IN-opv">
-                                <rect key="frame" x="71" y="267" width="272" height="170"/>
+                                <rect key="frame" x="71" y="235" width="272" height="170"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHr-SZ-cfr">
                                         <rect key="frame" x="97" y="20" width="78" height="17"/>
@@ -81,7 +81,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1gM-e8-vf7">
-                                <rect key="frame" x="71" y="471" width="272" height="170"/>
+                                <rect key="frame" x="71" y="439" width="272" height="170"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxT-tK-Fgu">
                                         <rect key="frame" x="97.5" y="20" width="77" height="17"/>
@@ -132,7 +132,7 @@
                             <constraint firstItem="1gM-e8-vf7" firstAttribute="centerX" secondItem="zGt-IN-opv" secondAttribute="centerX" id="G2N-kE-maR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8er-1Q-xpo" secondAttribute="trailing" constant="64" id="HUo-G7-Dp0"/>
                             <constraint firstItem="1gM-e8-vf7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="71" id="NRy-FF-rSD"/>
-                            <constraint firstItem="TLi-QZ-rJe" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="72" id="OwT-rV-m3D"/>
+                            <constraint firstItem="TLi-QZ-rJe" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="40" id="OwT-rV-m3D"/>
                             <constraint firstItem="zGt-IN-opv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="71" id="QdM-pg-iuO"/>
                             <constraint firstItem="1gM-e8-vf7" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="V03-kM-2bh"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zGt-IN-opv" secondAttribute="trailing" constant="71" id="ag0-tk-DU9"/>
@@ -161,7 +161,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="labelLastMonthComparison" destination="zXV-Rq-qba" id="uhv-Ep-i6M"/>
+                        <outlet property="labelLastMonthComparison" destination="hNZ-oC-J44" id="1Xb-bc-58L"/>
                         <outlet property="labelLastMonthKalimatIndah" destination="zXV-Rq-qba" id="VOC-CJ-agz"/>
                         <outlet property="labelProgressStatus" destination="TpU-fQ-1y1" id="q2M-Ql-0ue"/>
                         <outlet property="labelThisMonthComparison" destination="NMw-Qi-LqL" id="4DV-vy-75E"/>
@@ -173,32 +173,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044.9275362318842" y="91.741071428571431"/>
+            <point key="canvasLocation" x="1955.072463768116" y="91.741071428571431"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Q2j-mW-rg6">
+        <scene sceneID="ViL-FM-CAG">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gkj-wa-La1" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wyb-pq-ZXb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XUD-Rc-mRR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fTM-K5-7YV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.88235294119999996" green="0.83921568629999999" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="IMJ-f1-bYv"/>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="PWi-HL-B7U"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CcF-lf-Scs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aym-e6-xF7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134.78260869565219" y="91.741071428571431"/>
+            <point key="canvasLocation" x="1044.9275362318842" y="91.741071428571431"/>
         </scene>
     </scenes>
     <resources>
+        <image name="3" width="126.5" height="133"/>
         <image name="Background" width="375" height="811"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="smiley.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

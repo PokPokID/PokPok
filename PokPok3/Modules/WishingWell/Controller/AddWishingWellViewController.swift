@@ -20,23 +20,38 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
 
   var wishes = [WishingWell]()
   var imageURL: String? = ""
+  var nominal:Int64 = 0
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
     bottomBorderAll()
     checkAmount()
     createDatePicker()
-//    self.hideKeyboardWhenTappedAround()
-//
-//    navigationController?.title = "Wishing Well"
-//    navigationController?.isNavigationBarHidden = false
 
     wishingWellNameTextField.keyboardType = .default
     amountWishingWellTextField.keyboardType = .decimalPad
     noteWishingWellTextField.keyboardType = .default
 
-    // Do any additional setup after loading the view.
+  }
+
+  @objc func keyboardWillShow(notification: NSNotification) {
+
+    if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height-100
+            }
+        }
+
+  }
+
+  @objc func keyboardWillHide(notification: NSNotification) {
+    if self.view.frame.origin.y != 0 {
+      self.view.frame.origin.y = 0
+    }
   }
 
 
@@ -55,7 +70,7 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
 
     let url:URL = info[UIImagePickerController.InfoKey.imageURL] as! URL
     imageURL = url.absoluteString
-//    print(imageURL)
+    //    print(imageURL)
 
     self.dismiss(animated: true, completion: nil)
   }
@@ -100,17 +115,18 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
     newWishes.image = imageURL
     newWishes.date = datePicker.date
     newWishes.note = noteWishingWellTextField.text
-    newWishes.amount = Int64(Int(amountWishingWellTextField.text!)!)
+    newWishes.amount = nominal
+    //    Int64(Int(amountWishingWellTextField.text!)!)
 
 
-//    let formatter = NumberFormatter()
-//    formatter.numberStyle = .currency
-//
-//    if let number = formatter.number(from: amountWishingWellTextField.text!) {
-//      let amount = number.int64Value
-//        print(amount)
-//        newWishes.amount = amount
-//    }
+    //    let formatter = NumberFormatter()
+    //    formatter.numberStyle = .currency
+    //
+    //    if let number = formatter.number(from: amountWishingWellTextField.text!) {
+    //      let amount = number.int64Value
+    //        print(amount)
+    //        newWishes.amount = amount
+    //    }
     //STILL EROR
 
 
@@ -169,7 +185,7 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
 
     dateAchieveTextField.inputAccessoryView = toolbar
     wishingWellNameTextField.inputAccessoryView = toolbar
-    amountWishingWellTextField.inputAccessoryView = toolbar
+    amountWishingWellTextField.inputAccessoryView = toolbarAmount
     noteWishingWellTextField.inputAccessoryView = toolbar
   }
 
@@ -183,10 +199,12 @@ class AddWishingWellViewController: UIViewController, UIImagePickerControllerDel
   }
 
   @objc func donePressedAmount() {
+
     if(amountWishingWellTextField.text == nil || amountWishingWellTextField.text == "") {
       amountWishingWellTextField.text = ""
     } else {
       let budget = Int(amountWishingWellTextField.text!)
+      nominal = Int64(budget!)
       let formatter = NumberFormatter()
       formatter.numberStyle = NumberFormatter.Style.currencyAccounting
       formatter.locale = Locale(identifier: "id")
