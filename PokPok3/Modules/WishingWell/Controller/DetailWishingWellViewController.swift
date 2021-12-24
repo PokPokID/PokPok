@@ -19,12 +19,19 @@ class DetailWishingWellViewController: UIViewController {
   @IBOutlet weak var displayWishNote: UILabel!
   @IBOutlet weak var addSavingButton: UIButton!
 
+  @IBOutlet weak var topBackgroundView: UIView!
+
   var currentWish: WishingWell!
 
   var detailWishingWell = [WishingWellSavings]()
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    self.navigationController?.navigationBar.backgroundColor = .clear
+
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 
     getData()
     self.hideKeyboardWhenTappedAround()
@@ -43,8 +50,8 @@ class DetailWishingWellViewController: UIViewController {
     formatter.numberStyle = NumberFormatter.Style.currencyAccounting
     formatter.locale = Locale(identifier: "id")
     formatter.currencyCode = "idr"
-    let amountStr = formatter.string(from: amount as! NSNumber)
-    let savingStr = formatter.string(from: saving as! NSNumber)
+    let amountStr = formatter.string(from: amount as NSNumber)
+    let savingStr = formatter.string(from: saving as NSNumber)
 
     displayTotalSaving.text = savingStr
     displayTargetSaving.text = "out of " + amountStr!
@@ -58,12 +65,23 @@ class DetailWishingWellViewController: UIViewController {
 
     }
 
-    if(currentWish.isCompleted) {
-//      addSavingButton.tintColor = .darkGray
-      addSavingButton.isUserInteractionEnabled = false
+
+  }
+
+  @objc func keyboardWillShow(notification: NSNotification) {
+
+    if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= 180
+            }
+        }
+
+  }
+
+  @objc func keyboardWillHide(notification: NSNotification) {
+    if self.view.frame.origin.y != 0 {
+      self.view.frame.origin.y = 0
     }
-
-
   }
 
   @IBAction func addSavingButtonPress(_ sender: Any) {
@@ -97,6 +115,12 @@ class DetailWishingWellViewController: UIViewController {
     displayTotalSaving.text = savingStr
 
     getData()
+
+    if(currentWish.isCompleted) {
+      addSavingButton.isUserInteractionEnabled = false
+    }
+
+    
   }
 
 

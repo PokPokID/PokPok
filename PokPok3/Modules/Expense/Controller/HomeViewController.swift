@@ -24,12 +24,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    getData()
     datePicker.date = Date()
     
     createDatePicker()
 
     selectedDate()
+
+    getData()
     
     expenseTableView.dataSource = self
     expenseTableView.delegate = self
@@ -44,13 +45,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
   }
 
   override func viewWillAppear(_ animated: Bool) {
-    getData()
 
     datePicker.date = Date()
 
     createDatePicker()
 
     selectedDate()
+
+    getData()
 
     expenseTableView.dataSource = self
     expenseTableView.delegate = self

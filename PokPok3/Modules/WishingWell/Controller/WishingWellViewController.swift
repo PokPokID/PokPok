@@ -22,6 +22,8 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.882, green: 0.839, blue: 0.733, alpha: 1)
+
     getData()
 
     isViewEmpty()
@@ -39,28 +41,14 @@ class WishingWellViewController: UIViewController, UITableViewDataSource, UITabl
   }
 
   override func viewWillAppear(_ animated: Bool) {
-
-    getData()
-
-    isViewEmpty()
-
-
-    wishingWellTableView.dataSource = self
-    wishingWellTableView.delegate = self
-
-    wishingWellTableView.showsVerticalScrollIndicator = true
-    wishingWellTableView.separatorStyle = .none
-
-    let nib = UINib.init(nibName: "WishingWellCell", bundle: nil)
-    wishingWellTableView.register(nib, forCellReuseIdentifier: "wishingWellCell")
-
-    wishingWellTableView.reloadData()
+    self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.9062393308, green: 0.8680294752, blue: 0.7806628942, alpha: 1)
   }
 
 
   @IBAction func unwindToWishingWell(_ sender: UIStoryboardSegue) {
     getData()
     isViewEmpty()
+    self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.9062393308, green: 0.8680294752, blue: 0.7806628942, alpha: 1)
   }
 
   func isViewEmpty() {
