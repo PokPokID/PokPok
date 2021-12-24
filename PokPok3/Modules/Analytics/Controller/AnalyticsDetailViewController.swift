@@ -20,14 +20,45 @@ class AnalyticsDetailViewController: UIViewController {
   @IBOutlet weak var thisMonthView: UIView!
 
   var datePicker = UIDatePicker()
-  var overBudget = 0
+  var overBudget:Int?
+  var lastOverBudget:Int?
+
+  var noTransaction = false
+  var noTransactionThisMonth = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
       cardView(myView: lastMonthView)
       cardView(myView: thisMonthView)
-      print(overBudget)
+
+      print(lastOverBudget!)
+
+      if(overBudget == 0 || overBudget == 1) {
+        labelProgressStatus.text = "EXCELLENT!"
+      } else if(overBudget == 2 || overBudget == 3){
+        labelProgressStatus.text = "WELL DONE!"
+      } else if(overBudget == 4 || overBudget == 5 || overBudget == 6) {
+        labelProgressStatus.text = "DO BETTER!"
+      }
+
+      if(overBudget! > 0) {
+        labelThisMonthComparison.text = "\(overBudget!) of 6 categories were over your budget!"
+      } else if(overBudget == 0 && noTransactionThisMonth == false) {
+        labelThisMonthComparison.text = "All of your budgets were still within limits!"
+      } else if(overBudget == 0 && noTransactionThisMonth == true) {
+        labelThisMonthComparison.text = "There hasn't been any transactions this month!"
+      }
+
+      if(lastOverBudget! > 0) {
+        labelLastMonthComparison.text = "\(lastOverBudget!) of 6 categories were over your budget!"
+      } else if(lastOverBudget == 0 && noTransaction == false) {
+        labelLastMonthComparison.text = "All of your budgets were still within limits!"
+      } else if(lastOverBudget == 0 && noTransaction == true) {
+        labelLastMonthComparison.text = "There hasn't been any transactions this month!"
+      }
+
+
 
         // Do any additional setup after loading the view.
     }
@@ -39,42 +70,9 @@ class AnalyticsDetailViewController: UIViewController {
   }
 
   @IBAction func backButtonPressed(_ sender: Any) {
-    self.dismiss(animated: true, completion: nil)
-//    self.navigationController?.popViewController(animated: true)
+    self.navigationController?.popToRootViewController(animated: true)
   }
 
 
-
-
-
-
-//  // MARK: - CORE DATA
-//
-//  func getData() {
-//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//    let fetchRequest = NSFetchRequest<Expenses>(entityName: "Expenses")
-//
-//    // get the current calendar
-//    let calendar = Calendar.current
-//
-//    let components = calendar.dateComponents([.year, .month], from: datePicker.date)
-//    let startOfMonth = calendar.date(from: components)
-//
-//    // get the start of the day after the selected date
-//    let endDate = calendar.date(byAdding: .month, value: 1, to: startOfMonth!)
-//
-//    let datePredicate = NSPredicate(format: "dateCreated >= %@ AND dateCreated < %@", startOfMonth! as NSDate, endDate! as NSDate)
-//    fetchRequest.predicate = datePredicate
-//
-//    let sort = NSSortDescriptor(key: #keyPath(Expenses.dateCreated), ascending: false)
-//    fetchRequest.sortDescriptors = [sort]
-//
-//    do {
-//      try expenses = context.fetch(fetchRequest)
-//    } catch {
-//
-//    }
-//
-//  }
 
 }
