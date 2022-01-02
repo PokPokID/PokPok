@@ -26,8 +26,15 @@ class AnalyticsDetailViewController: UIViewController {
   var noTransaction = false
   var noTransactionThisMonth = false
 
+  var quotes = ["“Small amounts saved daily add up to huge investments in the end.” ― Margo Vader", "“Never spend your money before you have it.“ – Thomas Jefferson"]
+
+  var quotes2 = ["“Saving money Today secures, eases, and beautifies Tomorrow.“ ― Ehsan Sehgal", "“A budget is telling your money where to go, instead of wondering where it went.” — John C. Maxwell"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+      labelThisMonthKalimatIndah.text = quotes.randomElement()
+      labelLastMonthKalimatIndah.text = quotes2.randomElement()
 
       cardView(myView: lastMonthView)
       cardView(myView: thisMonthView)
@@ -47,7 +54,7 @@ class AnalyticsDetailViewController: UIViewController {
       } else if(overBudget == 0 && noTransactionThisMonth == false) {
         labelThisMonthComparison.text = "All of your budgets were still within limits!"
       } else if(overBudget == 0 && noTransactionThisMonth == true) {
-        labelThisMonthComparison.text = "There hasn't been any transactions this month!"
+        labelThisMonthComparison.text = "There hasn't been any transactions/budgets this month!"
       }
 
       if(lastOverBudget! > 0) {
@@ -55,7 +62,7 @@ class AnalyticsDetailViewController: UIViewController {
       } else if(lastOverBudget == 0 && noTransaction == false) {
         labelLastMonthComparison.text = "All of your budgets were still within limits!"
       } else if(lastOverBudget == 0 && noTransaction == true) {
-        labelLastMonthComparison.text = "There hasn't been any transactions this month!"
+        labelLastMonthComparison.text = "There hasn't been any transactions/budgets this month!"
       }
 
 

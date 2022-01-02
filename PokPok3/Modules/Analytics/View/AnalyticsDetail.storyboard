@@ -40,46 +40,6 @@
                                     <constraint firstAttribute="width" constant="50" id="9xD-SV-q2S"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGt-IN-opv">
-                                <rect key="frame" x="71" y="235" width="272" height="170"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHr-SZ-cfr">
-                                        <rect key="frame" x="97" y="20" width="78" height="17"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X out of X categories were over your budget!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNZ-oC-J44">
-                                        <rect key="frame" x="46" y="53" width="180" height="33.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="180" id="Khb-U5-Lkd"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[kalimat indah]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXV-Rq-qba">
-                                        <rect key="frame" x="88" y="128.5" width="96" height="17"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.98431372549019602" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.88235294117647056" green="0.83921568627450982" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="zXV-Rq-qba" secondAttribute="bottom" constant="24.5" id="5UC-Hd-2LS"/>
-                                    <constraint firstItem="HHr-SZ-cfr" firstAttribute="top" secondItem="zGt-IN-opv" secondAttribute="top" constant="20" id="EMa-Zd-DZI"/>
-                                    <constraint firstItem="hNZ-oC-J44" firstAttribute="top" secondItem="HHr-SZ-cfr" secondAttribute="bottom" constant="16" id="F4Q-Rn-Ahh"/>
-                                    <constraint firstItem="hNZ-oC-J44" firstAttribute="centerX" secondItem="HHr-SZ-cfr" secondAttribute="centerX" id="QOa-xy-fQx"/>
-                                    <constraint firstAttribute="width" constant="272" id="T81-7T-sVI"/>
-                                    <constraint firstItem="zXV-Rq-qba" firstAttribute="top" secondItem="hNZ-oC-J44" secondAttribute="bottom" constant="42" id="fHl-Jy-NZu"/>
-                                    <constraint firstItem="zXV-Rq-qba" firstAttribute="centerX" secondItem="zGt-IN-opv" secondAttribute="centerX" id="fqB-gh-Vx5"/>
-                                    <constraint firstItem="hNZ-oC-J44" firstAttribute="centerX" secondItem="zGt-IN-opv" secondAttribute="centerX" id="kvp-DS-AGq"/>
-                                    <constraint firstItem="zXV-Rq-qba" firstAttribute="centerX" secondItem="hNZ-oC-J44" secondAttribute="centerX" id="tJI-p2-IGI"/>
-                                    <constraint firstAttribute="height" constant="170" id="vlW-Zk-4ps"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1gM-e8-vf7">
                                 <rect key="frame" x="71" y="439" width="272" height="170"/>
                                 <subviews>
@@ -99,8 +59,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[kalimat indah]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdc-kp-Zov">
-                                        <rect key="frame" x="88" y="128.5" width="96" height="17"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                        <rect key="frame" x="36" y="101.5" width="200" height="13.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="IRq-vk-K4S"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -113,11 +76,52 @@
                                     <constraint firstItem="bdc-kp-Zov" firstAttribute="centerX" secondItem="1gM-e8-vf7" secondAttribute="centerX" id="83Q-Js-6Na"/>
                                     <constraint firstItem="NMw-Qi-LqL" firstAttribute="centerX" secondItem="1gM-e8-vf7" secondAttribute="centerX" id="B50-CH-eFc"/>
                                     <constraint firstItem="bdc-kp-Zov" firstAttribute="centerX" secondItem="NMw-Qi-LqL" secondAttribute="centerX" id="E3i-Qq-Qyf"/>
-                                    <constraint firstAttribute="bottom" secondItem="bdc-kp-Zov" secondAttribute="bottom" constant="24.5" id="EXw-bT-aSa"/>
                                     <constraint firstItem="NMw-Qi-LqL" firstAttribute="top" secondItem="jxT-tK-Fgu" secondAttribute="bottom" constant="16" id="HpB-25-VGj"/>
-                                    <constraint firstItem="bdc-kp-Zov" firstAttribute="top" secondItem="NMw-Qi-LqL" secondAttribute="bottom" constant="42" id="jV9-qD-fNm"/>
+                                    <constraint firstItem="bdc-kp-Zov" firstAttribute="top" secondItem="NMw-Qi-LqL" secondAttribute="bottom" constant="15" id="jV9-qD-fNm"/>
                                     <constraint firstAttribute="height" constant="170" id="lwe-S9-NwM"/>
                                     <constraint firstAttribute="width" constant="272" id="mbX-1k-acd"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGt-IN-opv">
+                                <rect key="frame" x="71" y="235" width="272" height="170"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHr-SZ-cfr">
+                                        <rect key="frame" x="97" y="20" width="78" height="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X out of X categories were over your budget!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNZ-oC-J44">
+                                        <rect key="frame" x="46" y="53" width="180" height="33.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="Khb-U5-Lkd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[kalimat indah]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXV-Rq-qba">
+                                        <rect key="frame" x="36" y="101.5" width="200" height="12"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="tSL-zu-ibH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.98431372549019602" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.88235294117647056" green="0.83921568627450982" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="HHr-SZ-cfr" firstAttribute="top" secondItem="zGt-IN-opv" secondAttribute="top" constant="20" id="EMa-Zd-DZI"/>
+                                    <constraint firstItem="hNZ-oC-J44" firstAttribute="top" secondItem="HHr-SZ-cfr" secondAttribute="bottom" constant="16" id="F4Q-Rn-Ahh"/>
+                                    <constraint firstItem="hNZ-oC-J44" firstAttribute="centerX" secondItem="HHr-SZ-cfr" secondAttribute="centerX" id="QOa-xy-fQx"/>
+                                    <constraint firstAttribute="width" constant="272" id="T81-7T-sVI"/>
+                                    <constraint firstItem="zXV-Rq-qba" firstAttribute="top" secondItem="hNZ-oC-J44" secondAttribute="bottom" constant="15" id="fHl-Jy-NZu"/>
+                                    <constraint firstItem="zXV-Rq-qba" firstAttribute="centerX" secondItem="zGt-IN-opv" secondAttribute="centerX" id="fqB-gh-Vx5"/>
+                                    <constraint firstItem="hNZ-oC-J44" firstAttribute="centerX" secondItem="zGt-IN-opv" secondAttribute="centerX" id="kvp-DS-AGq"/>
+                                    <constraint firstItem="zXV-Rq-qba" firstAttribute="centerX" secondItem="hNZ-oC-J44" secondAttribute="centerX" id="tJI-p2-IGI"/>
+                                    <constraint firstAttribute="height" constant="170" id="vlW-Zk-4ps"/>
                                 </constraints>
                             </view>
                         </subviews>
