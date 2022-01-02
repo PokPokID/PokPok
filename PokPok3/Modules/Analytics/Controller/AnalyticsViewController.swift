@@ -131,12 +131,12 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
   func pieChartModels() {
     analyticsPieChart.clear()
     analyticsPieChart.models = [
-      PieSliceModel(value: arr[0], color: UIColor.yellow),
-      PieSliceModel(value: arr[1], color: UIColor.blue),
-      PieSliceModel(value: arr[2], color: UIColor.green),
-      PieSliceModel(value: arr[3], color: UIColor.red),
-      PieSliceModel(value: arr[4], color: UIColor.orange),
-      PieSliceModel(value: arr[5], color: UIColor.purple)
+      PieSliceModel(value: arr[0], color: UIColor(red: 0.561, green: 0.373, blue: 0.192, alpha: 1)),
+      PieSliceModel(value: arr[1], color: UIColor(red: 0.278, green: 0.192, blue: 0.098, alpha: 1)),
+      PieSliceModel(value: arr[2], color: UIColor(red: 0.671, green: 0.58, blue: 0.459, alpha: 1)),
+      PieSliceModel(value: arr[3], color: UIColor(red: 0.879, green: 0.702, blue: 0.524, alpha: 1)),
+      PieSliceModel(value: arr[4], color: UIColor(red: 0.921, green: 0.759, blue: 0.61, alpha: 1)),
+      PieSliceModel(value: arr[5], color: UIColor(red: 0.792, green: 0.537, blue: 0.287, alpha: 1))
     ]
     analyticsPieChart.isUserInteractionEnabled = false
     emptyChartLabel.isHidden = true
@@ -393,6 +393,21 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource, UITableV
     let cell = tableView.dequeueReusableCell(withIdentifier: "analyticsCell", for: indexPath) as? AnalyticsTableViewCell
 
     cell?.categoryLabel.text = self.categories[indexPath.row]
+
+
+    if (categories[indexPath.row] == "Bills") {
+      cell?.categoryColor.tintColor = UIColor(red: 0.561, green: 0.373, blue: 0.192, alpha: 1)
+    }else if (categories[indexPath.row] == "Entertainment") {
+      cell?.categoryColor.tintColor = UIColor(red: 0.278, green: 0.192, blue: 0.098, alpha: 1)
+    }else if (categories[indexPath.row] == "Food") {
+      cell?.categoryColor.tintColor = UIColor(red: 0.671, green: 0.58, blue: 0.459, alpha: 1)    }
+    else if (categories[indexPath.row] == "Fashion") {
+      cell?.categoryColor.tintColor = UIColor(red: 0.879, green: 0.702, blue: 0.524, alpha: 1)
+    }else if (categories[indexPath.row] == "Groceries") {
+      cell?.categoryColor.tintColor = UIColor(red: 0.921, green: 0.759, blue: 0.61, alpha: 1)
+    }else if (categories[indexPath.row] == "Transportation") {
+      cell?.categoryColor.tintColor = UIColor(red: 0.792, green: 0.537, blue: 0.287, alpha: 1)
+    }
 
     if(UserDefaults.standard.string(forKey: self.categories[indexPath.row]) == nil || UserDefaults.standard.string(forKey: self.categories[indexPath.row]) == ""){
       cell?.categoryBudgetLabel.text = ""

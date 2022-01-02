@@ -12,6 +12,7 @@ class AnalyticsTableViewCell: UITableViewCell {
   @IBOutlet weak var categoryLabel: UILabel!
   @IBOutlet weak var analyticsProgressBar: UIProgressView!
   @IBOutlet weak var categoryBudgetLabel: UILabel!
+  @IBOutlet weak var categoryColor: UIImageView!
 
   override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,5 +26,5 @@ class AnalyticsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }
